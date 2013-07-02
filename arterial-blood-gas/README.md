@@ -5,4 +5,6 @@ Interpets pH, HC03, pCO2 as acidemia, alkalemia, chronic, compensated, etc., bas
 
 For Android 2.2+ platform.
 
+![ABG for Android example](screenshot.png)
+
 
