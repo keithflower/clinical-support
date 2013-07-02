@@ -1,0 +1,512 @@
+290.0 Dementia of the Alzheimer's Type, With Late Onset, Uncomplicated
+290.10 Dementia of the Alzheimer's Type, With Early Onset, Uncomplicated
+290.11 Dementia of the Alzheimer's Type, With Early Onset, With Delirium
+290.12 Dementia of the Alzheimer's Type, With Early Onset, With Delusions
+290.13 Dementia of the Alzheimer's Type, With Early Onset, With Depressed Mood
+290.20 Dementia of the Alzheimer's Type, With Late Onset, With Delusions
+290.21 Dementia of the Alzheimer's Type, With Late Onset, With Depressed Mood
+290.3 Dementia of the Alzheimer's Type, With Late Onset, With Delirium
+290.40 Vascular Dementia, Uncomplicated
+290.41 Vascular Dementia, With Delirium
+290.42 Vascular Dementia, With Delusions
+290.43 Vascular Dementia, With Depressed Mood
+290.8 Other specified senile psychotic conditions
+290.9 Unspecified senile psychotic condition
+291.0 Alcohol Withdrawal Delirium
+291.1 Alcohol-Induced Persisting Amnestic Disorder
+291.2 Alcohol-Induced Persisting Dementia
+291.3 Alcohol-Induced Psychotic Disorder, With Hallucinations
+291.4 Idiosyncratic alcohol intoxication
+291.5 Alcohol-Induced Psychotic Disorder, With Delusions
+291.81 Alcohol Withdrawal
+291.89 Alcohol Induced Mood Disorder
+291.9 Alcohol-Related Disorder NOS
+292.0 Substance Withdrawal
+292.11 Substance-Induced Psychotic Disorder, With Delusions
+292.12 Substance-Induced Psychotic Disorder, With Hallucinations
+292.2 Pathological drug intoxication
+292.81 Substance Intoxication Delirium
+292.82 Substance-Induced Persisting Dementia
+292.83 Substance-Induced Persisting Amnestic Disorder
+292.84 Substance-Induced Mood Disorder
+292.89 Substance Intoxication
+292.9 Substance-Related Disorder NOS
+293.0 Delirium Due to...[Indicate the General Medical Condition]
+293.1 Subacute delirium
+293.81 Psychotic Disorder Due to...[Indicate the General Medical Condition], With Delusions
+293.82 Psychotic Disorder Due to...[Indicate the General Medical Condition], With Hallucinations
+293.83 Mood Disorder Due to...[Indicate the General Medical Condition]
+293.84 Anxiety Disorder Due to A General Medical Condition
+293.89 Anxiety Disorder Due to...[Indicate the General Medical Condition]
+293.9 Mental Disorder NOS Due to...[Indicate the General Medical Condition]
+294.0 Amnestic Disorder Due to...[Indicate the General Medical Condition]
+294.10 Dementia Due to [General Medical Condition] (without behavioral disturbance)
+294.11 Dementia Due to [General Medical Condition] (with behavioral disturbance)
+294.8 Dementia NOS or Amnestic Disorder NOS
+294.9 Cognitive Disorder NOS
+295.10 Schizophrenia, Disorganized Type, Unspecified
+295.11 Schizophrenia, disorganized type, subchronic
+295.12 Schizophrenia, disorganized type, chronic
+295.13 Schizophrenia, disorganized type, subchronic w/acute exacerbation
+295.14 Schizophrenia, disorganized type, chronic w/acute exacerbation
+295.15 Schizophrenia, disorganized type, in remission
+295.20 Schizophrenia, Catatonic Type, Unspecified
+295.21 Schizophrenia, catatonic type, subchronic
+295.22 Schizophrenia, catatonic type, chronic
+295.23 Schizophrenia, catatonic type,subchronic w/acute exacerbation
+295.24 Schizophrenia, catatonic type, chronic w/acute exacerbation
+295.25 Schizophrenia, catatonic type,in remission
+295.30 Schizophrenia, Paranoid Type, Unspecified
+295.31 Schizophrenia, paranoid type, subchronic
+295.32 Schizophrenia, paranoid type, chronic
+295.33 Schizophrenia, paranoid type,subchronic w/acute exacerbation
+295.34 Schizophrenia, paranoid type, chronic w/acute exacerbation
+295.35 Schizophrenia, paranoid type,in remission
+295.40 Schizophreniform Disorder, Unspecified
+295.41 Schizophrenia, acute episode, subchronic
+295.42 Schizophrenia, acute episode, chronic
+295.43 Schizophrenia, acute episode,subchronic w/acute exacerbation
+295.44 Schizophrenia, acute episode, chronic w/acute exacerbation
+295.45 Schizophrenia, acute episode,in remission
+295.50 Latent schizophrenia, unspecified
+295.51 Latent schizophrenia, subchronic
+295.52 Latent schizophrenia, chronic
+295.53 Latent schizophrenia,subchronic w/acute exacerbation
+295.54 Latent schizophrenia, chronic w/acute exacerbation
+295.55 Latent schizophrenia,in remission
+295.60 Schizophrenia, Residual Type, Unspecified
+295.61 Schizophrenia, residual type, subchronic
+295.62 Schizophrenia, residual type, chronic
+295.63 Schizophrenia, residual type,subchronic w/acute exacerbation
+295.64 Schizophrenia, residual type, chronic w/acute exacerbation
+295.65 Schizophrenia, residual type,in remission
+295.70 Schizoaffective Disorder, Unspecified
+295.71 Schizo-affective type, subchronic
+295.72 Schizo-affective type, chronic
+295.73 Schizo-affective type,subchronic w/acute exacerbation
+295.74 Schizo-affective type, chronic w/acute exacerbation
+295.75 Schizo-affective type,in remission
+295.80 Other specified types of schizophrenia, unspecified
+295.81 Other specified types of schizophrenia, subchronic
+295.82 Other specified types of schizophrenia, chronic
+295.83 Other specified types of schizophrenia,subchronic w/acute exacerbation
+295.84 Other specified types of schizophrenia, chronic w/acute exacerbation
+295.85 Other specified types of schizophrenia,in remission
+295.90 Schizophrenia, Undifferentiated Type, Unspecified
+295.91 Schizophrenia, unspecified, subchronic
+295.92 Schizophrenia, unspecified, chronic
+295.93 Schizophrenia, unspecified,subchronic w/acute exacerbation
+295.94 Schizophrenia, unspecified, chronic w/acute exacerbation
+295.95 Schizophrenia, unspecified,in remission
+296.00 Bipolar I Disorder, Single Manic Episode, Unspecified
+296.01 Bipolar I Disorder, Single Manic Episode, Mild
+296.02 Bipolar I Disorder, Single Manic Episode, Moderate
+296.03 Bipolar I Disorder, Single Manic Episode, Severe Without Psychotic Features
+296.04 Bipolar I Disorder, Single Manic Episode, Severe With Psychotic Features
+296.05 Bipolar I Disorder, Single Manic Episode, In Partial Remission
+296.06 Bipolar I Disorder, Single Manic Episode, In Full Remission
+296.10 Manic disorder, recurrent episode, unspecified
+296.11 Manic disorder, recurrent episode, mild
+296.12 Manic disorder, recurrent episode, moderate
+296.13 Manic disorder, recurrent episode, severe without mention of psychotic behavior
+296.14 Manic disorder, recurrent episode, specified as with psychotic behavior
+296.15 Manic disorder, recurrent episode, in partial or unspecified remission
+296.16 Manic disorder, recurrent episode, in remission
+296.20 Major Depressive Disorder, Single Episode, Unspecified
+296.21 Major Depressive Disorder, Single Episode, Mild
+296.22 Major Depressive Disorder, Single Episode, Moderate
+296.23 Major Depressive Disorder, Single Episode, Severe Without Psychotic Features
+296.24 Major Depressive Disorder, Single Episode, Severe With Psychotic Features
+296.25 Major Depressive Disorder, Single Episode, In Partial Remission
+296.26 Major Depressive Disorder, Single Episode, In Full Remission
+296.30 Major Depressive Disorder, Recurrent, Unspecified
+296.31 Major Depressive Disorder, Recurrent, Mild
+296.32 Major Depressive Disorder, Recurrent, Moderate
+296.33 Major Depressive Disorder, Recurrent, Severe Without Psychotic Features
+296.34 Major Depressive Disorder, Recurrent, Severe With Psychotic Features
+296.35 Major Depressive Disorder, Recurrent, In Partial Remission
+296.36 Major Depressive Disorder, Recurrent, In Full Remission
+296.40 Bipolar I Disorder, Most Recent Episode Manic, Unspecified
+296.41 Bipolar I Disorder, Most Recent Episode Manic, Mild
+296.42 Bipolar I Disorder, Most Recent Episode Manic, Moderate
+296.43 Bipolar I Disorder, Most Recent Episode Manic, Severe Without Psychotic Features
+296.44 Bipolar I Disorder, Most Recent Episode Manic, Severe With Psychotic Features
+296.45 Bipolar I Disorder, Most Recent Episode Manic, In Partial Remission
+296.46 Bipolar I Disorder, Most Recent Episode Manic, In Full Remission
+296.50 Bipolar I Disorder, Most Recent Episode Depressed, Unspecified
+296.51 Bipolar I Disorder, Most Recent Episode Depressed, Mild
+296.52 Bipolar I Disorder, Most Recent Episode Depressed, Moderate
+296.53 Bipolar I Disorder, Most Recent Episode Depressed, Severe Without Psychotic Features
+296.54 Bipolar I Disorder, Most Recent Episode Depressed, Severe With Psychotic Features
+296.55 Bipolar I Disorder, Most Recent Episode Depressed, In Partial Remission
+296.56 Bipolar I Disorder, Most Recent Episode Depressed, In Full Remission
+296.60 Bipolar I Disorder, Most Recent Episode Mixed, Unspecified
+296.61 Bipolar I Disorder, Most Recent Episode Mixed, Mild
+296.62 Bipolar I Disorder, Most Recent Episode Mixed, Moderate
+296.63 Bipolar I Disorder, Most Recent Episode Mixed, Severe Without Psychotic Features
+296.64 Bipolar I Disorder, Most Recent Episode Mixed, Severe With Psychotic Features
+296.65 Bipolar I Disorder, Most Recent Episode Mixed, In Partial Remission
+296.66 Bipolar I Disorder, Most Recent Episode Mixed, In Full Remission
+296.7 Bipolar I Disorder, Most Recent Episode Unspecified
+296.80 Bipolar Disorder NOS
+296.81 Atypical manic disorder
+296.82 Atypical depressive disorder
+296.89 Bipolar II Disorder
+296.90 Mood Disorder NOS
+296.99 Other specified affective psychoses
+297.0 Paranoid state, simple
+297.1 Delusional Disorder
+297.2 Paraphrenia
+297.3 Shared Psychotic Disorder
+297.8 Other specified paranoid states
+297.9 Unspecified paranoid states
+298.0 Depressive type psychosis
+298.1 Excitative type psychosis
+298.2 Reactive confusion
+298.3 Acute paranoid reaction
+298.4 Psychogenic paranoid psychosis
+298.8 Brief Psychotic Disorder
+298.9 Psychotic Disorder NOS
+299.00 Autistic Disorder
+299.01 Infantile autism, residual state
+299.10 Childhood Disintegrative Disorder
+299.11 Disintegrative psychosis, residual state
+299.80 Pervasive Developmental Disorder NOS
+299.81 Other specified early childhood psychoses, residual state
+299.90 Unspecified psychoses, current or active state
+299.91 Unspecified psychoses, residual state
+300.00 Anxiety Disorder NOS
+300.01 Panic Disorder Without Agoraphobia
+300.02 Generalized Anxiety Disorder
+300.09 Other Anxiety Disorder/State
+300.10 Hysteria, unspecified
+300.11 Conversion Disorder
+300.12 Dissociative Amnesia
+300.13 Dissociative Fugue
+300.14 Dissociative Identity Disorder
+300.15 Dissociative Disorder NOS
+300.16 Factitious Disorder With Predominantly Psychological Signs and Symptoms
+300.19 Factitious Disorder NOS
+300.20 Phobia, unspecified
+300.21 Panic Disorder With Agoraphobia
+300.22 Agoraphobia Without History of Panic Disorder
+300.23 Social Phobia
+300.29 Specific Phobia
+300.3 Obsessive-Compulsive Disorder
+300.4 Dysthymic Disorder
+300.5 Neurasthenia
+300.6 Depersonalization Disorder
+300.7 Dysmorphic Disorder
+300.81 Somatization Disorder
+300.82 Undifferentiated Somatoform Disorder
+300.89 Other Neurotic Disorder
+300.9 Unspecified Mental Disorder (nonpsychotic)
+301.0 Paranoid Personality Disorder
+301.10 Affective personality disorder, unspecified
+301.11 Chronic hypomanic personality disorder
+301.12 Chronic depressive personality disorder
+301.13 Cyclothymic Disorder
+301.20 Schizoid Personality Disorder
+301.21 Introverted personality
+301.22 Schizotypal Personality Disorder
+301.3 Explosive personality disorder
+301.4 Obsessive-Compulsive Personality Disorder
+301.50 Histrionic Personality Disorder
+301.51 Chronic factitious illness with physical symptoms
+301.59 Other histrionic personality disorder
+301.6 Dependent Personality Disorder
+301.7 Antisocial Personality Disorder
+301.81 Narcissistic Personality Disorder
+301.82 Avoidant Personality Disorder
+301.83 Borderline Personality Disorder
+301.84 Passive-aggressive personality
+301.89 Other personality
+301.9 Personality Disorder NOS
+302.0 Ego-dystonic homosexuality
+302.1 Zoophilia
+302.2 Pedophilia
+302.3 Transvestic Fetishism
+302.4 Exhibitionism
+302.50 Trans-sexualism with unspecified sexual history
+302.51 Trans-sexualism with sexual history
+302.52 Trans-sexualism with homosexual history
+302.53 Trans-sexualism with psychosexual history
+302.6 Gender Identity Disorder in Children or NOS
+302.70 Sexual Dysfunction NOS
+302.71 Hypoactive Sexual Desire Disorder
+302.72 Arousal/Erectile Disorder
+302.73 Female Orgasmic Disorder
+302.74 Male Orgasmic Disorder
+302.75 Premature Ejaculation
+302.76 Dyspareunia (Not Due to a General Medical Condition)
+302.79 Sexual Aversion Disorder
+302.81 Fetishism
+302.82 Voyeurism
+302.83 Sexual Masochism
+302.84 Sexual Sadism
+302.85 Gender Identity Disorder in Adolescents or Adults
+302.89 Frotteurism
+302.9 Sexual Disorder NOS
+303.00 Alcohol Intoxication
+303.01 Acute alcohol intoxication, continuous
+303.02 Acute alcohol intoxication, episodic
+303.03 Acute alcohol intoxication, in remission
+303.90 Alcohol Dependence
+303.91 Other and unspecified alcohol dependence, continuous
+303.92 Other and unspecified alcohol dependence, episodic
+303.93 Other and unspecified alcohol dependence, in remission
+304.00 Opioid Dependence, Unspecified
+304.01 Opioid type dependence, continuous
+304.02 Opioid type dependence, episodic
+304.03 Opioid type dependence, in remission
+304.10 Sedative, Hypnotic, or Anxiolytic Dependence, Unspecified
+304.11 Sedative, Hypnotic, or Anxiolytic Dependence, continuous
+304.12 Sedative, Hypnotic, or Anxiolytic Dependence, episodic
+304.13 Sedative, Hypnotic, or Anxiolytic Dependence, in remission
+304.20 Cocaine Dependence, Unspecified
+304.21 Cocaine Dependence, continuous
+304.22 Cocaine Dependence, episodic
+304.23 Cocaine Dependence, in remission
+304.30 Cannabis Dependence, Unspecified
+304.31 Cannabis Dependence, continuous
+304.32 Cannabis Dependence, episodic
+304.33 Cannabis Dependence, in remission
+304.40 Amphetamine Dependence, Unspecified
+304.41 Amphetamine Dependence, continuous
+304.42 Amphetamine Dependence, episodic
+304.43 Amphetamine Dependence, in remission
+304.50 Hallucinogen Dependence, Unspecified
+304.51 Hallucinogen Dependence, continuous
+304.52 Hallucinogen Dependence, episodic
+304.53 Hallucinogen Dependence, in remission
+304.60 Phencyclidine Dependence, Unspecified
+304.61 Phencyclidine Dependence, continuous
+304.62 Phencyclidine Dependence, episodic
+304.63 Phencyclidine Dependence, in remission
+304.70 Combinations of Opioid type drug with any other, unspecified
+304.71 Combinations of Opioid type drug with any other, continuous
+304.72 Combinations of Opioid type drug with any other, episodic
+304.73 Combinations of Opioid type drug with any other, in remission
+304.80 Polysubstance Dependence, Unspecified
+304.81 Polysubstance Dependence, continuous
+304.82 Polysubstance Dependence, episodic
+304.83 Polysubstance Dependence, in remission
+304.90 Other (or Unknown) Substance Dependence, Unspecified
+304.91 Other (or Unknown) Substance Dependence, continuous
+304.92 Other (or Unknown) Substance Dependence, episodic
+304.93 Other (or Unknown) Substance Dependence, in remission
+305.00 Alcohol Abuse, Unspecified
+305.01 Alcohol abuse, continuous
+305.02 Alcohol abuse, episodic
+305.03 Alcohol abuse, in remission
+305.10 Nicotine Dependence, Unspecified
+305.11 Nicotine dependence, continuous
+305.12 Nicotine dependence, episodic
+305.13 Nicotine dependence, in remission
+305.20 Cannabis Abuse, Unspecified
+305.21 Cannabis abuse, continuous
+305.22 Cannabis abuse, episodic
+305.23 Cannabis abuse, in remission
+305.30 Hallucinogen Abuse, Unspecified
+305.31 Hallucinogen abuse, continuous
+305.32 Hallucinogen abuse, episodic
+305.33 Hallucinogen abuse, in remission
+305.40 Sedative, Hypnotic, or Anxiolytic Abuse, Unspecified
+305.41 Sedative, hypnotic, or anxiolytic abuse, continuous
+305.42 Sedative, hypnotic, or anxiolytic abuse, episodic
+305.43 Sedative, hypnotic, or anxiolytic abuse, in remission
+305.50 Opioid Abuse, Unspecified
+305.51 Opioid abuse, continuous
+305.52 Opioid abuse, episodic
+305.53 Opioid abuse, in remission
+305.60 Cocaine Abuse, Unspecified
+305.61 Cocaine abuse, continuous
+305.62 Cocaine abuse, episodic
+305.63 Cocaine abuse, in remission
+305.70 Amphetamine Abuse, Unspecified
+305.71 Amphetamine abuse, continuous
+305.72 Amphetamine abuse, episodic
+305.73 Amphetamine abuse, in remission
+305.80 Antidepressant type abuse, unspecified
+305.81 Antidepressant type abuse, continuous
+305.82 Antidepressant type abuse, episodic
+305.83 Antidepressant type abuse, in remission
+305.90 Other (or Unknown) Substance Abuse, Unspecified
+305.91 Other (or unknown) substance abuse, continuous
+305.92 Other (or unknown) substance abuse, episodic
+305.93 Other (or unknown) substance abuse, in remission
+306.0 Musculoskeletal (Not Due to a General Medical Condition)
+306.1 Respiratory (Not Due to a General Medical Condition)
+306.2 Cardiovascular (Not Due to a General Medical Condition)
+306.3 Skin (Not Due to a General Medical Condition)
+306.4 Gastrointestinal (Not Due to a General Medical Condition)
+306.50 Genitourinary malfunction, unspecified (Not Due to a General Medical Condition)
+306.51 Vaginismus (Not Due to a General Medical Condition)
+306.52 Dysmenorrhea (Not Due to a General Medical Condition)
+306.53 Dysuria (Not Due to a General Medical Condition)
+306.59 Other  (Not Due to a General Medical Condition)
+306.6 Endocrine (Not Due to a General Medical Condition)
+306.7 Organs of special sense (Not Due to a General Medical Condition)
+306.8 Other specified psychophysiological malfunction (Not Due to a General Medical Condition)
+306.9 Unspecified psychophysiological malfunction (Not Due to a General Medical Condition)
+307.0 Stuttering
+307.1 Anorexia Nervosa
+307.20 Tic Disorder NOS
+307.21 Transient Tic Disorder
+307.22 Chronic Motor or Vocal Tic Disorder
+307.23 Tourette's Disorder
+307.3 Stereotypic Movement Disorder
+307.40 Nonorganic sleep disorder, unspecified
+307.41 Transient disorder of initiating or maintaining sleep
+307.42 Primary Insomnia
+307.43 Transient disorder of initiating or maintaining wakefulness
+307.44 Primary Hypersomnia
+307.45 Circadian Rhythm Sleep Disorder
+307.46 Sleepwalking/ Sleep Terror Disorder
+307.47 Nightmare Disorder
+307.48 Repetitive intrusions of sleep
+307.49 Other sleep disorder
+307.50 Eating Disorder NOS
+307.51 Bulimia Nervosa
+307.52 Pica
+307.53 Rumination Disorder
+307.54 Psychogenic vomiting
+307.59 Feeding Disorder of Infancy or Early Childhood
+307.6 Enuresis (Not Due to a General Medical Condition)
+307.7 Encopresis, Without Constipation and Overflow Incontinence
+307.80 Pain Disorder Associated With Psychological Factors
+307.81 Tension headache
+307.89 Pain Disorder Associated With Both Psychological Factors and a General Medical Condition
+307.9 Communication Disorder NOS
+308.0 Predominant disturbance of emotions
+308.1 Predominant disturbance of consciousness
+308.2 Predominant psychomotor disturbance
+308.3 Acute Stress Disorder
+308.9 Unspecified acute reaction to stress
+309.0 Adjustment Disorder With Depressed Mood
+309.1 Prolonged depressive reaction
+309.21 Separation Anxiety Disorder
+309.22 Emancipation disorder of adolescence and early adult life
+309.23 Specific academic or work inhibition
+309.24 Adjustment Disorder With Anxiety
+309.28 Adjustment Disorder With Mixed Anxiety and Depressed Mood
+309.29 Other Adjustment disorder
+309.3 Adjustment Disorder With Disturbance of Conduct
+309.4 Adjustment Disorder With Mixed Disturbance of Emotions and Conduct
+309.81 Posttraumatic Stress Disorder
+309.82 Adjustment reaction with physical symptoms
+309.83 Adjustment reaction with withdrawal
+309.89 Other Adjustment reaction
+309.9 Adjustment Disorder Unspecified
+310.0 Frontal lobe syndrome
+310.1 Personality Change Due to...[Indicate the General Medical Condition]
+310.2 Postconcussion syndrome
+310.8 Other specified nonpsychotic mental disorders following organic brain damage
+310.9 Unspecified nonpsychotic mental disorder following organic brain damage
+311 Depressive Disorder NOS
+312.00 Undersocialized conduct disorder, aggressive type, unspecified
+312.01 Undersocialized conduct disorder, aggressive type, unspecified
+312.02 Undersocialized conduct disorder, aggressive type, unspecified
+312.03 Undersocialized conduct disorder, aggressive type, unspecified
+312.10 Undersocialized conduct disorder, unaggressive type, unspecified
+312.11 Undersocialized conduct disorder, unaggressive type, mild
+312.12 Undersocialized conduct disorder, unaggressive type, moderate
+312.13 Undersocialized conduct disorder, unaggressive type, severe)
+312.20 Socialized conduct disorder, unspecified
+312.21 Socialized conduct disorder, mild
+312.22 Socialized conduct disorder, moderate
+312.23 Socialized conduct disorder, severe
+312.30 Impulse-Control Disorder NOS
+312.31 Pathological Gambling
+312.32 Kleptomania
+312.33 Pyromania
+312.34 Intermittent Explosive Disorder
+312.35 Isolated explosive disorder
+312.39 Trichotillomania
+312.81 Conduct Disorder, Childhood-Onset Type
+312.82 Conduct Disorder, Adolescent-Onset Type
+312.89 Conduct Disorder, Uspecified Onset
+312.9 Disruptive Behavior Disorder NOS
+313.0 Overanxious disorder
+313.1 Misery and unhappiness disorder
+313.21 Shyness disorder of childhood
+313.22 Introverted disorder of childhood
+313.23 Selective Mutism
+313.3 Relationship problems
+313.81 Oppositional Defiant Disorder
+313.82 Identity Problem
+313.83 Academic underachievement disorder
+313.89 Reactive Attachment Disorder of Infancy or Early Childhood
+313.9 Disorder of Infancy, Childhood, or Adolescence NOS
+314.00 Attention-Deficit/Hyperactivity Disorder, Predominantly Inattentive Type
+314.01 Attention-Deficit/Hyperactivity Disorder, Combined Type
+314.1 Hyperkinesis w/developmental delay
+314.2 Hyperkinetic conduct disorder
+314.8 Other specified manifestations of hyperkinetic syndrome
+314.9 Attention-Deficit/Hyperactivity Disorder NOS
+315.00 Reading Disorder
+315.01 Alexia
+315.02 Developmental dyslexia
+315.09 Other Reading disorder
+315.1 Mathematics Disorder
+315.2 Disorder of Written Expression
+315.31 Mixed Receptive-Expressive Language Disorder
+315.32 Mixed Receptive-Expressive Language Disorder
+315.39 Phonological Disorder
+315.4 Developmental Coordination Disorder
+315.5 Mixed development disorder
+315.8 Other specified delays in development
+315.9 Learning Disorder NOS
+316 ...[Specified Psychological Factor] Affecting...[Indicate the General Medical Condition]
+317 Mild Mental Retardation
+318.0 Moderate Mental Retardation
+318.1 Severe Mental Retardation
+318.2 Profound Mental Retardation
+319 Mental Retardation, Severity Unspecified
+332.1 Neuroleptic-Induced Parkinsonism
+333.1 Medication-Induced Postural Tremor
+333.7 Neuroleptic-Induced Acute Dystonia
+333.82 Neuroleptic-Induced Tardive Dyskinesia
+333.90 Medication-Induced Movement Disorder NOS
+333.92 Neuroleptic Malignant Syndrome
+333.99 Neuroleptic-Induced Acute Akathisia
+347 Narcolepsy
+607.84 Male Erectile Disorder Due to...[Indicate the General Medical Condition]
+608.89 Other Male Sexual Dysfunction Due to...[Indicate the General Medical Condition]
+625.0 Female Dyspareunia Due to...[Indicate the General Medical Condition]
+625.8 Other Female Sexual Dysfunction Due to...[Indicate the General Medical Condition]
+780.09 Delirium NOS
+780.52 Sleep Disorder Due to...[Indicate the General Medical Condition], Insomnia Type
+780.54 Sleep Disorder Due to...[Indicate the General Medical Condition], Hypersomnia Type
+780.59 Sleep Disorder Due to...[Indicate the General Medical Condition], Parasomnia Type
+780.9 Age-Related Cognitive Decline
+787.6 Encopresis, With Constipation and Overflow Incontinence
+799.89 Other Ill-defined conditions
+799.9 Diagnosis Deferred
+995.2 Adverse Effects of Medication NOS
+995.52 Neglect of Child, focus of attention on victim
+995.53 Sexual Abuse of Child, focus of attention on victim
+995.54 Physical Abuse of Child, focus of attention on victim
+995.81 Abuse of Adult (if focus of attention is on victim)
+995.83 Sexual Abuse of Adult, focus of attention on victim
+V15.81 Noncompliance With Treatment
+V61.10 Partner Relational Problem
+V61.11 Counseling for victim of spousal/partner abuse
+V61.12 Physical or Sexual Abuse of Adult by partner
+V61.20 Parent-Child Relational Problem
+V61.21 Neglect/Abuse of Child
+V61.22 Counseling for perpetrator of parental child abuse
+V61.29 Other Parent-Child problem
+V61.8 Sibling Relational Problem
+V61.9 Relational Problem Related to a Mental Disorder or General Medical Condition
+V62.2 Occupational Problem
+V62.3 Academic Problem
+V62.4 Acculturation Problem
+V62.81 Relational Problem NOS
+V62.82 Bereavement
+V62.83 Physical or Sexual Abuse of Adult by person other than partner
+V62.89 Phase of Life Problem or Other Life Circumstance
+V65.2 Malingering
+V71.01 Adult Antisocial Behavior
+V71.02 Child or Adolescent Antisocial Behavior
+V71.09 No Diagnosis

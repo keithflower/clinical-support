@@ -1,0 +1,147 @@
+90785	Psytx complex interactive
+90791	Psych diagnostic evaluation
+90792	Psych diag eval w/med srvcs
+90832	Psytx pt&/family 30 minutes
+90833	Psytx pt&/fam w/e&m 30 min
+90834	Psytx pt&/family 45 minutes
+90836	Psytx pt&/fam w/e&m 45 min
+90837	Psytx pt&/family 60 minutes
+90838	Psytx pt&/fam w/e&m 60 min
+90839	Psytx crisis initial 60 min
+90840	Psytx crisis ea addl 30 min
+90845	Psychoanalysis
+90846	Family psytx w/o patient
+90847	Family psytx w/patient
+90849	Multiple family group psytx
+90853	Group psychotherapy
+90863	Pharmacologic mgmt w/psytx
+90865	Narcosynthesis
+90867	Tcranial magn stim tx plan
+90868	Tcranial magn stim tx deli
+90869	Tcran magn stim redetemine
+90870	Electroconvulsive therapy
+90875	Psychophysiological therapy
+90876	Psychophysiological therapy
+90880	Hypnotherapy
+90882	Environmental manipulation
+90885	Psy evaluation of records
+90887	Consultation with family
+90889	Preparation of report
+90899	Psychiatric service/therapy
+96101	Psycho testing by psych/phys
+96102	Psycho testing by technician
+96103	Psycho testing admin by comp
+96105	Assessment of aphasia
+96110	Developmental screen
+96111	Developmental test extend
+96116	Neurobehavioral status exam
+96118	Neuropsych tst by psych/phys
+96119	Neuropsych testing by tec
+96120	Neuropsych tst admin w/comp
+96125	Cognitive test by hc pro
+99201	Office/outpatient visit new
+99202	Office/outpatient visit new
+99203	Office/outpatient visit new
+99204	Office/outpatient visit new
+99205	Office/outpatient visit new
+99211	Office/outpatient visit est
+99212	Office/outpatient visit est
+99213	Office/outpatient visit est
+99214	Office/outpatient visit est
+99215	Office/outpatient visit est
+99217	Observation care discharge
+99218	Initial observation care
+99219	Initial observation care
+99220	Initial observation care
+99221	Initial hospital care
+99222	Initial hospital care
+99223	Initial hospital care
+99224	Subsequent observation care
+99225	Subsequent observation care
+99226	Subsequent observation care
+99231	Subsequent hospital care
+99232	Subsequent hospital care
+99233	Subsequent hospital care
+99234	Observ/hosp same date
+99235	Observ/hosp same date
+99236	Observ/hosp same date
+99238	Hospital discharge day
+99239	Hospital discharge day
+99241	Office consultation
+99242	Office consultation
+99243	Office consultation
+99244	Office consultation
+99245	Office consultation
+99251	Inpatient consultation
+99252	Inpatient consultation
+99253	Inpatient consultation
+99254	Inpatient consultation
+99255	Inpatient consultation
+99281	Emergency dept visit
+99282	Emergency dept visit
+99283	Emergency dept visit
+99284	Emergency dept visit
+99285	Emergency dept visit
+99304	Nursing facility care init
+99305	Nursing facility care init
+99306	Nursing facility care init
+99307	Nursing fac care subseq
+99308	Nursing fac care subseq
+99309	Nursing fac care subseq
+99310	Nursing fac care subseq
+99315	Nursing fac discharge day
+99316	Nursing fac discharge day
+99324	Domicil/r-home visit new pat
+99325	Domicil/r-home visit new pat
+99326	Domicil/r-home visit new pat
+99327	Domicil/r-home visit new pat
+99328	Domicil/r-home visit new pat
+99334	Domicil/r-home visit est pat
+99335	Domicil/r-home visit est pat
+99336	Domicil/r-home visit est pat
+99337	Domicil/r-home visit est pat
+99339	Domicil/r-home care supervis
+99340	Domicil/r-home care supervis
+99341	Home visit new patient
+99342	Home visit new patient
+99343	Home visit new patient
+99344	Home visit new patient
+99345	Home visit new patient
+99347	Home visit est patient
+99348	Home visit est patient
+99349	Home visit est patient
+99350	Home visit est patient
+99354	Prolonged service office
+99355	Prolonged service office
+99356	Prolonged service inpatient
+99357	Prolonged service inpatient
+99358	Prolong service w/o contact
+99359	Prolong serv w/o contact add
+99360	Physician standby services
+99366	Team conf w/pat by hc prof
+99367	Team conf w/o pat by phys
+99368	Team conf w/o pat by hc pro
+99374	Home health care supervision
+99375	Home health care supervision
+99377	Hospice care supervision
+99378	Hospice care supervision
+99379	Nursing fac care supervision
+99380	Nursing fac care supervision
+99406	Behav chng smoking 3-10 min
+99407	Behav chng smoking > 10 min
+99408	Audit/dast 15-30 min
+99409	Audit/dast over 30 min
+99429	Unlisted preventive service
+99441	Phone e/m phys/qhp 5-10 min
+99442	Phone e/m phys/qhp 11-20 min
+99443	Phone e/m phys/qhp 21-30 min
+99444	Online e/m by phys/qhp
+99450	Basic life disability exam
+99455	Work related disability exam
+99456	Disability examination
+99487	Cmplx chron care w/o pt vsit
+99488	Cmplx chron care w/ pt vsit
+99489	Complx chron care addl30 min
+99495	Trans care mgmt 14 day disch
+99496	Trans care mgmt 7 day disch
+99499	Unlisted e&m service
