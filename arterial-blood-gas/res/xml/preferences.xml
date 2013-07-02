@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+        <PreferenceCategory
+                android:title="First Category">
+          <ListPreference android:title="Default height value is..."
+            	android:key="DefaultHeight"
+            	android:summary="What a height with no unit of measure means..." 
+            	android:entries="@array/defaultHeight"
+            	android:entryValues="@array/defaultHeightValues" />  
+          <CheckBoxPreference
+                android:title="Checkbox Preference"
+                android:defaultValue="false"
+                android:summary="This preference can be true or false"
+                android:key="checkboxPref" />
+        </PreferenceCategory>
+        <PreferenceCategory
+                android:title="Second Category">
+        <EditTextPreference
+                android:name="EditText Preference"
+                android:summary="Any additional text you want to "
+                android:defaultValue="Nothing"
+                android:title="Additional Text"
+                android:key="editTextPref" />
+
+        <PreferenceScreen
+                android:key="SecondPrefScreen"
+                android:title="Second PreferenceScreen"
+                android:summary="This is a second PreferenceScreen">
+                <EditTextPreference
+                        android:name="An other EditText Preference"
+                        android:summary="This is a preference in the second PreferenceScreen"
+                        android:title="Edit text"
+                        android:key="SecondEditTextPref" />
+        </PreferenceScreen>
+        <Preference
+                android:title="Custom Preference"
+                android:summary="This works almost like a button"
+                android:key="customPref" />
+        </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="height">Height (cm)</string>
+    <string name="weight">Weight (kg)</string>
+    <string name="instructions">Interpret arterial blood gas values</string>
+    <string name="app_name">Abg</string>
+        <string-array name="defaultHeight">
+        <item>Feet</item>
+        <item>Inches</item>
+        <item>Meters</item>
+        <item>Centimeters</item>
+    </string-array>
+    <string-array name="defaultHeightValues">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+</resources>

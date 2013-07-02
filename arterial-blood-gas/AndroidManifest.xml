@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="quexotic.org"
+      android:versionCode="1"
+      android:versionName="1.0">
+    <application android:icon="@drawable/icon" android:label="@string/app_name" android:permission="android.permission.INTERNET" android:debuggable="true">
+        <activity android:label="@string/app_name" android:name="quexotic.org.Abg" android:exported="true">
+            <intent-filter>
+            	<action android:name="quexotic.org.Abg" />
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+             </intent-filter>
+        </activity>
+
+    
+<activity android:name="Preferences" android:label="Preferences"></activity>
+</application>
+
+
+<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+</manifest> 
