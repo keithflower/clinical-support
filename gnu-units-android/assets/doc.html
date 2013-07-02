@@ -1,0 +1,1816 @@
+
+<!-- saved from url=(0051) -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Units: A Unit Conversion Program</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Units: A Unit Conversion Program">
+<meta name="generator" content="makeinfo 4.7">
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, height=device-height, user-scalable=0" />
+<link title="Top" rel="top" href="#Top">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc { font-variant:small-caps }
+  span.roman { font-family: serif; font-weight: normal; } 
+--></style>
+</head>
+<body>
+<h1 class="settitle">Units: A Unit Conversion Program</h1>
+<div class="node">
+<p></p><hr>
+<br>
+</div>
+
+<!-- noman -->
+<!-- end noman -->
+<ul class="menu">
+<li><a accesskey="1" href="#Overview">Overview</a>:             What does <code>units</code> do? 
+<li><a accesskey="2" href="#Android">Android version</a>:
+  Information specific to the Android port of <code>units</code>. 
+</li><li><a accesskey="3" href="#Interactive-use">Interactive use</a>:      How to use <code>units</code>. 
+</li><li><a accesskey="4" href="#Invoking-units">Invoking units</a>:       Command line options. 
+</li><li><a accesskey="5" href="#Unit-expressions">Unit expressions</a>:     Forming compound units. 
+</li><li><a accesskey="6" href="#Unit-definitions">Unit definitions</a>:     What units are defined? 
+</li><li><a accesskey="7" href="#Defining-new-units">Defining new units</a>:   How to write your own units definitions. 
+</li><li><a accesskey="8" href="#Nonlinear-units">Nonlinear units</a>:      How to define nonlinear units. 
+</li><li><a href="#Warranty-license">Warranty/License</a>:
+Information on warranty and Gnu Units License. 
+</li><li><a href="#Index">Index</a>:                General index
+</li></ul>
+
+<div class="node">
+<p></p><hr>
+<a name="Overview"></a>Next:&nbsp;<a rel="next" accesskey="n"
+  href="#Android">Android port</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Top">Top</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+
+
+<h2 class="chapter">1 Overview of <code>units</code></h2>
+
+<p>The <code>units</code> program converts quantities expressed in various scales
+to their equivalents in other scales.  The <code>units</code> program can
+handle multiplicative scale changes as well as nonlinear
+conversions such as Fahrenheit to
+<!-- man Celsius. -->
+<!-- noman -->
+Celsius.<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>
+<!-- end noman -->
+Temperature conversions require a special
+syntax. 
+<!-- noman -->
+See <a href="#Temperature-Conversion-Example">Temperature Conversion Example</a>. 
+<!-- end noman -->
+<!-- man See the examples below. -->
+
+   </p><p>The units are defined in an external data file.  You can use the
+extensive data file that comes with this program, or you can
+provide your own data file to suit your needs.
+
+<div class="node">
+<p></p><hr>
+<a name="Android"></a>Next:&nbsp;<a rel="next" accesskey="n"
+  href="#Interactive-use">Interactive use</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Overview">Overview</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+
+<h2 class="chapter">2 Android port of <code>units</code></h2>
+
+<p>The Android version serves as a front-end to the standard GNU 
+<code>units</code> program which has been recompiled with the Android Native
+Development Kit. Thus, much of the original functionality of
+<code>units</code> is maintained.<br><br>
+
+GNU <code>units</code> was originally written by Adrian Mariano. <br><br>
+
+The Android port works much like standard <code>units</code> invoked in interactive
+mode (see below). Enter expressions for your known values in the <b>You have</b> entry box, and target conversion expressions in the
+<b>You want</b> entry box. Press the <b>Convert</b> button. Conversion and other
+information (formatted based on flags/options as described below)
+appear in the editable <b>"Results"</b> box.<br><br>
+
+Entry <b>history:</b> you can press your device's <b>Back</b> key in the <b>You have,</b>
+<b>You want,</b> and <b>Results</b> boxes to cycle back through your entries. Press
+<b>Back</b> twice in rapid succession to make the "back" function
+behave as it ordinarily does. You can turn off this functionality via
+Preferences if you don't like it. The application keeps track of your
+previous 100 entries in each of the entry boxes, and maintains
+this history even if you leave the application or turn off your phone.</br><br>
+
+<b>Flags/Options:</b> with some exceptions, many of the original command-line options are
+available in the Android version. These options can be changed using the
+Flag/Options settings under the Preferences menu. For simplicity, the
+Android version sets the <code>--terse</code> option initially by
+default. You
+can remove or change
+this option if it does not suit you.<br><br>
+
+<b>Autocompletion:</b> you can turn on autocompletion with the
+<b>Autocomplete threshold</b> preferences item. Select the number of
+characters entered that will trigger a drop-down list of recognized units of
+measures and functions beginning with those characters. Autocompletion
+is off by default.<br><br>
+
+You can also enter <code>search xxx</code> (where <code>xxx</code> is some string of
+   characters) in the <b>You have</b> box to
+   search for units of measures and functions. For example, to search for
+   units of measure that contain the string "amp", enter <code>search
+   amp</code> and then press <b>Convert</b>. The <b>Results</b> box will contain:<pre><code>
+       abamp           abampere
+       abampere        10 A
+       amp             ampere
+       ampere          A
+       amphora         8 congii
+       amphorae        amphora
+       intamp          intampere
+       intampere       0.999835 A
+       statamp         statampere
+       statampere      10 A cm / s c
+       thermalampere   W/K
+</pre></code>
+
+<b>Share:</b> this menu item allows you to select a sharing
+application (e.g., email, text message), and copy a <code>units</code>
+result to that application. The applications available for sharing
+results depend on what you have installed on your device.<br><br>
+
+You can specify <b>custom units files</b> using the <code>-f</code>
+command-line option (set in <b>Preferences->Flags/Options</b>). You can also edit and/or replace the
+<code>units.dat</code> file in its default 
+directory (this location may vary based on your platform):
+
+<pre><code>     /mnt/sdcard/Android/data/org.quexotic.gnuunits/files/units.dat</code></pre>
+
+If you use the <code>-f</code> option, you have to specify the full
+path to where you installed your custom units file. For example, you
+could install your custom units file on your sdcard (a device's
+optional memory card), and then use this file
+by including the following <b>Preferences->Flags/Options</b>:
+
+<pre><code>     -f /mnt/sdcard/myunits.dat -f ""</code></pre>
+
+(Note the use of the <code>-f ""</code> flag, which loads the default
+units file in addition to your custom units file - this is almost
+always what you want to do.)<br><br>
+
+If you edit  or use your own custom unit file, you should check it (<code>--check</code>)
+using a non-Android version of <code>units</code> before use with the
+Android port. <br><br>
+
+A couple of custom data files are included with the
+distribution as examples. Using
+
+<pre><code>     -f /mnt/sdcard/gnuunits_med.dat -f ""</code></pre>
+
+you can perform some limited medically-oriented conversions, such
+as converting between traditional (U.S.) and SI units of measure for various lab values::
+
+<pre><code>
+           You have:  to_molarity(80 mg/dL glucose)
+           You want:  mmol/L
+           Results:   4.44 
+</pre></code>
+
+If you use
+
+<pre><code>     -f /mnt/sdcard/gnuunits_fun.dat -f ""</code></pre>
+
+you get access to some bonus definitions and conversions, for example,
+"2000 mockingbird = 2 kilomockingbird," and others:
+
+<pre><code>
+            You have:  1 paradigm
+            You want:
+            Results:   Definition: 4 nickels
+
+            You have:  1 unit_of_suspense_in_mystery_novel
+            You want: 
+	    Results:   Definition: 1 whod_unit
+ 
+            You have:  1 gigolo
+            You want:  picolos
+            Results:   1e+21 picolos
+
+            You have:  2 megacycles
+            You want:  bicycles
+            Results:   1e6 bicycles
+
+            You have:  1 megaphone
+            You want:  microphones
+            Results:   1e12 microphones
+
+            You have:  1 milliHelen_Of_Troy
+            You want: 
+	    Results:   Definition: 1 amount_of_face_that_can_launch_one_ship
+
+</pre></code> 
+(This file also allows use of the proposed <code>hella-</code> SI
+prefix for values of 10^27. Using this prefix, you can determine that
+"1 hellaHelen_Of_Troy" could launch 10^30 ships ("1000 hella ships").<br><br>
+(Many of the conversions in <code>gnuunits_fun.dat</code> are adapted
+from the "Q Files, a subsidiary of Evil Mad Scientist Laboratories"
+(see
+<code>http://windell.oskay.net/humor/qqqfiles/quarks1.html</code>),
+which in turn notes
+that the original information was taken from "The Bent of Tau Beta Pi,
+Spring 1988").<br><br>
+
+<b>License and warranty:</b>
+
+    Be cautious when using this software. Values have not been
+    tested rigorously, and may be outdated or inaccurate.
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program (see end of this document).  You can also
+    find the license at
+
+<pre><code>     http://www.gnu.org/licenses/</code></pre>
+
+The documentation that follows is the original <code>units
+</code> documentation, edited lightly to reflect the Android port. <br><br>
+
+</p><div class="node">
+<p></p><hr>
+<a name="Interactive-use"></a>Next:&nbsp;<a rel="next" accesskey="n"
+  href="#Unit-expressions">Unit expressions</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p"
+  href="#Android">Android port</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+
+<h2 class="chapter">3 Interacting with <code>units</code></h2>
+
+
+   <p class="noindent">At the <span class="samp">You have:</span> prompt, type the quantity and units that
+you are converting <em>from</em>.  For example, if you want to convert ten
+meters to feet, type <kbd>10 meters</kbd>.  Next, <code>units</code> will print
+<span class="samp">You want:</span>.  You should type the type of units you want to convert
+<em>to</em>.  To convert to feet, you would type <kbd>feet</kbd>. 
+
+   </p><p>The answer will be displayed in two ways.  The first line of output,
+which is marked with a <span class="samp">*</span> to indicate multiplication,
+gives the result of the conversion you have asked for.  The second line
+of output, which is marked with a <span class="samp">/</span> to indicate division, gives
+the inverse of the conversion factor.  If you convert 10 meters to feet,
+<code>units</code> will print
+
+</p><pre class="example">             * 32.808399
+             / 0.03048
+</pre>
+   <p class="noindent">which tells you that 10 meters equals about 32.8 feet. 
+The second number gives the conversion in the opposite direction. 
+In this case, it tells you that 1 foot is equal to about
+0.03 dekameters since the dekameter is 10 meters. 
+It also tells you that 1/32.8 is about .03.
+
+   </p><p>The <code>units</code> program prints the inverse because sometimes it is a
+more convenient number.  In the example above, for example, the inverse
+value is an exact conversion: a foot is exactly .03048 dekameters. 
+But the number given the other direction is inexact.
+
+   </p><p>If you try to convert grains to pounds, you will see the following:
+
+</p><pre class="example">         You have: grains
+         You want: pounds
+                 * 0.00014285714
+                 / 7000
+</pre>
+   <p class="noindent">From the second line of the output you can immediately see that a grain
+is equal to a seven thousandth of a pound.  This is not so obvious from
+the first line of the output. 
+If you find  the output format  confusing, try using the
+<span class="samp">--verbose</span> option:
+<a name="index-verbose-output-2"></a>
+</p><pre class="example">         You have: grain
+         You want: aeginamina
+                 grain = 0.00010416667 aeginamina
+                 grain = (1 / 9600) aeginamina
+</pre>
+   <p>If you request a conversion between units which measure reciprocal
+dimensions, then <code>units</code> will display the conversion results with an extra
+note indicating that reciprocal conversion has been done:
+<a name="index-reciprocal-conversion-3"></a>
+</p><pre class="example">         You have: 6 ohms
+         You want: siemens
+                 reciprocal conversion
+                 * 0.16666667
+                 / 6
+</pre>
+   <p>Reciprocal conversion can be suppressed by using the <span class="samp">--strict</span> option. 
+As usual, use
+the <span class="samp">--verbose</span> option to get more comprehensible output:
+<a name="index-verbose-output-4"></a><a name="index-strict-conversion-5"></a>
+</p><pre class="example">         You have: tex
+         You want: typp
+                 reciprocal conversion
+                 1 / tex = 496.05465 typp
+                 1 / tex = (1 / 0.0020159069) typp
+     
+         You have: 20 mph
+         You want: sec/mile
+                 reciprocal conversion
+                 1 / 20 mph = 180 sec/mile
+                 1 / 20 mph = (1 / 0.0055555556) sec/mile
+</pre>
+   <p>If you enter incompatible unit types, the <code>units</code> program will
+print a message indicating that the units are not conformable and
+it will display the reduced form for each unit:
+<a name="index-incompatible-units-6"></a><a name="index-non_002dconformable-units-7"></a>
+</p><pre class="example">         You have: ergs/hour
+         You want: fathoms kg^2 / day
+         conformability error
+                 2.7777778e-11 kg m^2 / sec^3
+                 2.1166667e-05 kg^2 m / sec
+</pre>
+   <p>If you only want to find the reduced form or definition of a unit,
+simply press return at the <span class="samp">You want:</span> prompt.  Here is an example:
+
+</p><pre class="example">         You have: jansky
+         You want:
+                 Definition: fluxunit = 1e-26 W/m^2 Hz = 1e-26 kg / s^2
+</pre>
+   <p class="noindent">The output from <code>units</code> indicates that the jansky is defined to be
+equal to a fluxunit which in turn is defined to be a certain combination
+of watts, meters, and hertz.  The fully reduced (and in this case
+somewhat more cryptic) form appears on the far right.
+
+   </p><p>Some named units are treated as dimensionless in some situations. 
+These include the radian and steradian.  These units will be treated
+as equal to 1 in units conversions.  Power is equal to torque times
+angular velocity.  This conversion can only be performed if the radian
+is dimensionless.
+
+</p><pre class="example">         You have: (14 ft lbf) (12 radians/sec)
+         You want: watts
+                 * 227.77742
+                 / 0.0043902509
+</pre>
+   <p class="noindent">Note that named dimensionaless units are not treated as dimensionless
+in other contexts.  They cannot be used as exponents
+so for example, <span class="samp">meter^radian</span> is not allowed. 
+<a name="index-dimensionless-units-8"></a>
+If you want a list of options you can type <kbd>?</kbd> at the
+<span class="samp">You want:</span> prompt.  The program will display a list of named
+units which are conformable with the unit that you entered at
+the <span class="samp">You have:</span> prompt above.  Note that conformable unit
+combinations will not appear on this list.
+
+
+
+</p><div class="node">
+<p></p><hr>
+<a name="Unit-expressions"></a>Next:&nbsp;<a rel="next" accesskey="n" href="#Invoking-units">Invoking units</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p"
+  href="#Interactive-use">Interactive use</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h2 class="chapter">4 Unit expressions</h2>
+
+<p><a name="index-unit-expressions-11"></a>
+In order to enter more complicated units or fractions,
+you will need to use operations such as powers, products and division. 
+Powers of units can be specified using the <span class="samp">^</span> character as shown in
+the following example, or by simple concatenation: <span class="samp">cm3</span> is equivalent to
+<span class="samp">cm^3</span>. 
+If the exponent is more than one digit, the <span class="samp">^</span> is required.  An
+exponent like <span class="samp">2^3^2</span> is evaluated right to left.  The <span class="samp">^</span>
+operator has the second highest precedence. 
+<a name="index-powers-12"></a><a name="index-products-13"></a>
+</p><pre class="example">         You have: cm^3
+         You want: gallons
+                 * 0.00026417205
+                 / 3785.4118
+     
+         You have: arabicfoot * arabictradepound * force
+         You want: ft lbf
+                 * 0.7296
+                 / 1.370614
+</pre>
+   <p>Multiplication of units can be specified by using spaces, or an asterisk
+(<span class="samp">*</span>).  If <code>units</code> is invoked with the <span class="samp">--product</span>
+option then the hyphen (<span class="samp">-</span>) also acts as a multiplication
+operator.  Division of units is indicated
+by the slash (<span class="samp">/</span>) or by <span class="samp">per</span>. 
+<a name="index-multiplication-of-units-14"></a><a name="index-division-of-units-15"></a>
+</p><pre class="example">         You have: furlongs per fortnight
+         You want: m/s
+                 * 0.00016630986
+                 / 6012.8727
+</pre>
+   <p>Multiplication has a higher precedence than division and is evaluated
+left to right, so
+<span class="samp">m/s * s/day</span> is equivalent to <span class="samp">m / s s day</span> and has dimensions of
+length per time cubed.  Similarly, <span class="samp">1/2 meter</span> refers to a unit of reciprocal length
+equivalent to .5/meter, which is
+probably not what you would intend if you entered that expression. 
+You can indicate division of numbers
+with the vertical dash (<span class="samp">|</span>).  This operator has the highest
+precedence so the square root of two thirds could be written <span class="samp">2|3^1|2</span>. 
+<a name="index-fractions-16"></a><a name="index-division-of-numbers-17"></a>
+</p><pre class="example">         You have: 1|2 inch
+         You want: cm
+                 * 1.27
+                 / 0.78740157
+</pre>
+   <p class="noindent">Parentheses can be used for grouping as desired.
+
+</p><pre class="example">         You have: (1/2) kg / (kg/meter)
+         You want: league
+                 * 0.00010356166
+                 / 9656.0833
+</pre>
+   <p>Prefixes are defined separately from base units.  In order to get
+centimeters, the units database defines <span class="samp">centi-</span> and <span class="samp">c-</span> as
+prefixes.  Prefixes can appear alone with no unit following them. 
+An exponent applies only to the immediately preceding unit and its
+prefix so that <span class="samp">cm^3</span> or <span class="samp">centimeter^3</span> refer to cubic centimeters
+but <span class="samp">centi*meter^3</span> refers to hundredths of cubic meters.  Only one
+prefix is permitted per unit, so <span class="samp">micromicrofarad</span> will fail, but
+<span class="samp">micro*microfarad</span> will work, as will <span class="samp">micro microfarad</span>..
+
+   </p><p>For <code>units</code>, numbers are just another kind of unit.  They can
+appear as many times as you like and in any order in a unit expression. 
+For example, to find the volume of a box which is 2 ft by 3 ft by 12 ft
+in steres, you could do the following:
+
+</p><pre class="example">         You have: 2 ft 3 ft 12 ft
+         You want: stere
+                 * 2.038813
+                 / 0.49048148
+     
+         You have: $ 5 / yard
+         You want: cents / inch
+                 * 13.888889
+                 / 0.072
+</pre>
+   <p class="noindent">And the second example shows how the dollar sign in the units conversion
+can precede the five.  Be careful:  <code>units</code> will interpret
+<span class="samp">$5</span> with no space as equivalent to dollars^5.
+
+   </p><p>Outside of the SI system, it is often desirable to add values of
+different units together.  You may also wish to use <code>units</code> as a
+calculator that keeps track of units.  Sums of conformable units are written with
+the <span class="samp">+</span> character. 
+<a name="index-sums-of-units-18"></a><a name="index-addition-of-units-19"></a>
+</p><pre class="example">         You have: 2 hours + 23 minutes + 32 seconds
+         You want: seconds
+                 * 8612
+                 / 0.00011611705
+     
+         You have: 12 ft + 3 in
+         You want: cm
+                 * 373.38
+                 / 0.0026782366
+     
+         You have: 2 btu + 450 ft lbf
+         You want: btu
+                 * 2.5782804
+                 / 0.38785542
+</pre>
+   <p class="noindent">The expressions which are added together must reduce to identical
+expressions in primitive units, or an error message will be displayed:
+
+</p><pre class="example">         You have: 12 printerspoint + 4 heredium
+                                               ^
+         Illegal sum of non-conformable units
+</pre>
+   <p class="noindent">Historically <span class="samp">-</span> has been used for products of units, which complicates
+its iterpretation in <code>units</code>.  Because <code>units</code> provides
+several other ways to obtain unit products, and because <span class="samp">-</span> is a
+subtraction operator in general algebraic expressions, <code>units</code>
+treats the binary <span class="samp">-</span> as a subtraction operator by default.  This
+behavior can be altered using the <span class="samp">--product</span> option which
+causes <code>units</code> to treat the binary <span class="samp">-</span> operator as a product
+operator.  Note that when <span class="samp">-</span> is a multiplication operator it has
+the same precedence as <span class="samp">*</span>, but when <span class="samp">-</span> is a subtraction operator
+it has the lower precedence as the addition operator.
+
+   </p><p>When <span class="samp">-</span> is used as a unary operator it negates its operand. 
+Regardless of the <code>units</code> options, if
+<span class="samp">-</span> appears after <span class="samp">(</span> or after
+<span class="samp">+</span> then it will act as a negation operator.  So you can always compute 20
+degrees minus 12 minutes by entering <span class="samp">20 degrees + -12 arcmin</span>. 
+You must use this construction when you define new units because you
+cannot know what options will be in force when your definition is
+processed.
+
+   </p><p>The <span class="samp">+</span> character sometimes appears in exponents like
+<span class="samp">3.43e+8</span>.  This leads to an ambiguity in an expression like
+<span class="samp">3e+2 yC</span>.  The unit <span class="samp">e</span> is a small unit of charge, so this
+can be regarded as equivalent to <span class="samp">(3e+2) yC</span> or <span class="samp">(3 e)+(2 yC)</span>. 
+This ambiguity is resolved by always interpreting <span class="samp">+</span> as part
+of an exponent if possible.
+
+   </p><p><a name="index-functions_002c-built-in-20"></a>Several built in functions are provided: <span class="samp">sin</span>, <span class="samp">cos</span>,
+<span class="samp">tan</span>, <span class="samp">ln</span>, <span class="samp">log</span>, <span class="samp">log2</span>, <span class="samp">exp</span>, <span class="samp">acos</span>,
+<span class="samp">atan</span> and <span class="samp">asin</span>.  The <span class="samp">sin</span>, <span class="samp">cos</span>, and <span class="samp">tan</span>
+functions require either a dimensionless argument or an argument with
+dimensions of angle.
+
+</p><pre class="example">         You have: sin(30 degrees)
+         You want:
+                 Definition: 0.5
+     
+         You have: sin(pi/2)
+         You want:
+                 Definition: 1
+     
+         You have: sin(3 kg)
+                           ^
+         Unit not dimensionless
+</pre>
+   <p class="noindent">The other functions on the list require dimensionless arguments.  The
+inverse trigonometric functions return arguments with dimensions of
+angle.
+
+   </p><p><a name="index-roots-21"></a><a name="index-square-roots-22"></a>If you wish to take roots of units, you may use the <span class="samp">sqrt</span> or
+<span class="samp">cuberoot</span> functions.  These functions require that the argument
+have the appropriate root.  Higher roots can  be obtained by using
+fractional exponents:
+
+</p><pre class="example">         You have: sqrt(acre)
+         You want: feet
+                 * 208.71074
+                 / 0.0047913202
+     
+         You have: (400 W/m^2 / stefanboltzmann)^(1/4)
+         You have:
+                 Definition: 289.80882 K
+     
+         You have: cuberoot(hectare)
+                                   ^
+         Unit not a root
+</pre>
+   <h5 class="unnumberedsubsubsec">Temperature Conversion Example</h5>
+
+<p><a name="index-temperature-conversions-23"></a><a name="Temperature-Conversion-Example"></a>
+Nonlinear units are represented using functional notation.  They make
+possible nonlinear unit conversions such temperature.  This is different
+from the linear units that convert temperature differences.  Note the
+difference below.  The absolute temperature conversions are handled by
+units starting with <span class="samp">temp</span>, and you must use functional notation. 
+The temperature differences are done using units starting with
+<span class="samp">deg</span> and they do not require functional notation.
+
+</p><pre class="example">         You have: tempF(45)
+         You want: tempC
+                 7.2222222
+     
+         You have: 45 degF
+         You want: degC
+                 * 25
+                 / 0.04
+</pre>
+   <p>Think of <span class="samp">tempF(x)</span> not as a function but as a notation which
+indicates that <span class="samp">x</span> should have units of <span class="samp">tempF</span> attached to
+it.  See <a href="#Nonlinear-units">Nonlinear units</a>.  The first conversion shows that if it's 45
+degrees Fahrehneit outside it's 7.2 degrees Celsius.  The second
+conversions indicates that a change of 45 degrees Fahrenheit corresponds
+to a change of 25 degrees Celsius.
+
+   </p><p>Some other examples of nonlinears units are ring size and wire gauge. 
+There are numerous different gauges and ring sizes.  See the units
+database for more details.  Note that wire gauges
+with multiple zeroes are signified using negative numbers where two
+zeroes is -1.  Alternatively, you can use the synonyms <span class="samp">g00</span>,
+<span class="samp">g000</span>, and so on that are defined in the units database.
+
+</p><pre class="example">         You have: wiregauge(11)
+         You want: inches
+                 * 0.090742002
+                 / 11.020255
+     
+         You have: brwiregauge(g00)
+         You want: inches
+                 * 0.348
+                 / 2.8735632
+     
+         You have: 1 mm
+         You want: wiregauge
+                 18.201919
+</pre>
+   <div class="node">
+<p></p><hr>
+<a name="Invoking-units"></a>Next:&nbsp;<a rel="next" accesskey="n" href="#Unit-definitions">Unit definitions</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Unit-expressions">Unit expressions</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+
+<h2 class="chapter">5 Invoking <code>units</code></h2>
+
+<p><a name="index-invoking-units-24"></a><a name="index-command-line-options-25"></a>
+
+   <p class="noindent">The program
+uses interactive prompts to determine which conversions to perform. 
+See <a href="#Interactive-use">Interactive use</a>. 
+If both <var>from-unit</var> and <var>to-unit</var> are given, <code>units</code> will
+print the result of that single conversion and then exit. 
+If only <var>from-unit</var> appears on the command line, <code>units</code> will
+display the definition of that unit and exit. 
+Units specified on the command line will need
+to be quoted to protect them from shell interpretation and to group
+them into two arguments.  See <a href="#Command-line-use">Command line use</a>.
+
+   </p><p>The following options allow you to read in an alternative
+   units file or change the output format:
+
+     <br></dd><dt><span class="samp">-f filename</span></dt><dt><span class="samp">--file filename</span></dt><dd><a name="index-_002df-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-32"></a><a name="index-_002d_002dfile-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-33"></a>Instruct <code>units</code> to load the units file <code>filename</code>. 
+If <code>filename</code> is the empty string (<span class="samp">-f ''</span>)
+then the default units file will
+be loaded.  This enables you to load the default file plus a personal
+units file.  Up to 25 units files may be specified on the command line. <br>
+
+     <br></dd><dt><span class="samp">-o format</span></dt><dt><span class="samp">--output-format format</span></dt><dd><a name="index-_002do-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-30"></a><a name="index-_002d_002doutput_002dformat-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-31"></a>Use the specified format for numeric output.  Format is the same
+as that for the printf function in the ANSI C standard. 
+For example, if you want more precision you might use <span class="samp">-o %.15g</span>.
+
+
+
+     <br></dd><dt><span class="samp">-h</span></dt><dt><span class="samp">--help</span></dt><dd><a name="index-_002dh-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-34"></a><a name="index-_002d_002dhelp-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-35"></a>Print out a summary of the options for <code>units</code>.
+
+     <br></dd><dt><span class="samp">-m</span></dt><dt><span class="samp">--minus</span></dt><dd><a name="index-_002dm-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-36"></a><a name="index-_002d_002dminus-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-37"></a>Causes <span class="samp">-</span> to be interpreted as a subtraction operator.  This is
+usually the default behavior.
+
+     <br></dd><dt><span class="samp">-p</span></dt><dt><span class="samp">--product</span></dt><dd><a name="index-_002dp-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-38"></a><a name="index-_002d_002dproduct-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-39"></a>Causes <span class="samp">-</span> to be interpreted as a multiplication operator when it
+has two operands.  It will as a negation operator when it has only one
+operand: <span class="samp">(-3)</span>.  Note that by default <span class="samp">-</span> is treated as a
+subtraction operator.
+
+     </dd><dt><span class="samp">--compact</span></dt><dd><a name="index-_002d_002dcompact-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-40"></a>Give compact output featuring only the conversion factor.  This turns
+off the <span class="samp">--verbose</span> option.
+
+     <br></dd><dt><span class="samp">-q</span></dt><dt><span class="samp">--quiet</span></dt><dt><span class="samp">--silent</span></dt><dd><a name="index-_002dq-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-41"></a><a name="index-_002d_002dquiet-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-42"></a><a name="index-_002d_002dsilent-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-43"></a>Suppress prompting of the user for units and the display of statistics
+about the number of units loaded.
+
+     <br></dd><dt><span class="samp">-s</span></dt><dt><span class="samp">--strict</span></dt><dd><a name="index-_002ds-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-44"></a><a name="index-_002d_002dstrict-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-45"></a>Suppress conversion of units to their reciprocal units.  For
+example, <code>units</code> will normally convert hertz to seconds
+because these units are reciprocals of each other.  The strict option
+requires that units be strictly conformable to perform a conversion, and
+will give an error if you attempt to convert hertz to seconds.
+
+     <br></dd><dt><span class="samp">-1</span></dt><dt><span class="samp">--one-line</span></dt><dd><a name="index-_002d1-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-46"></a><a name="index-_002d_002done_002dline-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-47"></a>Give only one line of output (the forward conversion).  Do not print
+the reverse conversion.  Note that if a reciprocal conversion is
+performed then <code>units</code> will print still print the reciprocal
+conversion line.
+
+     <br></dd><dt><span class="samp">-t</span></dt><dt><span class="samp">--terse</span></dt><dd><a name="index-_002dt-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-48"></a><a name="index-_002d_002dterse-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-49"></a>Give terse output when converting units.  This option can be used when
+calling <code>units</code> from another program so that the output is easy to
+parse.  This option has the combined
+effect of these options:  <span class="samp">--strict</span> <span class="samp">--quiet</span> <span class="samp">--one-line</span>
+<span class="samp">--compact</span>.
+
+     <br></dd><dt><span class="samp">-v</span></dt><dt><span class="samp">--verbose</span></dt><dd><a name="index-_002dv-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-50"></a><a name="index-_002d_002dverbose-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-51"></a>Give slightly more verbose output when converting units.  When combined
+with the <span class="samp">-c</span> option this gives the same effect as
+<span class="samp">--check-verbose</span>.
+
+   </dd></dl>
+
+<div class="node">
+<p></p><hr>
+<a name="Unit-definitions"></a>Next:&nbsp;<a rel="next" accesskey="n" href="#Defining-new-units">Defining new units</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Invoking-units">Invoking units</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+
+<h2 class="chapter">6 Unit definitions</h2>
+
+<p><a name="index-unit-definitions-54"></a>
+The conversion information is read from a units data file which
+is called <span class="file">units.dat.</span> 
+The default
+file includes definitions for all familiar units, abbreviations and
+metric prefixes.  It also includes many obscure or archaic units.
+
+   </p><p>Many constants of nature are defined, including these:
+<!-- noman -->
+</p><pre class="example">     pi          <span class="roman">ratio of circumference to diameter</span>
+     c           <span class="roman">speed of light</span>
+     e           <span class="roman">charge on an electron</span>
+     force       <span class="roman">acceleration of gravity</span>
+     mole        <span class="roman">Avogadro's number</span>
+     water       <span class="roman">pressure per unit height of water</span>
+     Hg          <span class="roman">pressure per unit height of mercury</span>
+     au          <span class="roman">astronomical unit</span>
+     k           <span class="roman">Boltzman's constant</span>
+     mu0         <span class="roman">permeability of vacuum</span>
+     epsilon0    <span class="roman">permitivity of vacuum</span>
+     G           <span class="roman">Gravitational constant</span>
+     mach        <span class="roman">speed of sound</span>
+</pre>
+   <p class="noindent"><!-- end noman -->
+<!-- man .in +4m -->
+<!-- man .ta 10m -->
+<!-- man .nf -->
+<!-- man -->
+<!-- man pi	ratio of circumference to diameter -->
+<!-- man c	speed of light -->
+<!-- man e	charge on an electron -->
+<!-- man force	acceleration of gravity -->
+<!-- man mole	Avogadro's number -->
+<!-- man water	pressure per unit height of water -->
+<!-- man Hg	pressure per unit height of mercury -->
+<!-- man au	astronomical unit -->
+<!-- man k	Boltzman's constant -->
+<!-- man mu0	permeability of vacuum -->
+<!-- man epsilon0	permitivity of vacuum -->
+<!-- man G	gravitational constant -->
+<!-- man mach	speed of sound -->
+<!-- man -->
+<!-- man .fi -->
+<!-- man .in -4m -->
+The database includes atomic masses for all of the elements and numerous
+other constants.  Also included are the densities of various ingredients
+used in baking so that <span class="samp">2 cups flour_sifted</span> can be converted
+to <span class="samp">grams</span>.  This is not an exhaustive list.  Consult the units
+data file to see the complete list, or to see the definitions that are
+used.
+
+   </p><p>The unit <span class="samp">pound</span> is a unit of mass.  To get force, multiply by the
+force conversion unit <span class="samp">force</span> or use the shorthand <span class="samp">lbf</span>. 
+(Note that <span class="samp">g</span> is already taken as the standard abbreviation for
+the gram.)  The unit <span class="samp">ounce</span> is also a unit of mass.  The fluid
+ounce is <span class="samp">fluidounce</span> or <span class="samp">floz</span>.  British capacity units that
+differ from their US counterparts, such as the British Imperial gallon,
+are prefixed with <span class="samp">br</span>.  Currency is prefixed with its country
+name: <span class="samp">belgiumfranc</span>, <span class="samp">britainpound</span>.
+
+   </p><p>The US Survey foot,
+yard, and mile can be obtained by using the <span class="samp">US</span> prefix. 
+These units differ slightly from the international length units. 
+They were in general use until 1959, and are still used
+for geographic surveys. 
+The acre is officially defined in terms of the US Survey foot. 
+If you want an acre
+defined according to the international foot, use <span class="samp">intacre</span>.  The
+difference between these units is
+about 4 parts per million. 
+The British also used a slightly different length measure before 1959. 
+These can be obtained with the prefix <span class="samp">UK</span>.
+
+   </p><p>When searching for
+a unit, if the specified string does not appear exactly as a unit
+name, then the <code>units</code> program will try to remove a
+trailing <span class="samp">s</span> or a trailing <span class="samp">es</span>.  If that fails, <code>units</code>
+will check for a prefix. 
+All of the standard metric prefixes are defined.
+
+   </p><p>To find out what units and prefixes are available, read the standard
+units data file.
+
+</p><div class="node">
+<p></p><hr>
+<a name="Defining-new-units"></a>Next:&nbsp;<a rel="next" accesskey="n" href="#Nonlinear-units">Nonlinear units</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Unit-definitions">Unit definitions</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+
+<h2 class="chapter">7 Defining new units</h2>
+
+<p><a name="index-defining-units-55"></a><a name="index-units_002c-redefinition-of-56"></a><a name="index-changing-units-definitions-57"></a>
+All of the units and prefixes that <code>units</code> can convert are defined
+in the units data file.  If you want to add your own units, you can
+supply your own file.
+
+   </p><p>A unit is specified on a single line by giving its name and an
+equivalence.  Comments start with a <span class="samp">#</span> character, which can appear
+anywhere in a line.  The backslash character (<span class="samp">\</span>)
+acts as a continuation
+character if it appears as the last character on a line, making it
+possible to spread definitions out over several lines if desired. 
+A file can be included by giving the command <span class="samp">!include</span> followed by
+the file's name.  The file will be sought in the same directory as the
+parent file unless a full path is given. 
+<a name="index-include-files-58"></a>
+Unit names must not contain any of the operator characters <span class="samp">+</span>,
+<span class="samp">-</span>, <span class="samp">*</span>, <span class="samp">/</span>, <span class="samp">|</span>, <span class="samp">^</span> or the parentheses. 
+They cannot begin with a digit or a decimal point (<span class="samp">.</span>), nor can
+they end with a digit (except for zero). 
+Be careful to define
+new units in terms of old ones so that a reduction leads to the
+primitive units, which are marked with <span class="samp">!</span> characters. 
+Dimensionless units are indicated by using the string
+<span class="samp">!dimensionless</span> for the unit definition. 
+<a name="index-dimensionless-units-59"></a>
+When adding new units, be sure to use the <span class="samp">-c</span> option to check that
+the new units reduce properly. 
+If you create a loop in the units definitions, then <code>units</code> will
+hang when invoked with the <span class="samp">-c</span> options.  You will need to
+use the <span class="samp">--check-verbose</span> option which prints out each unit as it
+checks them.  The program will still hang, but the last unit printed
+will be the unit which caused the infinite loop.
+
+   </p><p>If you define any units which contain
+<span class="samp">+</span> characters, carefully check them because the <span class="samp">-c</span> option
+will not catch non-conformable sums.  Be careful with the <span class="samp">-</span>
+operator as well.  When used as a binary operator, the <span class="samp">-</span>
+character can perform addition or multiplication
+depending on the options used to invoke <code>units</code>. 
+To ensure consistent behavior use <span class="samp">-</span> only as a unary negation
+operator when writing units definitions.  To multiply two units leave a
+space or use the <span class="samp">*</span> operator.  To compute the difference
+of <span class="samp">foo</span> and <span class="samp">bar</span> write <span class="samp">foo+(-bar)</span> or even <span class="samp">foo+-bar</span>.
+
+   </p><p>Here is an example of a short units file that defines some basic
+units:
+<!-- noman -->
+
+</p><pre class="example">     m       !               # The meter is a primitive unit
+     sec     !               # The second is a primitive unit
+     rad     !dimensionless  # A dimensionless primitive unit
+     micro-  1e-6            # Define a prefix
+     minute  60 sec          # A minute is 60 seconds
+     hour    60 min          # An hour is 60 minutes
+     inch    0.0254 m        # Inch defined in terms of meters
+     ft      12 inches       # The foot defined in terms of inches
+     mile    5280 ft         # And the mile
+</pre>
+   <!-- end noman -->
+<!-- man .in +2m -->
+<!-- man .ta 9m +10m -->
+<!-- man .nf -->
+<!-- man -->
+<!-- man m	!	# The meter is a primitive unit -->
+<!-- man sec	!	# The second is a primitive unit -->
+<!-- man rad	!dimensionless	# The second is a primitive unit -->
+<!-- man micro-	1e-6	# Define a prefix -->
+<!-- man minute	60 sec	# A minute is 60 seconds -->
+<!-- man hour	60 min	# An hour is 60 minutes -->
+<!-- man inch	0.0254 m	# Inch defined in terms of meters -->
+<!-- man ft	12 inches	# The foot defined in terms of inches -->
+<!-- man mile	5280 ft	# And the mile -->
+<!-- man -->
+<!-- man .fi -->
+<!-- man .in -2m -->
+<p class="noindent">A unit which ends with a <span class="samp">-</span> character is a prefix.  If a prefix
+definition contains any <span class="samp">/</span> characters, be sure they are protected
+by parentheses.  If you define <span class="samp">half- 1/2</span> then <span class="samp">halfmeter</span>
+would be equivalent to <span class="samp">1 / 2 meter</span>.
+
+</p><div class="node">
+<p></p><hr>
+<a name="Nonlinear-units"></a>Next:&nbsp;<a rel="next" accesskey="n" href="#Warranty-license">Warranty/License</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Defining-new-units">Defining new units</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+
+<h2 class="chapter">8 Defining nonlinear units</h2>
+
+<p><a name="index-defining-nonlinear-units-60"></a><a name="index-nonlinear-units_002c-redefinition-of-61"></a><a name="index-changing-nonlinear-unit-definitions-62"></a><a name="index-nonlinear-unit-conversions-63"></a>Some units conversions of interest are nonlinear; for
+example, temperature conversions between the Fahrenheit and Celsius
+scales cannot be done by simply multiplying by conversions factors.
+
+  </p><p>When you give a linear unit definition such as <span class="samp">inch 2.54 cm</span> you
+are providing information that <code>units</code> uses to convert values in
+inches into primitive units of meters.  For nonlinear units, you give
+a functional definition that provides the same information.
+
+  </p><p>Nonlinear units are represented using a functional notation. 
+It is best to regard this notation not as a function call but
+as a way of adding units to a number, much the same way that
+writing a linear unit name after a number adds units to that number. 
+Internally, nonlinear units are defined by a pair of functions
+which convert to and from linear units in the data file, so that
+an eventual conversion to primitive units is possible.
+
+  </p><p>Here is an example nonlinear unit definition:
+
+</p><pre class="example">     tempF(x) [1;K] (x+(-32)) degF + stdtemp ; (tempF+(-stdtemp))/degF + 32
+</pre>
+  <p class="noindent">A nonlinear unit definition comprises a unit name, a dummy parameter
+name, two functions, and two corresponding units.  The functions tell
+<code>units</code> how to convert to and from the new unit.  In order to
+produce valid results, the arguments of these functions need to have
+the correct dimensions.  To facilitate error checking, you may specify
+the dimensions.
+
+  </p><p>The definition begins with the unit name followed immediately (with no
+spaces) by a <span class="samp">(</span> character.  In parentheses is the name of the
+parameter.  Next is an optional specification of the units required by
+the functions in this definition.  In the example above, the
+<span class="samp">tempF</span> function requires an input argument conformable with
+<span class="samp">1</span>.  For normal nonlinear units definitions the forward
+function will always take a dimensionless argument. 
+The inverse function requires an input argument conformable
+with <span class="samp">K</span>.  In general the inverse function will need units
+that match the quantity measured by your nonlinear unit. 
+The sole purpose of the expression in brackets to enable
+<code>units</code> to perform error checking on function arguments.
+
+  </p><p>Next the function definitions appear.  In the example above, the
+<span class="samp">tempF</span> function is defined by
+
+</p><pre class="example">         tempF(x) = (x+(-32)) degF + stdtemp
+</pre>
+  <p class="noindent">This gives a rule for converting <span class="samp">x</span> in the units <span class="samp">tempF</span>
+to linear units of absolute temperature, which makes it possible to
+convert from tempF to other units.
+
+  </p><p>In order to make conversions to Fahrenheit possible, you must give
+a rule for the inverse conversions. The inverse will be <span class="samp">x(tempF)</span> and
+its definition appears after a <span class="samp">;</span> character. 
+In our example, the inverse is
+
+</p><pre class="example">         x(tempF) = (tempF+(-stdtemp))/degF + 32
+</pre>
+  <p class="noindent">This inverse definition takes an absolute temperature as its argument
+and converts it to the Fahrenheit temperature.  The inverse can be
+omitted by leaving out the <span class="samp">;</span> character, but then conversions to
+the unit will be impossible.  If the inverse is omitted then the
+<span class="samp">--check</span> option will display a warning.  It is up to you to
+calculate and enter the correct inverse function to obtain proper
+conversions.  The <span class="samp">--check</span> option tests the inverse at one point
+and print an error if it is not valid there, but this is not a guarantee
+that your inverse is correct.
+
+  </p><p>If you wish to make synonyms for nonlinear units, you still need to define
+both the forward and inverse functions.  Inverse functions can be
+obtained using the <span class="samp">~</span> operator.  So to create a synonym
+for <span class="samp">tempF</span> you could write
+
+</p><pre class="example">         fahrenheit(x) [1;K] tempF(x); ~tempF(fahrenheit)
+</pre>
+  <p><a name="index-units-functions-64"></a><a name="index-functions-of-units-65"></a>You may occasionally wish to define a function that operates on units. 
+This can be done
+using a nonlinear unit definition.  For example, the definition below
+provides conversion between radius and the area of a circle.  Note
+that this definition requires a length as input and produces an
+area as output, as indicated by the specification in brackets.
+
+</p><pre class="example">         circlearea(r) [m;m^2] pi r^2 ; sqrt(circlearea/pi)
+</pre>
+  <p><a name="index-linear-interpolation-66"></a><a name="index-units_002c-piecewise-linear-67"></a><a name="index-piecewise-linear-units-68"></a>Sometimes you may be interested in a piecewise linear unit such as
+many wire gauges.  Piecewise linear units can be defined by specifying
+conversions to linear units on a list of points. 
+Conversion at other points will be done by linear interpolation. 
+A partial definition of zinc gauge is
+
+</p><pre class="example">         zincgauge[in] 1 0.002, 10 0.02, 15 0.04, 19 0.06, 23 0.1
+</pre>
+  <p class="noindent">In this example, <span class="samp">zincgauge</span> is the name of the piecewise linear
+unit.  The definition of such a unit is indicated by the
+embedded <span class="samp">[</span> character.  After the bracket, you should indicate the
+units to be attached to the numbers in the table. 
+No spaces can appear before the
+<span class="samp">]</span> character, so a definition like <span class="samp">foo[kg meters]</span> is
+illegal; instead write <span class="samp">foo[kg*meters]</span>.  The definition of the
+unit consists of a list of pairs optionally separated by commas. 
+This list defines a function for converting from the piecewise linear
+unit to linear units.  The
+first item in each pair is the function argument; the second item is the
+value of the function at that argument (in the units specified in brackets). 
+In this example,
+we define <span class="samp">zincgauge</span> at five points.  For example, we set
+<span class="samp">zincgauge(1)</span> equal to <span class="samp">0.002 in</span>.  Definitions like this
+may be  more readable  if written using  continuation characters as
+<!-- noman -->
+
+</p><pre class="example">         zincgauge[in] \
+             1 0.002  \
+            10 0.02   \
+            15 0.04   \
+            19 0.06   \
+            23 0.1
+</pre>
+  <!-- end noman -->
+<!-- man .in +5m -->
+<!-- man .ta 3m +3m -->
+<!-- man .nf -->
+<!-- man -->
+<!-- man zincgauge[in]	 \\ -->
+<!-- man 	1	0.002 \\ -->
+<!-- man 	10	0.02 \\ -->
+<!-- man 	15	0.04 \\ -->
+<!-- man 	19	0.06 \\ -->
+<!-- man 	23	0.1 -->
+<!-- man .fi -->
+<!-- man .in -2m -->
+<p>With the preceeding definition, the following conversion can be
+performed:
+
+</p><pre class="example">         You have: zincgauge(10)
+        You want: in
+            * 0.02
+            / 50
+        You have: .01 inch
+        You want: zincgauge
+            5
+</pre>
+  <p>If you define a piecewise linear unit that is not strictly
+monotonic, then the inverse will not be well defined.  If the inverse is
+requested for such a unit, <code>units</code> will return the smallest
+inverse.  The <span class="samp">--check</span> option will print a warning if a
+non-monotonic piecewise linear unit is encountered.
+
+
+</p><div class="node">
+<p></p><hr>
+<a name="Warranty-license"></a>Next:&nbsp;<a rel="next" accesskey="n" href="#Index">Index</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Nonlinear-units">Defining nonlinear units</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+
+<h2 class="chapter">9 Warranty/License</h2>
+
+ 
+<p>The GNU General Public License is a free, copyleft license for
+software and other kinds of works.</p> 
+ 
+<p>The licenses for most software and other practical works are designed
+to take away your freedom to share and change the works.  By contrast,
+the GNU General Public License is intended to guarantee your freedom to
+share and change all versions of a program--to make sure it remains free
+software for all its users.  We, the Free Software Foundation, use the
+GNU General Public License for most of our software; it applies also to
+any other work released this way by its authors.  You can apply it to
+your programs, too.</p> 
+ 
+<p>When we speak of free software, we are referring to freedom, not
+price.  Our General Public Licenses are designed to make sure that you
+have the freedom to distribute copies of free software (and charge for
+them if you wish), that you receive source code or can get it if you
+want it, that you can change the software or use pieces of it in new
+free programs, and that you know you can do these things.</p> 
+ 
+<p>To protect your rights, we need to prevent others from denying you
+these rights or asking you to surrender the rights.  Therefore, you have
+certain responsibilities if you distribute copies of the software, or if
+you modify it: responsibilities to respect the freedom of others.</p> 
+ 
+<p>For example, if you distribute copies of such a program, whether
+gratis or for a fee, you must pass on to the recipients the same
+freedoms that you received.  You must make sure that they, too, receive
+or can get the source code.  And you must show them these terms so they
+know their rights.</p> 
+ 
+<p>Developers that use the GNU GPL protect your rights with two steps:
+(1) assert copyright on the software, and (2) offer you this License
+giving you legal permission to copy, distribute and/or modify it.</p> 
+ 
+<p>For the developers' and authors' protection, the GPL clearly explains
+that there is no warranty for this free software.  For both users' and
+authors' sake, the GPL requires that modified versions be marked as
+changed, so that their problems will not be attributed erroneously to
+authors of previous versions.</p> 
+ 
+<p>Some devices are designed to deny users access to install or run
+modified versions of the software inside them, although the manufacturer
+can do so.  This is fundamentally incompatible with the aim of
+protecting users' freedom to change the software.  The systematic
+pattern of such abuse occurs in the area of products for individuals to
+use, which is precisely where it is most unacceptable.  Therefore, we
+have designed this version of the GPL to prohibit the practice for those
+products.  If such problems arise substantially in other domains, we
+stand ready to extend this provision to those domains in future versions
+of the GPL, as needed to protect the freedom of users.</p> 
+ 
+<p>Finally, every program is threatened constantly by software patents.
+States should not allow patents to restrict development and use of
+software on general-purpose computers, but in those that do, we wish to
+avoid the special danger that patents applied to a free program could
+make it effectively proprietary.  To prevent this, the GPL assures that
+patents cannot be used to render the program non-free.</p> 
+ 
+<p>The precise terms and conditions for copying, distribution and
+modification follow.</p> 
+ 
+<h3><a name="terms"></a>TERMS AND CONDITIONS</h3> 
+ 
+<h4><a name="section0"></a>0. Definitions.</h4> 
+ 
+<p>&ldquo;This License&rdquo; refers to version 3 of the GNU General Public License.</p> 
+ 
+<p>&ldquo;Copyright&rdquo; also means copyright-like laws that apply to other kinds of
+works, such as semiconductor masks.</p> 
+ 
+<p>&ldquo;The Program&rdquo; refers to any copyrightable work licensed under this
+License.  Each licensee is addressed as &ldquo;you&rdquo;.  &ldquo;Licensees&rdquo; and
+&ldquo;recipients&rdquo; may be individuals or organizations.</p> 
+ 
+<p>To &ldquo;modify&rdquo; a work means to copy from or adapt all or part of the work
+in a fashion requiring copyright permission, other than the making of an
+exact copy.  The resulting work is called a &ldquo;modified version&rdquo; of the
+earlier work or a work &ldquo;based on&rdquo; the earlier work.</p> 
+ 
+<p>A &ldquo;covered work&rdquo; means either the unmodified Program or a work based
+on the Program.</p> 
+ 
+<p>To &ldquo;propagate&rdquo; a work means to do anything with it that, without
+permission, would make you directly or secondarily liable for
+infringement under applicable copyright law, except executing it on a
+computer or modifying a private copy.  Propagation includes copying,
+distribution (with or without modification), making available to the
+public, and in some countries other activities as well.</p> 
+ 
+<p>To &ldquo;convey&rdquo; a work means any kind of propagation that enables other
+parties to make or receive copies.  Mere interaction with a user through
+a computer network, with no transfer of a copy, is not conveying.</p> 
+ 
+<p>An interactive user interface displays &ldquo;Appropriate Legal Notices&rdquo;
+to the extent that it includes a convenient and prominently visible
+feature that (1) displays an appropriate copyright notice, and (2)
+tells the user that there is no warranty for the work (except to the
+extent that warranties are provided), that licensees may convey the
+work under this License, and how to view a copy of this License.  If
+the interface presents a list of user commands or options, such as a
+menu, a prominent item in the list meets this criterion.</p> 
+ 
+<h4><a name="section1"></a>1. Source Code.</h4> 
+ 
+<p>The &ldquo;source code&rdquo; for a work means the preferred form of the work
+for making modifications to it.  &ldquo;Object code&rdquo; means any non-source
+form of a work.</p> 
+ 
+<p>A &ldquo;Standard Interface&rdquo; means an interface that either is an official
+standard defined by a recognized standards body, or, in the case of
+interfaces specified for a particular programming language, one that
+is widely used among developers working in that language.</p> 
+ 
+<p>The &ldquo;System Libraries&rdquo; of an executable work include anything, other
+than the work as a whole, that (a) is included in the normal form of
+packaging a Major Component, but which is not part of that Major
+Component, and (b) serves only to enable use of the work with that
+Major Component, or to implement a Standard Interface for which an
+implementation is available to the public in source code form.  A
+&ldquo;Major Component&rdquo;, in this context, means a major essential component
+(kernel, window system, and so on) of the specific operating system
+(if any) on which the executable work runs, or a compiler used to
+produce the work, or an object code interpreter used to run it.</p> 
+ 
+<p>The &ldquo;Corresponding Source&rdquo; for a work in object code form means all
+the source code needed to generate, install, and (for an executable
+work) run the object code and to modify the work, including scripts to
+control those activities.  However, it does not include the work's
+System Libraries, or general-purpose tools or generally available free
+programs which are used unmodified in performing those activities but
+which are not part of the work.  For example, Corresponding Source
+includes interface definition files associated with source files for
+the work, and the source code for shared libraries and dynamically
+linked subprograms that the work is specifically designed to require,
+such as by intimate data communication or control flow between those
+subprograms and other parts of the work.</p> 
+ 
+<p>The Corresponding Source need not include anything that users
+can regenerate automatically from other parts of the Corresponding
+Source.</p> 
+ 
+<p>The Corresponding Source for a work in source code form is that
+same work.</p> 
+ 
+<h4><a name="section2"></a>2. Basic Permissions.</h4> 
+ 
+<p>All rights granted under this License are granted for the term of
+copyright on the Program, and are irrevocable provided the stated
+conditions are met.  This License explicitly affirms your unlimited
+permission to run the unmodified Program.  The output from running a
+covered work is covered by this License only if the output, given its
+content, constitutes a covered work.  This License acknowledges your
+rights of fair use or other equivalent, as provided by copyright law.</p> 
+ 
+<p>You may make, run and propagate covered works that you do not
+convey, without conditions so long as your license otherwise remains
+in force.  You may convey covered works to others for the sole purpose
+of having them make modifications exclusively for you, or provide you
+with facilities for running those works, provided that you comply with
+the terms of this License in conveying all material for which you do
+not control copyright.  Those thus making or running the covered works
+for you must do so exclusively on your behalf, under your direction
+and control, on terms that prohibit them from making any copies of
+your copyrighted material outside their relationship with you.</p> 
+ 
+<p>Conveying under any other circumstances is permitted solely under
+the conditions stated below.  Sublicensing is not allowed; section 10
+makes it unnecessary.</p> 
+ 
+<h4><a name="section3"></a>3. Protecting Users' Legal Rights From Anti-Circumvention Law.</h4> 
+ 
+<p>No covered work shall be deemed part of an effective technological
+measure under any applicable law fulfilling obligations under article
+11 of the WIPO copyright treaty adopted on 20 December 1996, or
+similar laws prohibiting or restricting circumvention of such
+measures.</p> 
+ 
+<p>When you convey a covered work, you waive any legal power to forbid
+circumvention of technological measures to the extent such circumvention
+is effected by exercising rights under this License with respect to
+the covered work, and you disclaim any intention to limit operation or
+modification of the work as a means of enforcing, against the work's
+users, your or third parties' legal rights to forbid circumvention of
+technological measures.</p> 
+ 
+<h4><a name="section4"></a>4. Conveying Verbatim Copies.</h4> 
+ 
+<p>You may convey verbatim copies of the Program's source code as you
+receive it, in any medium, provided that you conspicuously and
+appropriately publish on each copy an appropriate copyright notice;
+keep intact all notices stating that this License and any
+non-permissive terms added in accord with section 7 apply to the code;
+keep intact all notices of the absence of any warranty; and give all
+recipients a copy of this License along with the Program.</p> 
+ 
+<p>You may charge any price or no price for each copy that you convey,
+and you may offer support or warranty protection for a fee.</p> 
+ 
+<h4><a name="section5"></a>5. Conveying Modified Source Versions.</h4> 
+ 
+<p>You may convey a work based on the Program, or the modifications to
+produce it from the Program, in the form of source code under the
+terms of section 4, provided that you also meet all of these conditions:</p> 
+ 
+<ul> 
+<li>a) The work must carry prominent notices stating that you modified
+    it, and giving a relevant date.</li> 
+ 
+<li>b) The work must carry prominent notices stating that it is
+    released under this License and any conditions added under section
+    7.  This requirement modifies the requirement in section 4 to
+    &ldquo;keep intact all notices&rdquo;.</li> 
+ 
+<li>c) You must license the entire work, as a whole, under this
+    License to anyone who comes into possession of a copy.  This
+    License will therefore apply, along with any applicable section 7
+    additional terms, to the whole of the work, and all its parts,
+    regardless of how they are packaged.  This License gives no
+    permission to license the work in any other way, but it does not
+    invalidate such permission if you have separately received it.</li> 
+ 
+<li>d) If the work has interactive user interfaces, each must display
+    Appropriate Legal Notices; however, if the Program has interactive
+    interfaces that do not display Appropriate Legal Notices, your
+    work need not make them do so.</li> 
+</ul> 
+ 
+<p>A compilation of a covered work with other separate and independent
+works, which are not by their nature extensions of the covered work,
+and which are not combined with it such as to form a larger program,
+in or on a volume of a storage or distribution medium, is called an
+&ldquo;aggregate&rdquo; if the compilation and its resulting copyright are not
+used to limit the access or legal rights of the compilation's users
+beyond what the individual works permit.  Inclusion of a covered work
+in an aggregate does not cause this License to apply to the other
+parts of the aggregate.</p> 
+ 
+<h4><a name="section6"></a>6. Conveying Non-Source Forms.</h4> 
+ 
+<p>You may convey a covered work in object code form under the terms
+of sections 4 and 5, provided that you also convey the
+machine-readable Corresponding Source under the terms of this License,
+in one of these ways:</p> 
+ 
+<ul> 
+<li>a) Convey the object code in, or embodied in, a physical product
+    (including a physical distribution medium), accompanied by the
+    Corresponding Source fixed on a durable physical medium
+    customarily used for software interchange.</li> 
+ 
+<li>b) Convey the object code in, or embodied in, a physical product
+    (including a physical distribution medium), accompanied by a
+    written offer, valid for at least three years and valid for as
+    long as you offer spare parts or customer support for that product
+    model, to give anyone who possesses the object code either (1) a
+    copy of the Corresponding Source for all the software in the
+    product that is covered by this License, on a durable physical
+    medium customarily used for software interchange, for a price no
+    more than your reasonable cost of physically performing this
+    conveying of source, or (2) access to copy the
+    Corresponding Source from a network server at no charge.</li> 
+ 
+<li>c) Convey individual copies of the object code with a copy of the
+    written offer to provide the Corresponding Source.  This
+    alternative is allowed only occasionally and noncommercially, and
+    only if you received the object code with such an offer, in accord
+    with subsection 6b.</li> 
+ 
+<li>d) Convey the object code by offering access from a designated
+    place (gratis or for a charge), and offer equivalent access to the
+    Corresponding Source in the same way through the same place at no
+    further charge.  You need not require recipients to copy the
+    Corresponding Source along with the object code.  If the place to
+    copy the object code is a network server, the Corresponding Source
+    may be on a different server (operated by you or a third party)
+    that supports equivalent copying facilities, provided you maintain
+    clear directions next to the object code saying where to find the
+    Corresponding Source.  Regardless of what server hosts the
+    Corresponding Source, you remain obligated to ensure that it is
+    available for as long as needed to satisfy these requirements.</li> 
+ 
+<li>e) Convey the object code using peer-to-peer transmission, provided
+    you inform other peers where the object code and Corresponding
+    Source of the work are being offered to the general public at no
+    charge under subsection 6d.</li> 
+</ul> 
+ 
+<p>A separable portion of the object code, whose source code is excluded
+from the Corresponding Source as a System Library, need not be
+included in conveying the object code work.</p> 
+ 
+<p>A &ldquo;User Product&rdquo; is either (1) a &ldquo;consumer product&rdquo;, which means any
+tangible personal property which is normally used for personal, family,
+or household purposes, or (2) anything designed or sold for incorporation
+into a dwelling.  In determining whether a product is a consumer product,
+doubtful cases shall be resolved in favor of coverage.  For a particular
+product received by a particular user, &ldquo;normally used&rdquo; refers to a
+typical or common use of that class of product, regardless of the status
+of the particular user or of the way in which the particular user
+actually uses, or expects or is expected to use, the product.  A product
+is a consumer product regardless of whether the product has substantial
+commercial, industrial or non-consumer uses, unless such uses represent
+the only significant mode of use of the product.</p> 
+ 
+<p>&ldquo;Installation Information&rdquo; for a User Product means any methods,
+procedures, authorization keys, or other information required to install
+and execute modified versions of a covered work in that User Product from
+a modified version of its Corresponding Source.  The information must
+suffice to ensure that the continued functioning of the modified object
+code is in no case prevented or interfered with solely because
+modification has been made.</p> 
+ 
+<p>If you convey an object code work under this section in, or with, or
+specifically for use in, a User Product, and the conveying occurs as
+part of a transaction in which the right of possession and use of the
+User Product is transferred to the recipient in perpetuity or for a
+fixed term (regardless of how the transaction is characterized), the
+Corresponding Source conveyed under this section must be accompanied
+by the Installation Information.  But this requirement does not apply
+if neither you nor any third party retains the ability to install
+modified object code on the User Product (for example, the work has
+been installed in ROM).</p> 
+ 
+<p>The requirement to provide Installation Information does not include a
+requirement to continue to provide support service, warranty, or updates
+for a work that has been modified or installed by the recipient, or for
+the User Product in which it has been modified or installed.  Access to a
+network may be denied when the modification itself materially and
+adversely affects the operation of the network or violates the rules and
+protocols for communication across the network.</p> 
+ 
+<p>Corresponding Source conveyed, and Installation Information provided,
+in accord with this section must be in a format that is publicly
+documented (and with an implementation available to the public in
+source code form), and must require no special password or key for
+unpacking, reading or copying.</p> 
+ 
+<h4><a name="section7"></a>7. Additional Terms.</h4> 
+ 
+<p>&ldquo;Additional permissions&rdquo; are terms that supplement the terms of this
+License by making exceptions from one or more of its conditions.
+Additional permissions that are applicable to the entire Program shall
+be treated as though they were included in this License, to the extent
+that they are valid under applicable law.  If additional permissions
+apply only to part of the Program, that part may be used separately
+under those permissions, but the entire Program remains governed by
+this License without regard to the additional permissions.</p> 
+ 
+<p>When you convey a copy of a covered work, you may at your option
+remove any additional permissions from that copy, or from any part of
+it.  (Additional permissions may be written to require their own
+removal in certain cases when you modify the work.)  You may place
+additional permissions on material, added by you to a covered work,
+for which you have or can give appropriate copyright permission.</p> 
+ 
+<p>Notwithstanding any other provision of this License, for material you
+add to a covered work, you may (if authorized by the copyright holders of
+that material) supplement the terms of this License with terms:</p> 
+ 
+<ul> 
+<li>a) Disclaiming warranty or limiting liability differently from the
+    terms of sections 15 and 16 of this License; or</li> 
+ 
+<li>b) Requiring preservation of specified reasonable legal notices or
+    author attributions in that material or in the Appropriate Legal
+    Notices displayed by works containing it; or</li> 
+ 
+<li>c) Prohibiting misrepresentation of the origin of that material, or
+    requiring that modified versions of such material be marked in
+    reasonable ways as different from the original version; or</li> 
+ 
+<li>d) Limiting the use for publicity purposes of names of licensors or
+    authors of the material; or</li> 
+ 
+<li>e) Declining to grant rights under trademark law for use of some
+    trade names, trademarks, or service marks; or</li> 
+ 
+<li>f) Requiring indemnification of licensors and authors of that
+    material by anyone who conveys the material (or modified versions of
+    it) with contractual assumptions of liability to the recipient, for
+    any liability that these contractual assumptions directly impose on
+    those licensors and authors.</li> 
+</ul> 
+ 
+<p>All other non-permissive additional terms are considered &ldquo;further
+restrictions&rdquo; within the meaning of section 10.  If the Program as you
+received it, or any part of it, contains a notice stating that it is
+governed by this License along with a term that is a further
+restriction, you may remove that term.  If a license document contains
+a further restriction but permits relicensing or conveying under this
+License, you may add to a covered work material governed by the terms
+of that license document, provided that the further restriction does
+not survive such relicensing or conveying.</p> 
+ 
+<p>If you add terms to a covered work in accord with this section, you
+must place, in the relevant source files, a statement of the
+additional terms that apply to those files, or a notice indicating
+where to find the applicable terms.</p> 
+ 
+<p>Additional terms, permissive or non-permissive, may be stated in the
+form of a separately written license, or stated as exceptions;
+the above requirements apply either way.</p> 
+ 
+<h4><a name="section8"></a>8. Termination.</h4> 
+ 
+<p>You may not propagate or modify a covered work except as expressly
+provided under this License.  Any attempt otherwise to propagate or
+modify it is void, and will automatically terminate your rights under
+this License (including any patent licenses granted under the third
+paragraph of section 11).</p> 
+ 
+<p>However, if you cease all violation of this License, then your
+license from a particular copyright holder is reinstated (a)
+provisionally, unless and until the copyright holder explicitly and
+finally terminates your license, and (b) permanently, if the copyright
+holder fails to notify you of the violation by some reasonable means
+prior to 60 days after the cessation.</p> 
+ 
+<p>Moreover, your license from a particular copyright holder is
+reinstated permanently if the copyright holder notifies you of the
+violation by some reasonable means, this is the first time you have
+received notice of violation of this License (for any work) from that
+copyright holder, and you cure the violation prior to 30 days after
+your receipt of the notice.</p> 
+ 
+<p>Termination of your rights under this section does not terminate the
+licenses of parties who have received copies or rights from you under
+this License.  If your rights have been terminated and not permanently
+reinstated, you do not qualify to receive new licenses for the same
+material under section 10.</p> 
+ 
+<h4><a name="section9"></a>9. Acceptance Not Required for Having Copies.</h4> 
+ 
+<p>You are not required to accept this License in order to receive or
+run a copy of the Program.  Ancillary propagation of a covered work
+occurring solely as a consequence of using peer-to-peer transmission
+to receive a copy likewise does not require acceptance.  However,
+nothing other than this License grants you permission to propagate or
+modify any covered work.  These actions infringe copyright if you do
+not accept this License.  Therefore, by modifying or propagating a
+covered work, you indicate your acceptance of this License to do so.</p> 
+ 
+<h4><a name="section10"></a>10. Automatic Licensing of Downstream Recipients.</h4> 
+ 
+<p>Each time you convey a covered work, the recipient automatically
+receives a license from the original licensors, to run, modify and
+propagate that work, subject to this License.  You are not responsible
+for enforcing compliance by third parties with this License.</p> 
+ 
+<p>An &ldquo;entity transaction&rdquo; is a transaction transferring control of an
+organization, or substantially all assets of one, or subdividing an
+organization, or merging organizations.  If propagation of a covered
+work results from an entity transaction, each party to that
+transaction who receives a copy of the work also receives whatever
+licenses to the work the party's predecessor in interest had or could
+give under the previous paragraph, plus a right to possession of the
+Corresponding Source of the work from the predecessor in interest, if
+the predecessor has it or can get it with reasonable efforts.</p> 
+ 
+<p>You may not impose any further restrictions on the exercise of the
+rights granted or affirmed under this License.  For example, you may
+not impose a license fee, royalty, or other charge for exercise of
+rights granted under this License, and you may not initiate litigation
+(including a cross-claim or counterclaim in a lawsuit) alleging that
+any patent claim is infringed by making, using, selling, offering for
+sale, or importing the Program or any portion of it.</p> 
+ 
+<h4><a name="section11"></a>11. Patents.</h4> 
+ 
+<p>A &ldquo;contributor&rdquo; is a copyright holder who authorizes use under this
+License of the Program or a work on which the Program is based.  The
+work thus licensed is called the contributor's &ldquo;contributor version&rdquo;.</p> 
+ 
+<p>A contributor's &ldquo;essential patent claims&rdquo; are all patent claims
+owned or controlled by the contributor, whether already acquired or
+hereafter acquired, that would be infringed by some manner, permitted
+by this License, of making, using, or selling its contributor version,
+but do not include claims that would be infringed only as a
+consequence of further modification of the contributor version.  For
+purposes of this definition, &ldquo;control&rdquo; includes the right to grant
+patent sublicenses in a manner consistent with the requirements of
+this License.</p> 
+ 
+<p>Each contributor grants you a non-exclusive, worldwide, royalty-free
+patent license under the contributor's essential patent claims, to
+make, use, sell, offer for sale, import and otherwise run, modify and
+propagate the contents of its contributor version.</p> 
+ 
+<p>In the following three paragraphs, a &ldquo;patent license&rdquo; is any express
+agreement or commitment, however denominated, not to enforce a patent
+(such as an express permission to practice a patent or covenant not to
+sue for patent infringement).  To &ldquo;grant&rdquo; such a patent license to a
+party means to make such an agreement or commitment not to enforce a
+patent against the party.</p> 
+ 
+<p>If you convey a covered work, knowingly relying on a patent license,
+and the Corresponding Source of the work is not available for anyone
+to copy, free of charge and under the terms of this License, through a
+publicly available network server or other readily accessible means,
+then you must either (1) cause the Corresponding Source to be so
+available, or (2) arrange to deprive yourself of the benefit of the
+patent license for this particular work, or (3) arrange, in a manner
+consistent with the requirements of this License, to extend the patent
+license to downstream recipients.  &ldquo;Knowingly relying&rdquo; means you have
+actual knowledge that, but for the patent license, your conveying the
+covered work in a country, or your recipient's use of the covered work
+in a country, would infringe one or more identifiable patents in that
+country that you have reason to believe are valid.</p> 
+  
+<p>If, pursuant to or in connection with a single transaction or
+arrangement, you convey, or propagate by procuring conveyance of, a
+covered work, and grant a patent license to some of the parties
+receiving the covered work authorizing them to use, propagate, modify
+or convey a specific copy of the covered work, then the patent license
+you grant is automatically extended to all recipients of the covered
+work and works based on it.</p> 
+ 
+<p>A patent license is &ldquo;discriminatory&rdquo; if it does not include within
+the scope of its coverage, prohibits the exercise of, or is
+conditioned on the non-exercise of one or more of the rights that are
+specifically granted under this License.  You may not convey a covered
+work if you are a party to an arrangement with a third party that is
+in the business of distributing software, under which you make payment
+to the third party based on the extent of your activity of conveying
+the work, and under which the third party grants, to any of the
+parties who would receive the covered work from you, a discriminatory
+patent license (a) in connection with copies of the covered work
+conveyed by you (or copies made from those copies), or (b) primarily
+for and in connection with specific products or compilations that
+contain the covered work, unless you entered into that arrangement,
+or that patent license was granted, prior to 28 March 2007.</p> 
+ 
+<p>Nothing in this License shall be construed as excluding or limiting
+any implied license or other defenses to infringement that may
+otherwise be available to you under applicable patent law.</p> 
+ 
+<h4><a name="section12"></a>12. No Surrender of Others' Freedom.</h4> 
+ 
+<p>If conditions are imposed on you (whether by court order, agreement or
+otherwise) that contradict the conditions of this License, they do not
+excuse you from the conditions of this License.  If you cannot convey a
+covered work so as to satisfy simultaneously your obligations under this
+License and any other pertinent obligations, then as a consequence you may
+not convey it at all.  For example, if you agree to terms that obligate you
+to collect a royalty for further conveying from those to whom you convey
+the Program, the only way you could satisfy both those terms and this
+License would be to refrain entirely from conveying the Program.</p> 
+ 
+<h4><a name="section13"></a>13. Use with the GNU Affero General Public License.</h4> 
+ 
+<p>Notwithstanding any other provision of this License, you have
+permission to link or combine any covered work with a work licensed
+under version 3 of the GNU Affero General Public License into a single
+combined work, and to convey the resulting work.  The terms of this
+License will continue to apply to the part which is the covered work,
+but the special requirements of the GNU Affero General Public License,
+section 13, concerning interaction through a network will apply to the
+combination as such.</p> 
+ 
+<h4><a name="section14"></a>14. Revised Versions of this License.</h4> 
+ 
+<p>The Free Software Foundation may publish revised and/or new versions of
+the GNU General Public License from time to time.  Such new versions will
+be similar in spirit to the present version, but may differ in detail to
+address new problems or concerns.</p> 
+ 
+<p>Each version is given a distinguishing version number.  If the
+Program specifies that a certain numbered version of the GNU General
+Public License &ldquo;or any later version&rdquo; applies to it, you have the
+option of following the terms and conditions either of that numbered
+version or of any later version published by the Free Software
+Foundation.  If the Program does not specify a version number of the
+GNU General Public License, you may choose any version ever published
+by the Free Software Foundation.</p> 
+ 
+<p>If the Program specifies that a proxy can decide which future
+versions of the GNU General Public License can be used, that proxy's
+public statement of acceptance of a version permanently authorizes you
+to choose that version for the Program.</p> 
+ 
+<p>Later license versions may give you additional or different
+permissions.  However, no additional obligations are imposed on any
+author or copyright holder as a result of your choosing to follow a
+later version.</p> 
+ 
+<h4><a name="section15"></a>15. Disclaimer of Warranty.</h4> 
+ 
+<p>THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
+APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
+HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM &ldquo;AS IS&rdquo; WITHOUT WARRANTY
+OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
+IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF
+ALL NECESSARY SERVICING, REPAIR OR CORRECTION.</p> 
+ 
+<h4><a name="section16"></a>16. Limitation of Liability.</h4> 
+ 
+<p>IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS
+THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
+GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE
+USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF
+DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD
+PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS),
+EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGES.</p> 
+ 
+<h4><a name="section17"></a>17. Interpretation of Sections 15 and 16.</h4> 
+ 
+<p>If the disclaimer of warranty and limitation of liability provided
+above cannot be given local legal effect according to their terms,
+reviewing courts shall apply local law that most closely approximates
+an absolute waiver of all civil liability in connection with the
+Program, unless a warranty or assumption of liability accompanies a
+copy of the Program in return for a fee.</p> 
+ 
+<p>END OF TERMS AND CONDITIONS</p> 
+ 
+<h3><a name="howto"></a>How to Apply These Terms to Your New Programs</h3> 
+ 
+<p>If you develop a new program, and you want it to be of the greatest
+possible use to the public, the best way to achieve this is to make it
+free software which everyone can redistribute and change under these terms.</p> 
+ 
+<p>To do so, attach the following notices to the program.  It is safest
+to attach them to the start of each source file to most effectively
+state the exclusion of warranty; and each file should have at least
+the &ldquo;copyright&rdquo; line and a pointer to where the full notice is found.</p> 
+ 
+<pre>    &lt;one line to give the program's name and a brief idea of what it does.&gt;
+    Copyright (C) &lt;year&gt;  &lt;name of author&gt;
+ 
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+ 
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+ 
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+</pre> 
+ 
+<p>Also add information on how to contact you by electronic and paper mail.</p> 
+ 
+<p>If the program does terminal interaction, make it output a short
+notice like this when it starts in an interactive mode:</p> 
+ 
+<pre>    &lt;program&gt;  Copyright (C) &lt;year&gt;  &lt;name of author&gt;
+    This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
+    This is free software, and you are welcome to redistribute it
+    under certain conditions; type `show c' for details.
+</pre> 
+ 
+<p>The hypothetical commands `show w' and `show c' should show the appropriate
+parts of the General Public License.  Of course, your program's commands
+might be different; for a GUI interface, you would use an &ldquo;about box&rdquo;.</p> 
+ 
+<p>You should also get your employer (if you work as a programmer) or school,
+if any, to sign a &ldquo;copyright disclaimer&rdquo; for the program, if necessary.
+For more information on this, and how to apply and follow the GNU GPL, see
+&lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p> 
+ 
+<p>The GNU General Public License does not permit incorporating your program
+into proprietary programs.  If your program is a subroutine library, you
+may consider it more useful to permit linking proprietary applications with
+the library.  If this is what you want to do, use the GNU Lesser General
+Public License instead of this License.  But first, please read
+&lt;<a href="http://www.gnu.org/philosophy/why-not-lgpl.html">http://www.gnu.org/philosophy/why-not-lgpl.html</a>&gt;.</p> 
+
+</p><div class="node">
+<p></p><hr>
+<a name="Index"></a>Next:&nbsp;
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Warranty-license">Warranty/License</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+<h2 class="unnumbered">Index</h2>
+
+<ul class="index-cp" compact="">
+<li><a href="#index-_002d_002dcheck-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-27"><code>--check </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dcheck_002dverbose-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-28"><code>--check-verbose </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dcompact-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-40"><code>--compact </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dfile-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-33"><code>--file </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dhelp-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-35"><code>--help </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dminus-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-37"><code>--minus </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002done_002dline-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-47"><code>--one-line </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002doutput_002dformat-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-31"><code>--output-format </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dproduct-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-39"><code>--product </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dquiet-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-42"><code>--quiet </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dsilent-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-43"><code>--silent </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dstrict-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-45"><code>--strict </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dterse-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-49"><code>--terse </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dverbose-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-51"><code>--verbose </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dverbose_002dcheck-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-29"><code>--verbose-check </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dversion-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-53"><code>--version </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d1-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-46"><code>-1 </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002dc-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-26"><code>-c </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002df-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-32"><code>-f </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002dh-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-34"><code>-h </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002dm-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-36"><code>-m </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002do-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-30"><code>-o </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002dp-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-38"><code>-p </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002dq-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-41"><code>-q </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002ds-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-44"><code>-s </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002dt-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-48"><code>-t </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002dV-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-52"><code>-V </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002dv-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-50"><code>-v </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-addition-of-units-19">addition of units</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-changing-nonlinear-unit-definitions-62">changing nonlinear unit definitions</a>: <a href="#Nonlinear-units">Nonlinear units</a></li>
+<li><a href="#index-changing-units-definitions-57">changing units definitions</a>: <a href="#Defining-new-units">Defining new units</a></li>
+<li><a href="#index-command-line-options-25">command line options</a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-command-line-unit-conversion-9">command line unit conversion</a>: <a href="#Command-line-use">Command line use</a></li>
+<li><a href="#index-defining-nonlinear-units-60">defining nonlinear units</a>: <a href="#Nonlinear-units">Nonlinear units</a></li>
+<li><a href="#index-defining-units-55">defining units</a>: <a href="#Defining-new-units">Defining new units</a></li>
+<li><a href="#index-dimensionless-units-59">dimensionless units</a>: <a href="#Defining-new-units">Defining new units</a></li>
+<li><a href="#index-dimensionless-units-8">dimensionless units</a>: <a href="#Interactive-use">Interactive use</a></li>
+<li><a href="#index-division-of-numbers-17">division of numbers</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-division-of-units-15">division of units</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-environment-variables-70">environment variables</a>: <a href="#Environment-vars">Environment vars</a></li>
+<li><a href="#index-fractions-16">fractions</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-functions-of-units-65">functions of units</a>: <a href="#Nonlinear-units">Nonlinear units</a></li>
+<li><a href="#index-functions_002c-built-in-20">functions, built in</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-include-files-58">include files</a>: <a href="#Defining-new-units">Defining new units</a></li>
+<li><a href="#index-incompatible-units-6">incompatible units</a>: <a href="#Interactive-use">Interactive use</a></li>
+<li><a href="#index-interactive-use-1">interactive use</a>: <a href="#Interactive-use">Interactive use</a></li>
+<li><a href="#index-invoking-units-24">invoking units</a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-linear-interpolation-66">linear interpolation</a>: <a href="#Nonlinear-units">Nonlinear units</a></li>
+<li><a href="#index-LOCALE-environment-variable-71">LOCALE environment variable</a>: <a href="#Environment-vars">Environment vars</a></li>
+<li><a href="#index-localization-69">localization</a>: <a href="#Localization">Localization</a></li>
+<li><a href="#index-multiplication-of-units-14">multiplication of units</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-non_002dconformable-units-7">non-conformable units</a>: <a href="#Interactive-use">Interactive use</a></li>
+<li><a href="#index-non_002dinteractive-unit-conversion-10">non-interactive unit conversion</a>: <a href="#Command-line-use">Command line use</a></li>
+<li><a href="#index-nonlinear-unit-conversions-63">nonlinear unit conversions</a>: <a href="#Nonlinear-units">Nonlinear units</a></li>
+<li><a href="#index-nonlinear-units_002c-redefinition-of-61">nonlinear units, redefinition of</a>: <a href="#Nonlinear-units">Nonlinear units</a></li>
+<li><a href="#index-PAGER-environment-variable-72">PAGER environment variable</a>: <a href="#Environment-vars">Environment vars</a></li>
+<li><a href="#index-piecewise-linear-units-68">piecewise linear units</a>: <a href="#Nonlinear-units">Nonlinear units</a></li>
+<li><a href="#index-powers-12">powers</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-products-13">products</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-readline_002c-use-with-_0040code_007bunits_007d-74">readline, use with <code>units</code></a>: <a href="#Readline-support">Readline support</a></li>
+<li><a href="#index-reciprocal-conversion-3">reciprocal conversion</a>: <a href="#Interactive-use">Interactive use</a></li>
+<li><a href="#index-roots-21">roots</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-square-roots-22">square roots</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-strict-conversion-5">strict conversion</a>: <a href="#Interactive-use">Interactive use</a></li>
+<li><a href="#index-sums-of-units-18">sums of units</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-temperature-conversions-23">temperature conversions</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-unit-definitions-54">unit definitions</a>: <a href="#Unit-definitions">Unit definitions</a></li>
+<li><a href="#index-unit-expressions-11">unit expressions</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-unit-name-completion-75">unit name completion</a>: <a href="#Readline-support">Readline support</a></li>
+<li><a href="#index-units-functions-64">units functions</a>: <a href="#Nonlinear-units">Nonlinear units</a></li>
+<li><a href="#index-units_002c-piecewise-linear-67">units, piecewise linear</a>: <a href="#Nonlinear-units">Nonlinear units</a></li>
+<li><a href="#index-units_002c-redefinition-of-56">units, redefinition of</a>: <a href="#Defining-new-units">Defining new units</a></li>
+<li><a href="#index-UNITSFILE-environment-variable-73">UNITSFILE environment variable</a>: <a href="#Environment-vars">Environment vars</a></li>
+<li><a href="#index-verbose-output-2">verbose output</a>: <a href="#Interactive-use">Interactive use</a></li>
+   </ul>
+<div class="footnote">
+<hr>
+<a name="texinfo-footnotes-in-document"></a><h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> But Fahrenheit to
+Celsius is linear, you insist.  Not so.  A transformation T is linear if
+T(x+y)=T(x)+T(y) and this fails for T(x)=ax+b.  This transformation is
+affine, but not linear. </p>
+
+   <p></p><hr></div>
+
+Copyright © 2010-2011 Keith Flower, and 2004-2006 Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA 
+Verbatim copying and distribution of this entire article is permitted in any medium, provided this notice is preserved.
+
+</html>

@@ -1,0 +1,120 @@
+###########################################################################
+#  med.dat - example of a custom units file for use in various medically-related
+#            conversions.
+#
+#  (C)opyright 2011, Keith Flower.
+#  
+#  This file contains additional simple examples for constructing conversions which
+#  may be useful in medicine. 
+#
+#  CAUTION: these values are provided merely as examples of how to code custom conversions. 
+#  Some information may be outdated or inaccurate - check against validated conversions 
+#  and use clinical judgment.
+#
+# This data is part of free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, 
+# Boston, MA  02110-1301  USA
+#
+###########################################################################
+
+###########################################################################
+#                                                                         
+# Primitive units.  Any unit defined to contain a '!' character is a      
+# primitive unit which will not be reduced any further.  All units should 
+# reduce to primitive units.                                              
+#                                                                         
+###########################################################################
+Eq											!
+equivalent								 	Eq
+
+# Functions for converting to/from SI lab values. 
+to_molarity(x) [mg/mL;mmol/L] (x * ((1 g) / (1000 mg)) * ((1 mol) / (1 g)) * ((1000 mmol) / (1 mol)) * ((1000 mL) / (1 L))); 
+to_weight(x) [mmol/L;mg/mL] (x * ((1 L) / (1000 mL)) * ((1 mol) / (1000 mmol)) * ((1 g) / (1 mol)) * ((1000 mg) / (1 g)));
+
+# Note the following supersedes definition of "micro-nit" in the original units.dat...
+unit					   						16.67 nano katal
+
+###########################################################################
+#
+# Some molecular weights (g/mol) and conversions for medically relevant substances
+#
+# (Trailing underscores are used with some molecule names because units rejects
+# names with trailing nonzero digits.
+###########################################################################
+ammonia				   						17.031 					
+NH3_			           						ammonia
+nh3_				       						ammonia
+
+beta_hydroxybutyrate	   						104.1 				
+bilirubin		    	   						584.662 				
+
+# Note that BUN measures nitrogen in the blood in the form of urea. The following value
+# represents the molecular weight of the (2) nitrogen atoms in the urea molecule.
+blood_urea_nitrogen	          				nitrogen * 2 
+bun					  						blood_urea_nitrogen
+
+c_peptide		      						3020.29 				
+cholesterol			  						386.65 				
+cortisol	        	  	  						362.460 				
+creatinine				  					113.0589 			
+cyanide				  						(carbon + nitrogen) 
+dhea					  						288.424 				
+folate			          					441.4 				
+glucose				  						180.16 				
+
+# The reference ranges and value used for converting traditional hemoglobin
+# units to SI units typically assumes use of the single unit globin chain with a 
+# molecular weight given for hemoglobin below. The "hemoglobin_tetramer"
+# assumes hemoglobin in the form of the alpha2beta2 tetramer. See: Lodemann P, 
+# Schorer G, Frey BM (2009). "Wrong molar hemogobin reference values - a 
+# longstanding error that should be corrected". Ann Hematol. 
+# DOI 10.1007/s00277-009.0791 for a further discussion.
+hemoglobin_tetramer	  						64458 				
+hemoglobin      	   	  						hemoglobin_tetramer / 4	
+hgb					  						hemoglobin
+fe					  						iron
+Fe					  						iron
+
+pyridoxine			  						169.18 				
+vitamin_b6_			  						pyridoxine
+riboflavin				  					376.36 				
+vitamin_b2_			  						riboflavin
+testosterone	                  				288.42 				
+thiamine			  	  						300.81 				
+vitamin_b1_			  						thiamine
+
+thyroxine			  	 					776.87 				
+t4_					 						thyroxine
+triiodothyronine	         					650.9776 			
+t3_					 						triiodothyronine
+
+# The value given for the molecular weight of "triglycerides" below is an average and
+# based on the standard conversion factor only.
+triglyceride	                  				885.74 				
+
+vitamin_a			  	  					286.4516 			
+vitamin_b12_		          					1355.37 				
+cobalamin				  					vitamin_b12_
+vitamin_c				  					176.12 				
+vitamin_d				  					384.64						# this is actually the value for vitamin D3, cholecalciferol
+cholecalciferol			  					vitamin_d
+vitamin_e				  					430.71 						# this is alpha-tocopherol, most biologically active form of vitamin E
+
+				
+
+
+
+
+
+

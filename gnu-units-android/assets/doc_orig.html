@@ -1,0 +1,1153 @@
+
+<!-- saved from url=(0051) -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Units: A Unit Conversion Program</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Units: A Unit Conversion Program">
+<meta name="generator" content="makeinfo 4.7">
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, height=device-height, user-scalable=0" />
+<link title="Top" rel="top" href="#Top">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc { font-variant:small-caps }
+  span.roman { font-family: serif; font-weight: normal; } 
+--></style>
+</head>
+<body>
+<h1 class="settitle">Units: A Unit Conversion Program</h1>
+<div class="node">
+<p></p><hr>
+<a name="Top"></a>Up:&nbsp;<a rel="up" accesskey="u" href="#dir">(dir)</a>
+<br>
+</div>
+
+<!-- noman -->
+<!-- end noman -->
+<ul class="menu">
+<li><a accesskey="1" href="#Overview">Overview</a>:             What does <code>units</code> do? 
+</li><li><a accesskey="2" href="#Interactive-use">Interactive use</a>:      How to use <code>units</code>. 
+</li><li><a accesskey="3" href="#Command-line-use">Command line use</a>:     How to use <code>units</code> noninteractively. 
+</li><li><a accesskey="4" href="#Invoking-units">Invoking units</a>:       Command line options. 
+</li><li><a accesskey="5" href="#Unit-expressions">Unit expressions</a>:     Forming compound units. 
+</li><li><a accesskey="6" href="#Unit-definitions">Unit definitions</a>:     What units are defined? 
+</li><li><a accesskey="7" href="#Defining-new-units">Defining new units</a>:   How to write your own units definitions. 
+</li><li><a accesskey="8" href="#Nonlinear-units">Nonlinear units</a>:      How to define nonlinear units. 
+</li><li><a accesskey="9" href="#Localization">Localization</a>:         How to define and use regional unit names. 
+</li><li><a href="#Environment-vars">Environment vars</a>:     Environment variables used by <code>units</code>. 
+</li><li><a href="#Readline-support">Readline support</a>:     Unit name completion and editing. 
+</li><li><a href="#Index">Index</a>:                General index
+</li></ul>
+
+<div class="node">
+<p></p><hr>
+<a name="Overview"></a>Next:&nbsp;<a rel="next" accesskey="n" href="#Interactive-use">Interactive use</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Top">Top</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+
+<h2 class="chapter">1 Overview of <code>units</code></h2>
+
+<p>The <code>units</code> program converts quantities expressed in various scales
+to their equivalents in other scales.  The <code>units</code> program can
+handle multiplicative scale changes as well as nonlinear
+conversions such as Fahrenheit to
+<!-- man Celsius. -->
+<!-- noman -->
+Celsius.<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>
+<!-- end noman -->
+Temperature conversions require a special
+syntax. 
+<!-- noman -->
+See <a href="#Temperature-Conversion-Example">Temperature Conversion Example</a>. 
+<!-- end noman -->
+<!-- man See the examples below. -->
+
+   </p><p>The units are defined in an external data file.  You can use the
+extensive data file that comes with this program, or you can
+provide your own data file to suit your needs.
+
+   </p><p>You can use the program interactively
+with prompts, or you can use it
+from the command line.
+
+</p><div class="node">
+<p></p><hr>
+<a name="Interactive-use"></a>Next:&nbsp;<a rel="next" accesskey="n" href="#Command-line-use">Command line use</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Overview">Overview</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+
+<h2 class="chapter">2 Interacting with <code>units</code></h2>
+
+<p><a name="index-interactive-use-1"></a>
+To invoke units for interactive use, type <kbd>units</kbd> at your shell
+prompt.  The program will print something like this:
+
+</p><pre class="example">         2131 units, 53 prefixes, 24 nonlinear units
+     
+         You have:
+</pre>
+   <p class="noindent">At the <span class="samp">You have:</span> prompt, type the quantity and units that
+you are converting <em>from</em>.  For example, if you want to convert ten
+meters to feet, type <kbd>10 meters</kbd>.  Next, <code>units</code> will print
+<span class="samp">You want:</span>.  You should type the type of units you want to convert
+<em>to</em>.  To convert to feet, you would type <kbd>feet</kbd>.  Note that if
+the readline library was compiled in then the tab key can be used to
+complete unit names.  See <a href="#Readline-support">Readline support</a>, for more information
+about readline.
+
+   </p><p>The answer will be displayed in two ways.  The first line of output,
+which is marked with a <span class="samp">*</span> to indicate multiplication,
+gives the result of the conversion you have asked for.  The second line
+of output, which is marked with a <span class="samp">/</span> to indicate division, gives
+the inverse of the conversion factor.  If you convert 10 meters to feet,
+<code>units</code> will print
+
+</p><pre class="example">             * 32.808399
+             / 0.03048
+</pre>
+   <p class="noindent">which tells you that 10 meters equals about 32.8 feet. 
+The second number gives the conversion in the opposite direction. 
+In this case, it tells you that 1 foot is equal to about
+0.03 dekameters since the dekameter is 10 meters. 
+It also tells you that 1/32.8 is about .03.
+
+   </p><p>The <code>units</code> program prints the inverse because sometimes it is a
+more convenient number.  In the example above, for example, the inverse
+value is an exact conversion: a foot is exactly .03048 dekameters. 
+But the number given the other direction is inexact.
+
+   </p><p>If you try to convert grains to pounds, you will see the following:
+
+</p><pre class="example">         You have: grains
+         You want: pounds
+                 * 0.00014285714
+                 / 7000
+</pre>
+   <p class="noindent">From the second line of the output you can immediately see that a grain
+is equal to a seven thousandth of a pound.  This is not so obvious from
+the first line of the output. 
+If you find  the output format  confusing, try using the
+<span class="samp">--verbose</span> option:
+<a name="index-verbose-output-2"></a>
+</p><pre class="example">         You have: grain
+         You want: aeginamina
+                 grain = 0.00010416667 aeginamina
+                 grain = (1 / 9600) aeginamina
+</pre>
+   <p>If you request a conversion between units which measure reciprocal
+dimensions, then <code>units</code> will display the conversion results with an extra
+note indicating that reciprocal conversion has been done:
+<a name="index-reciprocal-conversion-3"></a>
+</p><pre class="example">         You have: 6 ohms
+         You want: siemens
+                 reciprocal conversion
+                 * 0.16666667
+                 / 6
+</pre>
+   <p>Reciprocal conversion can be suppressed by using the <span class="samp">--strict</span> option. 
+As usual, use
+the <span class="samp">--verbose</span> option to get more comprehensible output:
+<a name="index-verbose-output-4"></a><a name="index-strict-conversion-5"></a>
+</p><pre class="example">         You have: tex
+         You want: typp
+                 reciprocal conversion
+                 1 / tex = 496.05465 typp
+                 1 / tex = (1 / 0.0020159069) typp
+     
+         You have: 20 mph
+         You want: sec/mile
+                 reciprocal conversion
+                 1 / 20 mph = 180 sec/mile
+                 1 / 20 mph = (1 / 0.0055555556) sec/mile
+</pre>
+   <p>If you enter incompatible unit types, the <code>units</code> program will
+print a message indicating that the units are not conformable and
+it will display the reduced form for each unit:
+<a name="index-incompatible-units-6"></a><a name="index-non_002dconformable-units-7"></a>
+</p><pre class="example">         You have: ergs/hour
+         You want: fathoms kg^2 / day
+         conformability error
+                 2.7777778e-11 kg m^2 / sec^3
+                 2.1166667e-05 kg^2 m / sec
+</pre>
+   <p>If you only want to find the reduced form or definition of a unit,
+simply press return at the <span class="samp">You want:</span> prompt.  Here is an example:
+
+</p><pre class="example">         You have: jansky
+         You want:
+                 Definition: fluxunit = 1e-26 W/m^2 Hz = 1e-26 kg / s^2
+</pre>
+   <p class="noindent">The output from <code>units</code> indicates that the jansky is defined to be
+equal to a fluxunit which in turn is defined to be a certain combination
+of watts, meters, and hertz.  The fully reduced (and in this case
+somewhat more cryptic) form appears on the far right.
+
+   </p><p>Some named units are treated as dimensionless in some situations. 
+These include the radian and steradian.  These units will be treated
+as equal to 1 in units conversions.  Power is equal to torque times
+angular velocity.  This conversion can only be performed if the radian
+is dimensionless.
+
+</p><pre class="example">         You have: (14 ft lbf) (12 radians/sec)
+         You want: watts
+                 * 227.77742
+                 / 0.0043902509
+</pre>
+   <p class="noindent">Note that named dimensionaless units are not treated as dimensionless
+in other contexts.  They cannot be used as exponents
+so for example, <span class="samp">meter^radian</span> is not allowed. 
+<a name="index-dimensionless-units-8"></a>
+If you want a list of options you can type <kbd>?</kbd> at the
+<span class="samp">You want:</span> prompt.  The program will display a list of named
+units which are conformable with the unit that you entered at
+the <span class="samp">You have:</span> prompt above.  Note that conformable unit
+combinations will not appear on this list.
+
+   </p><p>Typing <kbd>help</kbd> at either prompt displays a short help message. 
+You can also type <kbd>help</kbd> followed by a unit name.  This will
+invoke a pager on the units data base at the point where that unit
+is defined.  You can read the definition and comments that may
+give more details or historical information about the unit.
+
+</p><div class="node">
+<p></p><hr>
+<a name="Command-line-use"></a>Next:&nbsp;<a rel="next" accesskey="n" href="#Unit-expressions">Unit expressions</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Interactive-use">Interactive use</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+
+<h2 class="chapter">3 Using <code>units</code> non-interactively</h2>
+
+<p><a name="index-command-line-unit-conversion-9"></a><a name="index-non_002dinteractive-unit-conversion-10"></a>
+The <code>units</code> program can perform units conversions non-interactively
+from the command line.  To do this, type the command, type the
+original units expression, and type the new units you want. 
+You will probably need to protect the units expressions from
+interpretation by the shell using single quote characters.
+
+   </p><p>If you type
+
+</p><pre class="example">         units '2 liters' 'quarts'
+</pre>
+   <p class="noindent">then <code>units</code> will print
+
+</p><pre class="example">             * 2.1133764
+             / 0.47317647
+</pre>
+   <p class="noindent">and then exit. 
+The output tells you that 2 liters is about 2.1 quarts, or alternatively that
+a quart is about 0.47 times 2 liters.
+
+   </p><p>If the conversion is successful, then <code>units</code> will return success (0)
+to the calling environment.  If <code>units</code> is given non-conformable
+units to convert, it will print a message giving the reduced form of
+each unit and it will return failure (nonzero) to the calling environment.
+
+   </p><p>When <code>units</code> is invoked with only one argument, it will print out
+the definition of the specified unit.  It will return failure if the
+unit is not defined and success if the unit is defined.
+
+</p><div class="node">
+<p></p><hr>
+<a name="Unit-expressions"></a>Next:&nbsp;<a rel="next" accesskey="n" href="#Invoking-units">Invoking units</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Command-line-use">Command line use</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h2 class="chapter">4 Unit expressions</h2>
+
+<p><a name="index-unit-expressions-11"></a>
+In order to enter more complicated units or fractions,
+you will need to use operations such as powers, products and division. 
+Powers of units can be specified using the <span class="samp">^</span> character as shown in
+the following example, or by simple concatenation: <span class="samp">cm3</span> is equivalent to
+<span class="samp">cm^3</span>. 
+If the exponent is more than one digit, the <span class="samp">^</span> is required.  An
+exponent like <span class="samp">2^3^2</span> is evaluated right to left.  The <span class="samp">^</span>
+operator has the second highest precedence. 
+<a name="index-powers-12"></a><a name="index-products-13"></a>
+</p><pre class="example">         You have: cm^3
+         You want: gallons
+                 * 0.00026417205
+                 / 3785.4118
+     
+         You have: arabicfoot * arabictradepound * force
+         You want: ft lbf
+                 * 0.7296
+                 / 1.370614
+</pre>
+   <p>Multiplication of units can be specified by using spaces, or an asterisk
+(<span class="samp">*</span>).  If <code>units</code> is invoked with the <span class="samp">--product</span>
+option then the hyphen (<span class="samp">-</span>) also acts as a multiplication
+operator.  Division of units is indicated
+by the slash (<span class="samp">/</span>) or by <span class="samp">per</span>. 
+<a name="index-multiplication-of-units-14"></a><a name="index-division-of-units-15"></a>
+</p><pre class="example">         You have: furlongs per fortnight
+         You want: m/s
+                 * 0.00016630986
+                 / 6012.8727
+</pre>
+   <p>Multiplication has a higher precedence than division and is evaluated
+left to right, so
+<span class="samp">m/s * s/day</span> is equivalent to <span class="samp">m / s s day</span> and has dimensions of
+length per time cubed.  Similarly, <span class="samp">1/2 meter</span> refers to a unit of reciprocal length
+equivalent to .5/meter, which is
+probably not what you would intend if you entered that expression. 
+You can indicate division of numbers
+with the vertical dash (<span class="samp">|</span>).  This operator has the highest
+precedence so the square root of two thirds could be written <span class="samp">2|3^1|2</span>. 
+<a name="index-fractions-16"></a><a name="index-division-of-numbers-17"></a>
+</p><pre class="example">         You have: 1|2 inch
+         You want: cm
+                 * 1.27
+                 / 0.78740157
+</pre>
+   <p class="noindent">Parentheses can be used for grouping as desired.
+
+</p><pre class="example">         You have: (1/2) kg / (kg/meter)
+         You want: league
+                 * 0.00010356166
+                 / 9656.0833
+</pre>
+   <p>Prefixes are defined separately from base units.  In order to get
+centimeters, the units database defines <span class="samp">centi-</span> and <span class="samp">c-</span> as
+prefixes.  Prefixes can appear alone with no unit following them. 
+An exponent applies only to the immediately preceding unit and its
+prefix so that <span class="samp">cm^3</span> or <span class="samp">centimeter^3</span> refer to cubic centimeters
+but <span class="samp">centi*meter^3</span> refers to hundredths of cubic meters.  Only one
+prefix is permitted per unit, so <span class="samp">micromicrofarad</span> will fail, but
+<span class="samp">micro*microfarad</span> will work, as will <span class="samp">micro microfarad</span>..
+
+   </p><p>For <code>units</code>, numbers are just another kind of unit.  They can
+appear as many times as you like and in any order in a unit expression. 
+For example, to find the volume of a box which is 2 ft by 3 ft by 12 ft
+in steres, you could do the following:
+
+</p><pre class="example">         You have: 2 ft 3 ft 12 ft
+         You want: stere
+                 * 2.038813
+                 / 0.49048148
+     
+         You have: $ 5 / yard
+         You want: cents / inch
+                 * 13.888889
+                 / 0.072
+</pre>
+   <p class="noindent">And the second example shows how the dollar sign in the units conversion
+can precede the five.  Be careful:  <code>units</code> will interpret
+<span class="samp">$5</span> with no space as equivalent to dollars^5.
+
+   </p><p>Outside of the SI system, it is often desirable to add values of
+different units together.  You may also wish to use <code>units</code> as a
+calculator that keeps track of units.  Sums of conformable units are written with
+the <span class="samp">+</span> character. 
+<a name="index-sums-of-units-18"></a><a name="index-addition-of-units-19"></a>
+</p><pre class="example">         You have: 2 hours + 23 minutes + 32 seconds
+         You want: seconds
+                 * 8612
+                 / 0.00011611705
+     
+         You have: 12 ft + 3 in
+         You want: cm
+                 * 373.38
+                 / 0.0026782366
+     
+         You have: 2 btu + 450 ft lbf
+         You want: btu
+                 * 2.5782804
+                 / 0.38785542
+</pre>
+   <p class="noindent">The expressions which are added together must reduce to identical
+expressions in primitive units, or an error message will be displayed:
+
+</p><pre class="example">         You have: 12 printerspoint + 4 heredium
+                                               ^
+         Illegal sum of non-conformable units
+</pre>
+   <p class="noindent">Historically <span class="samp">-</span> has been used for products of units, which complicates
+its iterpretation in <code>units</code>.  Because <code>units</code> provides
+several other ways to obtain unit products, and because <span class="samp">-</span> is a
+subtraction operator in general algebraic expressions, <code>units</code>
+treats the binary <span class="samp">-</span> as a subtraction operator by default.  This
+behavior can be altered using the <span class="samp">--product</span> option which
+causes <code>units</code> to treat the binary <span class="samp">-</span> operator as a product
+operator.  Note that when <span class="samp">-</span> is a multiplication operator it has
+the same precedence as <span class="samp">*</span>, but when <span class="samp">-</span> is a subtraction operator
+it has the lower precedence as the addition operator.
+
+   </p><p>When <span class="samp">-</span> is used as a unary operator it negates its operand. 
+Regardless of the <code>units</code> options, if
+<span class="samp">-</span> appears after <span class="samp">(</span> or after
+<span class="samp">+</span> then it will act as a negation operator.  So you can always compute 20
+degrees minus 12 minutes by entering <span class="samp">20 degrees + -12 arcmin</span>. 
+You must use this construction when you define new units because you
+cannot know what options will be in force when your definition is
+processed.
+
+   </p><p>The <span class="samp">+</span> character sometimes appears in exponents like
+<span class="samp">3.43e+8</span>.  This leads to an ambiguity in an expression like
+<span class="samp">3e+2 yC</span>.  The unit <span class="samp">e</span> is a small unit of charge, so this
+can be regarded as equivalent to <span class="samp">(3e+2) yC</span> or <span class="samp">(3 e)+(2 yC)</span>. 
+This ambiguity is resolved by always interpreting <span class="samp">+</span> as part
+of an exponent if possible.
+
+   </p><p><a name="index-functions_002c-built-in-20"></a>Several built in functions are provided: <span class="samp">sin</span>, <span class="samp">cos</span>,
+<span class="samp">tan</span>, <span class="samp">ln</span>, <span class="samp">log</span>, <span class="samp">log2</span>, <span class="samp">exp</span>, <span class="samp">acos</span>,
+<span class="samp">atan</span> and <span class="samp">asin</span>.  The <span class="samp">sin</span>, <span class="samp">cos</span>, and <span class="samp">tan</span>
+functions require either a dimensionless argument or an argument with
+dimensions of angle.
+
+</p><pre class="example">         You have: sin(30 degrees)
+         You want:
+                 Definition: 0.5
+     
+         You have: sin(pi/2)
+         You want:
+                 Definition: 1
+     
+         You have: sin(3 kg)
+                           ^
+         Unit not dimensionless
+</pre>
+   <p class="noindent">The other functions on the list require dimensionless arguments.  The
+inverse trigonometric functions return arguments with dimensions of
+angle.
+
+   </p><p><a name="index-roots-21"></a><a name="index-square-roots-22"></a>If you wish to take roots of units, you may use the <span class="samp">sqrt</span> or
+<span class="samp">cuberoot</span> functions.  These functions require that the argument
+have the appropriate root.  Higher roots can  be obtained by using
+fractional exponents:
+
+</p><pre class="example">         You have: sqrt(acre)
+         You want: feet
+                 * 208.71074
+                 / 0.0047913202
+     
+         You have: (400 W/m^2 / stefanboltzmann)^(1/4)
+         You have:
+                 Definition: 289.80882 K
+     
+         You have: cuberoot(hectare)
+                                   ^
+         Unit not a root
+</pre>
+   <h5 class="unnumberedsubsubsec">Temperature Conversion Example</h5>
+
+<p><a name="index-temperature-conversions-23"></a><a name="Temperature-Conversion-Example"></a>
+Nonlinear units are represented using functional notation.  They make
+possible nonlinear unit conversions such temperature.  This is different
+from the linear units that convert temperature differences.  Note the
+difference below.  The absolute temperature conversions are handled by
+units starting with <span class="samp">temp</span>, and you must use functional notation. 
+The temperature differences are done using units starting with
+<span class="samp">deg</span> and they do not require functional notation.
+
+</p><pre class="example">         You have: tempF(45)
+         You want: tempC
+                 7.2222222
+     
+         You have: 45 degF
+         You want: degC
+                 * 25
+                 / 0.04
+</pre>
+   <p>Think of <span class="samp">tempF(x)</span> not as a function but as a notation which
+indicates that <span class="samp">x</span> should have units of <span class="samp">tempF</span> attached to
+it.  See <a href="#Nonlinear-units">Nonlinear units</a>.  The first conversion shows that if it's 45
+degrees Fahrehneit outside it's 7.2 degrees Celsius.  The second
+conversions indicates that a change of 45 degrees Fahrenheit corresponds
+to a change of 25 degrees Celsius.
+
+   </p><p>Some other examples of nonlinears units are ring size and wire gauge. 
+There are numerous different gauges and ring sizes.  See the units
+database for more details.  Note that wire gauges
+with multiple zeroes are signified using negative numbers where two
+zeroes is -1.  Alternatively, you can use the synonyms <span class="samp">g00</span>,
+<span class="samp">g000</span>, and so on that are defined in the units database.
+
+</p><pre class="example">         You have: wiregauge(11)
+         You want: inches
+                 * 0.090742002
+                 / 11.020255
+     
+         You have: brwiregauge(g00)
+         You want: inches
+                 * 0.348
+                 / 2.8735632
+     
+         You have: 1 mm
+         You want: wiregauge
+                 18.201919
+</pre>
+   <div class="node">
+<p></p><hr>
+<a name="Invoking-units"></a>Next:&nbsp;<a rel="next" accesskey="n" href="#Unit-definitions">Unit definitions</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Unit-expressions">Unit expressions</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+
+<h2 class="chapter">5 Invoking <code>units</code></h2>
+
+<p><a name="index-invoking-units-24"></a><a name="index-command-line-options-25"></a>
+You invoke <code>units</code> like this:
+
+</p><pre class="example">         units [<var>options</var>] [<var>from-unit</var> [<var>to-unit</var>]]
+</pre>
+   <p class="noindent">If the <var>from-unit</var> and <var>to-unit</var> are omitted, then the program
+will use interactive prompts to determine which conversions to perform. 
+See <a href="#Interactive-use">Interactive use</a>. 
+If both <var>from-unit</var> and <var>to-unit</var> are given, <code>units</code> will
+print the result of that single conversion and then exit. 
+If only <var>from-unit</var> appears on the command line, <code>units</code> will
+display the definition of that unit and exit. 
+Units specified on the command line will need
+to be quoted to protect them from shell interpretation and to group
+them into two arguments.  See <a href="#Command-line-use">Command line use</a>.
+
+   </p><p>The following options allow you to read in an alternative units file,
+check your units file, or change the output format:
+
+     </p><dl>
+<dt><span class="samp">-c</span></dt><dt><span class="samp">--check</span></dt><dd><a name="index-_002dc-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-26"></a><a name="index-_002d_002dcheck-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-27"></a>Check that all units and prefixes defined in the units data file reduce
+to primitive units.  Print a list of all units that
+cannot be reduced.  Also display some other diagnostics about
+suspicious definitions in the units data file.  Note that only
+definitions active in the current locale are checked.
+
+     <br></dd><dt><span class="samp">--check-verbose</span></dt><dd><a name="index-_002d_002dcheck_002dverbose-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-28"></a><a name="index-_002d_002dverbose_002dcheck-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-29"></a>Like the <span class="samp">-check</span> option, this option prints a list of units that
+cannot be reduced.  But to help find unit  definitions that cause
+endless loops,
+it lists the units as they are checked. 
+If <code>units</code> hangs, then the last unit to be printed has a bad
+definition.  Note that only
+definitions active in the current locale are checked.
+
+     <br></dd><dt><span class="samp">-o format</span></dt><dt><span class="samp">--output-format format</span></dt><dd><a name="index-_002do-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-30"></a><a name="index-_002d_002doutput_002dformat-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-31"></a>Use the specified format for numeric output.  Format is the same
+as that for the printf function in the ANSI C standard. 
+For example, if you want more precision you might use <span class="samp">-o %.15g</span>.
+
+     <br></dd><dt><span class="samp">-f filename</span></dt><dt><span class="samp">--file filename</span></dt><dd><a name="index-_002df-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-32"></a><a name="index-_002d_002dfile-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-33"></a>Instruct <code>units</code> to load the units file <code>filename</code>. 
+If <code>filename</code> is the empty string (<span class="samp">-f ''</span>)
+then the default units file will
+be loaded.  This enables you to load the default file plus a personal
+units file.  Up to 25 units files may be specified on the command line. 
+This option overrides the <code>UNITSFILE</code> environment variable.
+
+     <br></dd><dt><span class="samp">-h</span></dt><dt><span class="samp">--help</span></dt><dd><a name="index-_002dh-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-34"></a><a name="index-_002d_002dhelp-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-35"></a>Print out a summary of the options for <code>units</code>.
+
+     <br></dd><dt><span class="samp">-m</span></dt><dt><span class="samp">--minus</span></dt><dd><a name="index-_002dm-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-36"></a><a name="index-_002d_002dminus-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-37"></a>Causes <span class="samp">-</span> to be interpreted as a subtraction operator.  This is
+usually the default behavior.
+
+     <br></dd><dt><span class="samp">-p</span></dt><dt><span class="samp">--product</span></dt><dd><a name="index-_002dp-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-38"></a><a name="index-_002d_002dproduct-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-39"></a>Causes <span class="samp">-</span> to be interpreted as a multiplication operator when it
+has two operands.  It will as a negation operator when it has only one
+operand: <span class="samp">(-3)</span>.  Note that by default <span class="samp">-</span> is treated as a
+subtraction operator.
+
+     </dd><dt><span class="samp">--compact</span></dt><dd><a name="index-_002d_002dcompact-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-40"></a>Give compact output featuring only the conversion factor.  This turns
+off the <span class="samp">--verbose</span> option.
+
+     <br></dd><dt><span class="samp">-q</span></dt><dt><span class="samp">--quiet</span></dt><dt><span class="samp">--silent</span></dt><dd><a name="index-_002dq-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-41"></a><a name="index-_002d_002dquiet-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-42"></a><a name="index-_002d_002dsilent-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-43"></a>Suppress prompting of the user for units and the display of statistics
+about the number of units loaded.
+
+     <br></dd><dt><span class="samp">-s</span></dt><dt><span class="samp">--strict</span></dt><dd><a name="index-_002ds-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-44"></a><a name="index-_002d_002dstrict-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-45"></a>Suppress conversion of units to their reciprocal units.  For
+example, <code>units</code> will normally convert hertz to seconds
+because these units are reciprocals of each other.  The strict option
+requires that units be strictly conformable to perform a conversion, and
+will give an error if you attempt to convert hertz to seconds.
+
+     <br></dd><dt><span class="samp">-1</span></dt><dt><span class="samp">--one-line</span></dt><dd><a name="index-_002d1-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-46"></a><a name="index-_002d_002done_002dline-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-47"></a>Give only one line of output (the forward conversion).  Do not print
+the reverse conversion.  Note that if a reciprocal conversion is
+performed then <code>units</code> will print still print the “reciprocal
+conversion” line.
+
+     <br></dd><dt><span class="samp">-t</span></dt><dt><span class="samp">--terse</span></dt><dd><a name="index-_002dt-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-48"></a><a name="index-_002d_002dterse-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-49"></a>Give terse output when converting units.  This option can be used when
+calling <code>units</code> from another program so that the output is easy to
+parse.  This option has the combined
+effect of these options:  <span class="samp">--strict</span> <span class="samp">--quiet</span> <span class="samp">--one-line</span>
+<span class="samp">--compact</span>.
+
+     <br></dd><dt><span class="samp">-v</span></dt><dt><span class="samp">--verbose</span></dt><dd><a name="index-_002dv-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-50"></a><a name="index-_002d_002dverbose-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-51"></a>Give slightly more verbose output when converting units.  When combined
+with the <span class="samp">-c</span> option this gives the same effect as
+<span class="samp">--check-verbose</span>.
+
+     <br></dd><dt><span class="samp">-V</span></dt><dt><span class="samp">--version</span></dt><dd><a name="index-_002dV-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-52"></a><a name="index-_002d_002dversion-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-53"></a>Print program version number, tell whether the readline library
+has been included, and give the location of the default units
+data file.
+
+   </dd></dl>
+
+<div class="node">
+<p></p><hr>
+<a name="Unit-definitions"></a>Next:&nbsp;<a rel="next" accesskey="n" href="#Defining-new-units">Defining new units</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Invoking-units">Invoking units</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+
+<h2 class="chapter">6 Unit definitions</h2>
+
+<p><a name="index-unit-definitions-54"></a>
+The conversion information is read from a units data file which
+is called <span class="file">units.dat</span> and is probably located in
+the <span class="file">/usr/local/share</span> directory. 
+If you invoke <code>units</code> with the <span class="samp">-V</span> option, it will print
+the location of this file. 
+The default
+file includes definitions for all familiar units, abbreviations and
+metric prefixes.  It also includes many obscure or archaic units.
+
+   </p><p>Many constants of nature are defined, including these:
+<!-- noman -->
+</p><pre class="example">     pi          <span class="roman">ratio of circumference to diameter</span>
+     c           <span class="roman">speed of light</span>
+     e           <span class="roman">charge on an electron</span>
+     force       <span class="roman">acceleration of gravity</span>
+     mole        <span class="roman">Avogadro's number</span>
+     water       <span class="roman">pressure per unit height of water</span>
+     Hg          <span class="roman">pressure per unit height of mercury</span>
+     au          <span class="roman">astronomical unit</span>
+     k           <span class="roman">Boltzman's constant</span>
+     mu0         <span class="roman">permeability of vacuum</span>
+     epsilon0    <span class="roman">permitivity of vacuum</span>
+     G           <span class="roman">Gravitational constant</span>
+     mach        <span class="roman">speed of sound</span>
+</pre>
+   <p class="noindent"><!-- end noman -->
+<!-- man .in +4m -->
+<!-- man .ta 10m -->
+<!-- man .nf -->
+<!-- man -->
+<!-- man pi	ratio of circumference to diameter -->
+<!-- man c	speed of light -->
+<!-- man e	charge on an electron -->
+<!-- man force	acceleration of gravity -->
+<!-- man mole	Avogadro's number -->
+<!-- man water	pressure per unit height of water -->
+<!-- man Hg	pressure per unit height of mercury -->
+<!-- man au	astronomical unit -->
+<!-- man k	Boltzman's constant -->
+<!-- man mu0	permeability of vacuum -->
+<!-- man epsilon0	permitivity of vacuum -->
+<!-- man G	gravitational constant -->
+<!-- man mach	speed of sound -->
+<!-- man -->
+<!-- man .fi -->
+<!-- man .in -4m -->
+The database includes atomic masses for all of the elements and numerous
+other constants.  Also included are the densities of various ingredients
+used in baking so that <span class="samp">2 cups flour_sifted</span> can be converted
+to <span class="samp">grams</span>.  This is not an exhaustive list.  Consult the units
+data file to see the complete list, or to see the definitions that are
+used.
+
+   </p><p>The unit <span class="samp">pound</span> is a unit of mass.  To get force, multiply by the
+force conversion unit <span class="samp">force</span> or use the shorthand <span class="samp">lbf</span>. 
+(Note that <span class="samp">g</span> is already taken as the standard abbreviation for
+the gram.)  The unit <span class="samp">ounce</span> is also a unit of mass.  The fluid
+ounce is <span class="samp">fluidounce</span> or <span class="samp">floz</span>.  British capacity units that
+differ from their US counterparts, such as the British Imperial gallon,
+are prefixed with <span class="samp">br</span>.  Currency is prefixed with its country
+name: <span class="samp">belgiumfranc</span>, <span class="samp">britainpound</span>.
+
+   </p><p>The US Survey foot,
+yard, and mile can be obtained by using the <span class="samp">US</span> prefix. 
+These units differ slightly from the international length units. 
+They were in general use until 1959, and are still used
+for geographic surveys. 
+The acre is officially defined in terms of the US Survey foot. 
+If you want an acre
+defined according to the international foot, use <span class="samp">intacre</span>.  The
+difference between these units is
+about 4 parts per million. 
+The British also used a slightly different length measure before 1959. 
+These can be obtained with the prefix <span class="samp">UK</span>.
+
+   </p><p>When searching for
+a unit, if the specified string does not appear exactly as a unit
+name, then the <code>units</code> program will try to remove a
+trailing <span class="samp">s</span> or a trailing <span class="samp">es</span>.  If that fails, <code>units</code>
+will check for a prefix. 
+All of the standard metric prefixes are defined.
+
+   </p><p>To find out what units and prefixes are available, read the standard
+units data file.
+
+</p><div class="node">
+<p></p><hr>
+<a name="Defining-new-units"></a>Next:&nbsp;<a rel="next" accesskey="n" href="#Nonlinear-units">Nonlinear units</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Unit-definitions">Unit definitions</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+
+<h2 class="chapter">7 Defining new units</h2>
+
+<p><a name="index-defining-units-55"></a><a name="index-units_002c-redefinition-of-56"></a><a name="index-changing-units-definitions-57"></a>
+All of the units and prefixes that <code>units</code> can convert are defined
+in the units data file.  If you want to add your own units, you can
+supply your own file.
+
+   </p><p>A unit is specified on a single line by giving its name and an
+equivalence.  Comments start with a <span class="samp">#</span> character, which can appear
+anywhere in a line.  The backslash character (<span class="samp">\</span>)
+acts as a continuation
+character if it appears as the last character on a line, making it
+possible to spread definitions out over several lines if desired. 
+A file can be included by giving the command <span class="samp">!include</span> followed by
+the file's name.  The file will be sought in the same directory as the
+parent file unless a full path is given. 
+<a name="index-include-files-58"></a>
+Unit names must not contain any of the operator characters <span class="samp">+</span>,
+<span class="samp">-</span>, <span class="samp">*</span>, <span class="samp">/</span>, <span class="samp">|</span>, <span class="samp">^</span> or the parentheses. 
+They cannot begin with a digit or a decimal point (<span class="samp">.</span>), nor can
+they end with a digit (except for zero). 
+Be careful to define
+new units in terms of old ones so that a reduction leads to the
+primitive units, which are marked with <span class="samp">!</span> characters. 
+Dimensionless units are indicated by using the string
+<span class="samp">!dimensionless</span> for the unit definition. 
+<a name="index-dimensionless-units-59"></a>
+When adding new units, be sure to use the <span class="samp">-c</span> option to check that
+the new units reduce properly. 
+If you create a loop in the units definitions, then <code>units</code> will
+hang when invoked with the <span class="samp">-c</span> options.  You will need to
+use the <span class="samp">--check-verbose</span> option which prints out each unit as it
+checks them.  The program will still hang, but the last unit printed
+will be the unit which caused the infinite loop.
+
+   </p><p>If you define any units which contain
+<span class="samp">+</span> characters, carefully check them because the <span class="samp">-c</span> option
+will not catch non-conformable sums.  Be careful with the <span class="samp">-</span>
+operator as well.  When used as a binary operator, the <span class="samp">-</span>
+character can perform addition or multiplication
+depending on the options used to invoke <code>units</code>. 
+To ensure consistent behavior use <span class="samp">-</span> only as a unary negation
+operator when writing units definitions.  To multiply two units leave a
+space or use the <span class="samp">*</span> operator.  To compute the difference
+of <span class="samp">foo</span> and <span class="samp">bar</span> write <span class="samp">foo+(-bar)</span> or even <span class="samp">foo+-bar</span>.
+
+   </p><p>Here is an example of a short units file that defines some basic
+units:
+<!-- noman -->
+
+</p><pre class="example">     m       !               # The meter is a primitive unit
+     sec     !               # The second is a primitive unit
+     rad     !dimensionless  # A dimensionless primitive unit
+     micro-  1e-6            # Define a prefix
+     minute  60 sec          # A minute is 60 seconds
+     hour    60 min          # An hour is 60 minutes
+     inch    0.0254 m        # Inch defined in terms of meters
+     ft      12 inches       # The foot defined in terms of inches
+     mile    5280 ft         # And the mile
+</pre>
+   <!-- end noman -->
+<!-- man .in +2m -->
+<!-- man .ta 9m +10m -->
+<!-- man .nf -->
+<!-- man -->
+<!-- man m	!	# The meter is a primitive unit -->
+<!-- man sec	!	# The second is a primitive unit -->
+<!-- man rad	!dimensionless	# The second is a primitive unit -->
+<!-- man micro-	1e-6	# Define a prefix -->
+<!-- man minute	60 sec	# A minute is 60 seconds -->
+<!-- man hour	60 min	# An hour is 60 minutes -->
+<!-- man inch	0.0254 m	# Inch defined in terms of meters -->
+<!-- man ft	12 inches	# The foot defined in terms of inches -->
+<!-- man mile	5280 ft	# And the mile -->
+<!-- man -->
+<!-- man .fi -->
+<!-- man .in -2m -->
+<p class="noindent">A unit which ends with a <span class="samp">-</span> character is a prefix.  If a prefix
+definition contains any <span class="samp">/</span> characters, be sure they are protected
+by parentheses.  If you define <span class="samp">half- 1/2</span> then <span class="samp">halfmeter</span>
+would be equivalent to <span class="samp">1 / 2 meter</span>.
+
+</p><div class="node">
+<p></p><hr>
+<a name="Nonlinear-units"></a>Next:&nbsp;<a rel="next" accesskey="n" href="#Localization">Localization</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Defining-new-units">Defining new units</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+
+<h2 class="chapter">8 Defining nonlinear units</h2>
+
+<p><a name="index-defining-nonlinear-units-60"></a><a name="index-nonlinear-units_002c-redefinition-of-61"></a><a name="index-changing-nonlinear-unit-definitions-62"></a><a name="index-nonlinear-unit-conversions-63"></a>Some units conversions of interest are nonlinear; for
+example, temperature conversions between the Fahrenheit and Celsius
+scales cannot be done by simply multiplying by conversions factors.
+
+   </p><p>When you give a linear unit definition such as <span class="samp">inch 2.54 cm</span> you
+are providing information that <code>units</code> uses to convert values in
+inches into primitive units of meters.  For nonlinear units, you give
+a functional definition that provides the same information.
+
+   </p><p>Nonlinear units are represented using a functional notation. 
+It is best to regard this notation not as a function call but
+as a way of adding units to a number, much the same way that
+writing a linear unit name after a number adds units to that number. 
+Internally, nonlinear units are defined by a pair of functions
+which convert to and from linear units in the data file, so that
+an eventual conversion to primitive units is possible.
+
+   </p><p>Here is an example nonlinear unit definition:
+
+</p><pre class="example">     tempF(x) [1;K] (x+(-32)) degF + stdtemp ; (tempF+(-stdtemp))/degF + 32
+</pre>
+   <p class="noindent">A nonlinear unit definition comprises a unit name, a dummy parameter
+name, two functions, and two corresponding units.  The functions tell
+<code>units</code> how to convert to and from the new unit.  In order to
+produce valid results, the arguments of these functions need to have
+the correct dimensions.  To facilitate error checking, you may specify
+the dimensions.
+
+   </p><p>The definition begins with the unit name followed immediately (with no
+spaces) by a <span class="samp">(</span> character.  In parentheses is the name of the
+parameter.  Next is an optional specification of the units required by
+the functions in this definition.  In the example above, the
+<span class="samp">tempF</span> function requires an input argument conformable with
+<span class="samp">1</span>.  For normal nonlinear units definitions the forward
+function will always take a dimensionless argument. 
+The inverse function requires an input argument conformable
+with <span class="samp">K</span>.  In general the inverse function will need units
+that match the quantity measured by your nonlinear unit. 
+The sole purpose of the expression in brackets to enable
+<code>units</code> to perform error checking on function arguments.
+
+   </p><p>Next the function definitions appear.  In the example above, the
+<span class="samp">tempF</span> function is defined by
+
+</p><pre class="example">         tempF(x) = (x+(-32)) degF + stdtemp
+</pre>
+   <p class="noindent">This gives a rule for converting <span class="samp">x</span> in the units <span class="samp">tempF</span>
+to linear units of absolute temperature, which makes it possible to
+convert from tempF to other units.
+
+   </p><p>In order to make conversions to Fahrenheit possible, you must give
+a rule for the inverse conversions. The inverse will be <span class="samp">x(tempF)</span> and
+its definition appears after a <span class="samp">;</span> character. 
+In our example, the inverse is
+
+</p><pre class="example">         x(tempF) = (tempF+(-stdtemp))/degF + 32
+</pre>
+   <p class="noindent">This inverse definition takes an absolute temperature as its argument
+and converts it to the Fahrenheit temperature.  The inverse can be
+omitted by leaving out the <span class="samp">;</span> character, but then conversions to
+the unit will be impossible.  If the inverse is omitted then the
+<span class="samp">--check</span> option will display a warning.  It is up to you to
+calculate and enter the correct inverse function to obtain proper
+conversions.  The <span class="samp">--check</span> option tests the inverse at one point
+and print an error if it is not valid there, but this is not a guarantee
+that your inverse is correct.
+
+   </p><p>If you wish to make synonyms for nonlinear units, you still need to define
+both the forward and inverse functions.  Inverse functions can be
+obtained using the <span class="samp">~</span> operator.  So to create a synonym
+for <span class="samp">tempF</span> you could write
+
+</p><pre class="example">         fahrenheit(x) [1;K] tempF(x); ~tempF(fahrenheit)
+</pre>
+   <p><a name="index-units-functions-64"></a><a name="index-functions-of-units-65"></a>You may occasionally wish to define a function that operates on units. 
+This can be done
+using a nonlinear unit definition.  For example, the definition below
+provides conversion between radius and the area of a circle.  Note
+that this definition requires a length as input and produces an
+area as output, as indicated by the specification in brackets.
+
+</p><pre class="example">         circlearea(r) [m;m^2] pi r^2 ; sqrt(circlearea/pi)
+</pre>
+   <p><a name="index-linear-interpolation-66"></a><a name="index-units_002c-piecewise-linear-67"></a><a name="index-piecewise-linear-units-68"></a>Sometimes you may be interested in a piecewise linear unit such as
+many wire gauges.  Piecewise linear units can be defined by specifying
+conversions to linear units on a list of points. 
+Conversion at other points will be done by linear interpolation. 
+A partial definition of zinc gauge is
+
+</p><pre class="example">         zincgauge[in] 1 0.002, 10 0.02, 15 0.04, 19 0.06, 23 0.1
+</pre>
+   <p class="noindent">In this example, <span class="samp">zincgauge</span> is the name of the piecewise linear
+unit.  The definition of such a unit is indicated by the
+embedded <span class="samp">[</span> character.  After the bracket, you should indicate the
+units to be attached to the numbers in the table. 
+No spaces can appear before the
+<span class="samp">]</span> character, so a definition like <span class="samp">foo[kg meters]</span> is
+illegal; instead write <span class="samp">foo[kg*meters]</span>.  The definition of the
+unit consists of a list of pairs optionally separated by commas. 
+This list defines a function for converting from the piecewise linear
+unit to linear units.  The
+first item in each pair is the function argument; the second item is the
+value of the function at that argument (in the units specified in brackets). 
+In this example,
+we define <span class="samp">zincgauge</span> at five points.  For example, we set
+<span class="samp">zincgauge(1)</span> equal to <span class="samp">0.002 in</span>.  Definitions like this
+may be  more readable  if written using  continuation characters as
+<!-- noman -->
+
+</p><pre class="example">         zincgauge[in] \
+              1 0.002  \
+             10 0.02   \
+             15 0.04   \
+             19 0.06   \
+             23 0.1
+</pre>
+   <!-- end noman -->
+<!-- man .in +5m -->
+<!-- man .ta 3m +3m -->
+<!-- man .nf -->
+<!-- man -->
+<!-- man zincgauge[in]	 \\ -->
+<!-- man 	1	0.002 \\ -->
+<!-- man 	10	0.02 \\ -->
+<!-- man 	15	0.04 \\ -->
+<!-- man 	19	0.06 \\ -->
+<!-- man 	23	0.1 -->
+<!-- man .fi -->
+<!-- man .in -2m -->
+<p>With the preceeding definition, the following conversion can be
+performed:
+
+</p><pre class="example">         You have: zincgauge(10)
+         You want: in
+             * 0.02
+             / 50
+         You have: .01 inch
+         You want: zincgauge
+             5
+</pre>
+   <p>If you define a piecewise linear unit that is not strictly
+monotonic, then the inverse will not be well defined.  If the inverse is
+requested for such a unit, <code>units</code> will return the smallest
+inverse.  The <span class="samp">--check</span> option will print a warning if a
+non-monotonic piecewise linear unit is encountered.
+
+</p><div class="node">
+<p></p><hr>
+<a name="Localization"></a>Next:&nbsp;<a rel="next" accesskey="n" href="#Environment-vars">Environment vars</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Nonlinear-units">Nonlinear units</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+
+<h2 class="chapter">9 Localization</h2>
+
+<p><a name="index-localization-69"></a>
+Some units have different values in different locations.  The
+localization feature accomodates this by allowing the units database to
+specify region dependent definitions.   A locale region in the units
+database begins with <span class="samp">!locale</span> followed by the name of the locale. 
+The leading <span class="samp">!</span> must appear in the first column of the units
+database.  The locale region is terminated by <span class="samp">!endlocale</span>.  The
+following example shows how to define a couple units in a locale.
+
+</p><pre class="example">     !locale en_GB
+     ton                     brton
+     gallon                  brgallon
+     !endlocale
+</pre>
+   <p>The current locale is specified
+by the <code>LOCALE</code> environment variable.  Note that the <span class="samp">-c</span>
+option only checks the definitions which are active for the current locale.
+
+</p><div class="node">
+<p></p><hr>
+<a name="Environment-vars"></a>Next:&nbsp;<a rel="next" accesskey="n" href="#Readline-support">Readline support</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Localization">Localization</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+
+<h2 class="chapter">10 Environment variables</h2>
+
+<p><a name="index-environment-variables-70"></a>
+The <code>units</code> programs uses the following environment variables.
+
+     </p><dl>
+<dt><span class="samp">LOCALE</span></dt><dd><a name="index-LOCALE-environment-variable-71"></a>Specifies the locale.  The default is <span class="samp">en_US</span>.  Sections of the
+units database are specific to certain locales.
+
+     <br></dd><dt><span class="samp">PAGER</span></dt><dd><a name="index-PAGER-environment-variable-72"></a>Specifies the pager to use for help and for displaying the conformable
+units.  The help function browses the units database and calls
+the pager using the <code>+nn</code> syntax for specifying a line number.  The
+default pager is <code>more</code>, but <code>less</code>, <code>emacs</code>, or
+<code>vi</code> are possible alternatives.
+
+     <br></dd><dt><span class="samp">UNITSFILE</span></dt><dd><a name="index-UNITSFILE-environment-variable-73"></a>Specifies the units database file to use (instead of the default). This
+will be overridden by the <span class="samp">-f</span> option.  Note that you can only
+specify a single units database using this environment variable.
+
+   </dd></dl>
+
+<div class="node">
+<p></p><hr>
+<a name="Readline-support"></a>Next:&nbsp;<a rel="next" accesskey="n" href="#Index">Index</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Environment-vars">Environment vars</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+
+<h2 class="chapter">11 Readline support</h2>
+
+<p><a name="index-readline_002c-use-with-_0040code_007bunits_007d-74"></a>
+If the <code>readline</code> package has been compiled in, then when
+<code>units</code> is used interactively, numerous command line editing
+features are available.  To check if your version of <code>units</code>
+includes the readline, invoke the program with the <span class="samp">--version</span>
+option.
+
+   </p><p>For complete information about readline, consult the documentation for
+the readline package.  Without any configuration, <code>units</code> will
+allow editing in the style of emacs.  Of particular use with
+<code>units</code> are the completion commands.
+
+   </p><p>If you type a few characters and then hit <span class="samp">ESC</span> followed by the
+<kbd>?</kbd> key then <code>units</code> will display a list of all the units which
+start with the characters typed.  For example, if you type <kbd>metr</kbd> and
+then request completion, you will see something like this:
+<a name="index-unit-name-completion-75"></a>
+</p><pre class="example">     You have: metr
+     metre             metriccup         metrichorsepower  metrictenth
+     metretes          metricfifth       metricounce       metricton
+     metriccarat       metricgrain       metricquart       metricyarncount
+     You have: metr
+</pre>
+   <p class="noindent">If there is a unique way to complete a unitname, you can hit the tab key
+and <code>units</code> will provide the rest of the unit name.  If <code>units</code>
+beeps, it means that there is no unique completion.  Pressing the tab
+key a second time will print the list of all completions.
+
+</p><div class="node">
+<p></p><hr>
+<a name="Index"></a>Previous:&nbsp;<a rel="previous" accesskey="p" href="#Readline-support">Readline support</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
+<br>
+</div>
+
+<h2 class="unnumbered">Index</h2>
+
+<ul class="index-cp" compact="">
+<li><a href="#index-_002d_002dcheck-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-27"><code>--check </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dcheck_002dverbose-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-28"><code>--check-verbose </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dcompact-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-40"><code>--compact </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dfile-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-33"><code>--file </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dhelp-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-35"><code>--help </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dminus-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-37"><code>--minus </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002done_002dline-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-47"><code>--one-line </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002doutput_002dformat-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-31"><code>--output-format </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dproduct-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-39"><code>--product </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dquiet-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-42"><code>--quiet </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dsilent-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-43"><code>--silent </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dstrict-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-45"><code>--strict </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dterse-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-49"><code>--terse </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dverbose-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-51"><code>--verbose </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dverbose_002dcheck-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-29"><code>--verbose-check </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d_002dversion-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-53"><code>--version </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002d1-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-46"><code>-1 </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002dc-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-26"><code>-c </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002df-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-32"><code>-f </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002dh-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-34"><code>-h </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002dm-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-36"><code>-m </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002do-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-30"><code>-o </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002dp-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-38"><code>-p </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002dq-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-41"><code>-q </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002ds-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-44"><code>-s </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002dt-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-48"><code>-t </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002dV-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-52"><code>-V </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-_002dv-_0040r_007b_0028option-for_007d-_0040code_007bunits_007d_0040r_007b_0029_007d-50"><code>-v </code><span class="roman">(option for</span><code> units</code><span class="roman">)</span></a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-addition-of-units-19">addition of units</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-changing-nonlinear-unit-definitions-62">changing nonlinear unit definitions</a>: <a href="#Nonlinear-units">Nonlinear units</a></li>
+<li><a href="#index-changing-units-definitions-57">changing units definitions</a>: <a href="#Defining-new-units">Defining new units</a></li>
+<li><a href="#index-command-line-options-25">command line options</a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-command-line-unit-conversion-9">command line unit conversion</a>: <a href="#Command-line-use">Command line use</a></li>
+<li><a href="#index-defining-nonlinear-units-60">defining nonlinear units</a>: <a href="#Nonlinear-units">Nonlinear units</a></li>
+<li><a href="#index-defining-units-55">defining units</a>: <a href="#Defining-new-units">Defining new units</a></li>
+<li><a href="#index-dimensionless-units-59">dimensionless units</a>: <a href="#Defining-new-units">Defining new units</a></li>
+<li><a href="#index-dimensionless-units-8">dimensionless units</a>: <a href="#Interactive-use">Interactive use</a></li>
+<li><a href="#index-division-of-numbers-17">division of numbers</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-division-of-units-15">division of units</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-environment-variables-70">environment variables</a>: <a href="#Environment-vars">Environment vars</a></li>
+<li><a href="#index-fractions-16">fractions</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-functions-of-units-65">functions of units</a>: <a href="#Nonlinear-units">Nonlinear units</a></li>
+<li><a href="#index-functions_002c-built-in-20">functions, built in</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-include-files-58">include files</a>: <a href="#Defining-new-units">Defining new units</a></li>
+<li><a href="#index-incompatible-units-6">incompatible units</a>: <a href="#Interactive-use">Interactive use</a></li>
+<li><a href="#index-interactive-use-1">interactive use</a>: <a href="#Interactive-use">Interactive use</a></li>
+<li><a href="#index-invoking-units-24">invoking units</a>: <a href="#Invoking-units">Invoking units</a></li>
+<li><a href="#index-linear-interpolation-66">linear interpolation</a>: <a href="#Nonlinear-units">Nonlinear units</a></li>
+<li><a href="#index-LOCALE-environment-variable-71">LOCALE environment variable</a>: <a href="#Environment-vars">Environment vars</a></li>
+<li><a href="#index-localization-69">localization</a>: <a href="#Localization">Localization</a></li>
+<li><a href="#index-multiplication-of-units-14">multiplication of units</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-non_002dconformable-units-7">non-conformable units</a>: <a href="#Interactive-use">Interactive use</a></li>
+<li><a href="#index-non_002dinteractive-unit-conversion-10">non-interactive unit conversion</a>: <a href="#Command-line-use">Command line use</a></li>
+<li><a href="#index-nonlinear-unit-conversions-63">nonlinear unit conversions</a>: <a href="#Nonlinear-units">Nonlinear units</a></li>
+<li><a href="#index-nonlinear-units_002c-redefinition-of-61">nonlinear units, redefinition of</a>: <a href="#Nonlinear-units">Nonlinear units</a></li>
+<li><a href="#index-PAGER-environment-variable-72">PAGER environment variable</a>: <a href="#Environment-vars">Environment vars</a></li>
+<li><a href="#index-piecewise-linear-units-68">piecewise linear units</a>: <a href="#Nonlinear-units">Nonlinear units</a></li>
+<li><a href="#index-powers-12">powers</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-products-13">products</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-readline_002c-use-with-_0040code_007bunits_007d-74">readline, use with <code>units</code></a>: <a href="#Readline-support">Readline support</a></li>
+<li><a href="#index-reciprocal-conversion-3">reciprocal conversion</a>: <a href="#Interactive-use">Interactive use</a></li>
+<li><a href="#index-roots-21">roots</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-square-roots-22">square roots</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-strict-conversion-5">strict conversion</a>: <a href="#Interactive-use">Interactive use</a></li>
+<li><a href="#index-sums-of-units-18">sums of units</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-temperature-conversions-23">temperature conversions</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-unit-definitions-54">unit definitions</a>: <a href="#Unit-definitions">Unit definitions</a></li>
+<li><a href="#index-unit-expressions-11">unit expressions</a>: <a href="#Unit-expressions">Unit expressions</a></li>
+<li><a href="#index-unit-name-completion-75">unit name completion</a>: <a href="#Readline-support">Readline support</a></li>
+<li><a href="#index-units-functions-64">units functions</a>: <a href="#Nonlinear-units">Nonlinear units</a></li>
+<li><a href="#index-units_002c-piecewise-linear-67">units, piecewise linear</a>: <a href="#Nonlinear-units">Nonlinear units</a></li>
+<li><a href="#index-units_002c-redefinition-of-56">units, redefinition of</a>: <a href="#Defining-new-units">Defining new units</a></li>
+<li><a href="#index-UNITSFILE-environment-variable-73">UNITSFILE environment variable</a>: <a href="#Environment-vars">Environment vars</a></li>
+<li><a href="#index-verbose-output-2">verbose output</a>: <a href="#Interactive-use">Interactive use</a></li>
+   </ul>
+<div class="contents">
+<h2>Table of Contents</h2>
+<ul>
+<li><a name="toc_Overview" href="#Overview">1 Overview of <code>units</code></a>
+</li><li><a name="toc_Interactive-use" href="#Interactive-use">2 Interacting with <code>units</code></a>
+</li><li><a name="toc_Command-line-use" href="#Command-line-use">3 Using <code>units</code> non-interactively</a>
+</li><li><a name="toc_Unit-expressions" href="#Unit-expressions">4 Unit expressions</a>
+<ul>
+<ul>
+<ul>
+<li><a href="#Unit-expressions">Temperature Conversion Example</a>
+</li></ul>
+</ul>
+</ul>
+</li><li><a name="toc_Invoking-units" href="#Invoking-units">5 Invoking <code>units</code></a>
+</li><li><a name="toc_Unit-definitions" href="#Unit-definitions">6 Unit definitions</a>
+</li><li><a name="toc_Defining-new-units" href="#Defining-new-units">7 Defining new units</a>
+</li><li><a name="toc_Nonlinear-units" href="#Nonlinear-units">8 Defining nonlinear units</a>
+</li><li><a name="toc_Localization" href="#Localization">9 Localization</a>
+</li><li><a name="toc_Environment-vars" href="#Environment-vars">10 Environment variables</a>
+</li><li><a name="toc_Readline-support" href="#Readline-support">11 Readline support</a>
+</li><li><a name="toc_Index" href="#Index">Index</a>
+</li></ul>
+</div>
+
+<div class="footnote">
+<hr>
+<a name="texinfo-footnotes-in-document"></a><h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> But Fahrenheit to
+Celsius is linear, you insist.  Not so.  A transformation T is linear if
+T(x+y)=T(x)+T(y) and this fails for T(x)=ax+b.  This transformation is
+affine, but not linear. </p>
+
+   <p></p><hr></div>
+
+Copyright © 2004, 2006 Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA 
+Verbatim copying and distribution of this entire article is permitted in any medium, provided this notice is preserved.
+
+<div id="imacros-bookmark-div" style="display: none; "><textarea id="imacros-macro-container"></textarea></div></body><style type="text/css">embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}</style><style type="text/css">/*This block of style rules is inserted by AdBlock*/#AdContainer,#RadAd_Skyscraper,#ad-frame,#bbccom_leaderboard,#center_banner,#footer_adcode,#hbBHeaderSpon,#hiddenHeaderSpon,#navbar_adcode,#rightAds,#rightcolumn_adcode,#top-advertising,#topMPU,#tracker_advertorial,.ad-now,.dfpad,.prWrap,[id^="ad_block"],[id^="adbrite"],[id^="dclkAds"],[id^="ew"][id$="_bannerDiv"],[id^="konaLayer"],[src*="sixsigmatraffic.com"],a.kLink span[id^="preLoadWrap"].preLoadWrap,a[href^="http://ad."][href*=".doubleclick.net/"],a[href^="http://adserver.adpredictive.com"],div#FFN_Banner_Holder,div#FFN_imBox_Container,div#adxLeaderboard,div#p360-format-box,div#rm_container,div#tooltipbox[class^="itxt"],div.wnDVUtilityBlock,div[class^="dms_ad_IDS"],div[id^="adKontekst_"],div[id^="google_ads_div"],div[id^="kona_"][id$="_wrapper"],div[id^="sponsorads"],div[id^="y5_direct"],embed[flashvars*="AdID"],iframe.chitikaAdBlock,iframe[id^="dapIfM"],iframe[id^="etarget"][id$="banner"],iframe[name^="AdBrite"],iframe[name^="google_ads_"],iframe[src*="clicksor.com"],img[src*="clicksor.com"],img[src^="http://cdn.adnxs.com"],ispan#ab_pointer,object#flashad,object#ve_threesixty_swf[name="ve_threesixty_swf"],div#dir_ads_site,div#rhs div#rhs_block table#mbEnd,div#tads table[align="center"][width="100%"],table[cellpadding="0"][width="100%"][style] > * > * > * > div#tpa1,#A9AdsMiddleBoxTop,#A9AdsOutOfStockWidgetTop,#A9AdsServicesWidgetTop,#ADSLOT_1,#ADSLOT_2,#ADSLOT_3,#ADSLOT_4,#AD_CONTROL_22,#ADsmallWrapper,#Ad1,#Ad160x600,#Ad2,#Ad300x250,#Ad3Left,#Ad3Right,#Ad3TextAd,#AdBanner_F1,#AdBar,#AdBar1,#AdContainerTop,#AdContentModule_F,#AdDetails_GoogleLinksBottom,#AdDetails_InsureWith,#AdFrame4,#AdHeader,#AdMiddle,#AdMobileLink,#AdRectangle,#AdSenseDiv,#AdServer,#AdShowcase_F1,#AdSky23,#AdSkyscraper,#AdSponsor_SF,#AdSubsectionShowcase_F1,#AdTargetControl1_iframe,#AdText,#AdTop,#Ad_Block,#Ad_Center1,#Ad_Right1,#Ad_Top,#Adbanner,#Adrectangle,#Ads,#AdsContent,#AdsRight,#AdsWrap,#Ads_BA_CAD,#Ads_BA_CAD2,#Ads_BA_CAD_box,#Ads_BA_SKY,#Ads_CAD,#Ads_Special,#AdvertMPU23b,#AdvertPanel,#AdvertiseFrame,#Advertisement,#Advertisements,#Advertorial,#Advertorials,#BannerAdvert,#BigBoxAd,#BodyAd,#Bottom468x60AD,#ButtonAd,#CompanyDetailsNarrowGoogleAdsPresentationControl,#CompanyDetailsWideGoogleAdsPresentationControl,#ContentAd,#ContentAd1,#ContentAd2,#ContentAdPlaceHolder1,#ContentAdPlaceHolder2,#ContentAdXXL,#ContentPolepositionAds_Result,#DivAdEggHeadCafeTopBanner,#FooterAd,#FooterAdContainer,#GoogleAd1,#GoogleAd2,#GoogleAd3,#GoogleAdsPresentationControl,#GoogleAdsense,#Google_Adsense_Main,#HEADERAD,#HOME_TOP_RIGHT_BOXAD,#HeaderAD,#HeaderAdsBlock,#HeaderAdsBlockFront,#HeaderBannerAdSpacer,#HeaderTextAd,#HeroAd,#HomeAd1,#HouseAd,#ID_Ad_Sky,#Journal_Ad_125,#Journal_Ad_300,#KH-contentAd,#LeftAd,#LeftAdF1,#LeftAdF2,#LftAd,#LoungeAdsDiv,#LowerContentAd,#MainSponsoredLinks,#Nightly_adContainer,#PREFOOTER_LEFT_BOXAD,#PREFOOTER_RIGHT_BOXAD,#PageLeaderAd,#RelevantAds,#RgtAd1,#RightAd,#RightBottom300x250AD,#RightNavTopAdSpot,#RightSponsoredAd,#SectionAd300-250,#SectionSponsorAd,#SidebarAdContainer,#SkyAd,#SpecialAds,#SponsoredAd,#SponsoredLinks,#TOP_ADROW,#TOP_RIGHT_BOXAD,#Tadspacehead,#Top468x60AD,#TopAd,#TopAdContainer,#TopAdDiv,#TopAdPos,#VM-MPU-adspace,#VM-footer-adspace,#VM-header-adspace,#VM-header-adwrap,#XEadLeaderboard,#XEadSkyscraper,#_ads,#about_adsbottom,#ad-120x600-sidebar,#ad-120x60Div,#ad-160x600,#ad-160x600-sidebar,#ad-250,#ad-250x300,#ad-300,#ad-300x250,#ad-300x250-sidebar,#ad-300x250Div,#ad-728,#ad-728x90-leaderboard-top,#ad-article,#ad-banner,#ad-banner-1,#ad-block-125,#ad-bottom,#ad-bottom-wrapper,#ad-boxes,#ad-bs,#ad-buttons,#ad-colB-1,#ad-column,#ad-container,#ad-content,#ad-contentad,#ad-footer,#ad-footprint-160x600,#ad-front-footer,#ad-front-sponsoredlinks,#ad-halfpage,#ad-header,#ad-inner,#ad-label,#ad-leaderboard,#ad-leaderboard-bottom,#ad-leaderboard-container,#ad-leaderboard-spot,#ad-leaderboard-top,#ad-left,#ad-list-row,#ad-lrec,#ad-medium-rectangle,#ad-medrec,#ad-middlethree,#ad-middletwo,#ad-module,#ad-mpu,#ad-mpu1-spot,#ad-mpu2,#ad-mpu2-spot,#ad-north,#ad-one,#ad-placard,#ad-placeholder,#ad-rectangle,#ad-right,#ad-righttop,#ad-row,#ad-side-text,#ad-sky,#ad-skyscraper,#ad-slug-wrapper,#ad-small-banner,#ad-space,#ad-splash,#ad-sponsors,#ad-spot,#ad-target,#ad-target-Leaderbord,#ad-teaser,#ad-text,#ad-top,#ad-top-banner,#ad-top-text-low,#ad-top-wrap,#ad-tower,#ad-trailerboard-spot,#ad-typ1,#ad-west,#ad-wrap,#ad-wrap-right,#ad-wrapper,#ad-wrapper1,#ad-yahoo-simple,#ad1,#ad1006,#ad125BL,#ad125BR,#ad125TL,#ad125TR,#ad125x125,#ad160x600,#ad160x600right,#ad1Sp,#ad2,#ad2Sp,#ad3,#ad300,#ad300-250,#ad300X250,#ad300_x_250,#ad300x150,#ad300x250,#ad300x250Module,#ad300x60,#ad300x600,#ad300x600_callout,#ad336,#ad336x280,#ad375x85,#ad4,#ad468,#ad468x60,#ad468x60_top,#ad526x250,#ad600,#ad7,#ad728,#ad728Mid,#ad728Top,#ad728Wrapper,#ad728x90,#adBadges,#adBanner,#adBanner120x600,#adBanner160x600,#adBanner336x280,#adBannerTable,#adBannerTop,#adBar,#adBlock125,#adBlocks,#adBox,#adBox350,#adBox390,#adCirc300X200,#adCirc_620_100,#adComponentWrapper,#adContainer,#adContainer_1,#adContainer_2,#adContainer_3,#adDiv,#adFiller,#adFps,#adFtofrs,#adGallery,#adGroup1,#adHeader,#adIsland,#adL,#adLB,#adLabel,#adLayer,#adLeader,#adLeaderTop,#adLeaderboard,#adMPU,#adMediumRectangle,#adMiddle0Frontpage,#adMiniPremiere,#adP,#adPlaceHolderRight,#adPlacer,#adRight,#adSenseModule,#adSenseWrapper,#adServer_marginal,#adSidebar,#adSidebarSq,#adSky,#adSkyscraper,#adSlider,#adSpace,#adSpace3,#adSpace300_ifrMain,#adSpace4,#adSpace5,#adSpace6,#adSpace7,#adSpace_footer,#adSpace_right,#adSpace_top,#adSpacer,#adSpecial,#adSpot-Leader,#adSpot-banner,#adSpot-island,#adSpot-mrec1,#adSpot-sponsoredlinks,#adSpot-textbox1,#adSpot-widestrip,#adSpotAdvertorial,#adSpotIsland,#adSpotSponsoredLinks,#adSquare,#adStaticA,#adStrip,#adSuperAd,#adSuperPremiere,#adSuperbanner,#adTableCell,#adTag1,#adTag2,#adText,#adText_container,#adTile,#adTop,#adTopboxright,#adTower,#adUnit,#adWrapper,#adZoneTop,#ad_160x160,#ad_160x600,#ad_190x90,#ad_300,#ad_300_250,#ad_300_250_1,#ad_300x250,#ad_300x250_content_column,#ad_300x90,#ad_468_60,#ad_5,#ad_728_foot,#ad_728x90,#ad_728x90_container,#ad_940,#ad_984,#ad_A,#ad_B,#ad_Banner,#ad_C,#ad_C2,#ad_D,#ad_E,#ad_F,#ad_G,#ad_H,#ad_I,#ad_J,#ad_K,#ad_L,#ad_M,#ad_N,#ad_O,#ad_P,#ad_YieldManager-300x250,#ad_anchor,#ad_area,#ad_banner,#ad_banner_top,#ad_bar,#ad_bellow_post,#ad_block_1,#ad_block_2,#ad_bottom,#ad_box_colspan,#ad_branding,#ad_bs_area,#ad_center_monster,#ad_cont,#ad_container,#ad_container_marginal,#ad_container_side,#ad_container_top,#ad_content_top,#ad_content_wrap,#ad_feature,#ad_firstpost,#ad_footer,#ad_front_three,#ad_fullbanner,#ad_global_header,#ad_haha_1,#ad_haha_4,#ad_halfpage,#ad_head,#ad_header,#ad_horizontal,#ad_horseshoe_left,#ad_horseshoe_right,#ad_horseshoe_spacer,#ad_horseshoe_top,#ad_hotpots,#ad_in_arti,#ad_island,#ad_label,#ad_large_rectangular,#ad_lastpost,#ad_layer2,#ad_leader,#ad_leaderBoard,#ad_leaderboard,#ad_leaderboard728x90,#ad_leaderboard_top,#ad_left,#ad_lrec,#ad_lwr_square,#ad_main,#ad_medium_rectangle,#ad_medium_rectangular,#ad_mediumrectangle,#ad_menu_header,#ad_middle,#ad_most_pop_234x60_req_wrapper,#ad_mpu,#ad_mpu300x250,#ad_mpuav,#ad_mrcontent,#ad_overlay,#ad_play_300,#ad_rect,#ad_rect_body,#ad_rect_bottom,#ad_rectangle,#ad_rectangle_medium,#ad_related_links_div,#ad_related_links_div_program,#ad_replace_div_0,#ad_replace_div_1,#ad_report_leaderboard,#ad_report_rectangle,#ad_right,#ad_right_main,#ad_ros_tower,#ad_rr_1,#ad_sec,#ad_sec_div,#ad_sgd,#ad_sidebar,#ad_sidebar1,#ad_sidebar2,#ad_sidebar3,#ad_skyscraper,#ad_skyscraper160x600,#ad_skyscraper_text,#ad_slot_leaderboard,#ad_slot_livesky,#ad_slot_sky_top,#ad_space,#ad_square,#ad_ss,#ad_table,#ad_term_bottom_place,#ad_thread_first_post_content,#ad_top,#ad_top_holder,#ad_tp_banner_1,#ad_tp_banner_2,#ad_unit,#ad_vertical,#ad_widget,#ad_window,#ad_wrapper,#adbanner,#adbig,#adbnr,#adboard,#adbody,#adbottom,#adbox,#adbox1,#adbox2,#adclear,#adcode,#adcode1,#adcode2,#adcode3,#adcode4,#adcolumnwrapper,#adcontainer,#adcontainerRight,#adcontainsm,#adcontent,#adcontrolPushSite,#add_ciao2,#addbottomleft,#addiv-bottom,#addiv-top,#adfooter,#adfooter_728x90,#adframe:not(frameset),#adhead,#adhead_g,#adheader,#adhome,#adiframe1_iframe,#adiframe2_iframe,#adiframe3_iframe,#adimg,#adition_content_ad,#adlabel,#adlabelFooter,#adlayerad,#adleaderboard,#adleft,#adlinks,#adlinkws,#adlrec,#admid,#admiddle3center,#admiddle3left,#adposition,#adposition-C,#adposition-FPMM,#adposition2,#adposition3,#adposition4,#adrectangle,#adrectanglea,#adrectangleb,#adrig,#adright,#adright2,#adrighthome,#ads-468,#ads-area,#ads-block,#ads-bot,#ads-bottom,#ads-col,#ads-dell,#ads-horizontal,#ads-indextext,#ads-leaderboard1,#ads-lrec,#ads-menu,#ads-middle,#ads-prices,#ads-rhs,#ads-right,#ads-top,#ads-vers7,#ads-wrapper,#ads160left,#ads2,#ads300,#ads300Bottom,#ads300Top,#ads336x280,#ads7,#ads728bottom,#ads728top,#ads790,#adsDisplay,#adsID,#ads_160,#ads_300,#ads_728,#ads_banner,#ads_belowforumlist,#ads_belownav,#ads_bottom_inner,#ads_bottom_outer,#ads_box,#ads_button,#ads_catDiv,#ads_footer,#ads_html1,#ads_html2,#ads_notice,#ads_right,#ads_right_sidebar,#ads_sidebar_roadblock,#ads_space,#ads_top,#ads_watch_top_square,#ads_zone27,#adsbottom,#adsbox,#adscolumn,#adsd_contentad_r1,#adsd_contentad_r2,#adsd_contentad_r3,#adsdiv,#adsense,#adsense-2,#adsense-tag,#adsense-text,#adsenseOne,#adsenseWrap,#adsense_inline,#adsense_leaderboard,#adsense_overlay,#adsense_placeholder_2,#adsenseheader,#adsensetopplay,#adsensewidget-3,#adserv,#adsimage,#adsky,#adskyscraper,#adslot,#adsonar,#adspace,#adspace-300x250,#adspace300x250,#adspaceBox,#adspaceBox300,#adspace_header,#adspot-1,#adspot-149x170,#adspot-1x4,#adspot-2,#adspot-295x60,#adspot-2a,#adspot-2b,#adspot-300x250-pos-1,#adspot-300x250-pos-2,#adspot-468x60-pos-2,#adspot-a,#adspot300x250,#adsright,#adst,#adstop,#adt,#adtab,#adtag_right_side,#adtech_googleslot_03c,#adtech_takeover,#adtop,#adtophp,#adtxt,#adv-masthead,#adv_google_300,#adv_google_728,#adv_top_banner_wrapper,#adver1,#adver2,#adver3,#adver4,#adver5,#adver6,#adver7,#advert,#advert-1,#advert-120,#advert-boomer,#advert-display,#advert-header,#advert-leaderboard,#advert-links-bottom,#advert-skyscraper,#advert-top,#advert1,#advertBanner,#advertRight,#advert_250x250,#advert_box,#advert_leaderboard,#advert_lrec_format,#advert_mid,#advert_mpu,#advert_right_skyscraper,#advertbox,#advertbox2,#advertbox3,#advertbox4,#adverthome,#advertise,#advertise-here-sidebar,#advertise-now,#advertise1,#advertiseHere,#advertisement,#advertisement160x600,#advertisement728x90,#advertisementLigatus,#advertisementPrio2,#advertiser-container,#advertiserLinks,#advertising,#advertising-banner,#advertising-caption,#advertising-container,#advertising-control,#advertising-skyscraper,#advertisingModule160x600,#advertisingModule728x90,#advertisment,#advertismentElementInUniversalbox,#advertorial,#adverts,#adverts-top-container,#adverts-top-left,#adverts-top-middle,#adverts-top-right,#advertsingle,#advt,#adwhitepaperwidget,#adwin_rec,#adwith,#adwords-4-container,#adwrapper,#adxBigAd,#adxMiddle5,#adxSponLink,#adxSponLinkA,#adxtop,#adz,#adzbanner,#adzerk,#adzerk1,#adzoneBANNER,#affinityBannerAd,#agi-ad300x250,#agi-ad300x250overlay,#agi-sponsored,#alert_ads,#anchorAd,#annoying_ad,#ap_adframe,#apiBackgroundAd,#apiTopAdWrap,#apmNADiv,#araHealthSponsorAd,#article-ad-container,#article-box-ad,#articleAdReplacement,#articleLeftAdColumn,#articleSideAd,#article_ad,#article_box_ad,#asinglead,#atlasAdDivGame,#awds-nt1-ad,#banner-300x250,#banner-ad,#banner-ad-container,#banner-ads,#banner250x250,#banner468x60,#banner728x90,#bannerAd,#bannerAdTop,#bannerAd_ctr,#banner_ad,#banner_ad_footer,#banner_admicro,#banner_ads,#banner_content_ad,#banner_topad,#bannerad,#bannerad2,#bbccom_mpu,#bbccom_storyprintsponsorship,#bbo_ad1,#bg-footer-ads,#bg-footer-ads2,#bg_YieldManager-300x250,#bigAd,#bigBoxAd,#bigad300outer,#bigadbox,#bigadspot,#billboard_ad,#block-ad_cube-1,#block-openads-1,#block-openads-3,#block-openads-4,#block-openads-5,#block-thewrap_ads_250x300-0,#block_advert,#blog-ad,#blog_ad_content,#blog_ad_opa,#blox-big-ad,#blox-big-ad-bottom,#blox-big-ad-top,#blox-halfpage-ad,#blox-tile-ad,#blox-tower-ad,#book-ad,#botad,#bott_ad2,#bott_ad2_300,#bottom-ad,#bottom-ad-container,#bottom-ads,#bottomAd,#bottomAdCCBucket,#bottomAdContainer,#bottomAdSense,#bottomAdSenseDiv,#bottomAds,#bottomRightAd,#bottomRightAdSpace,#bottom_ad,#bottom_ad_area,#bottom_ads,#bottom_banner_ad,#bottom_overture,#bottom_sponsor_ads,#bottom_sponsored_links,#bottom_text_ad,#bottomad,#bottomads,#bottomadsense,#bottomadwrapper,#bottomleaderboardad,#box-content-ad,#box-googleadsense-1,#box-googleadsense-r,#box1ad,#boxAd300,#boxAdContainer,#box_ad,#box_advertisment,#box_mod_googleadsense,#boxad1,#boxad2,#boxad3,#boxad4,#boxad5,#bpAd,#bps-header-ad-container,#btr_horiz_ad,#burn_header_ad,#button-ads-horizontal,#button-ads-vertical,#buttonAdWrapper1,#buttonAdWrapper2,#buttonAds,#buttonAdsContainer,#button_ad_container,#button_ad_wrap,#buttonad,#buy-sell-ads,#c4ad-Middle1,#caAdLarger,#catad,#category-ad,#cellAd,#channel_ad,#channel_ads,#ciHomeRHSAdslot,#circ_ad,#cnnRR336ad,#cnnTopAd,#col3_advertising,#colRightAd,#collapseobj_adsection,#column4-google-ads,#commercial_ads,#common_right_ad_wrapper,#common_right_lower_ad_wrapper,#common_right_lower_adspace,#common_right_lower_player_ad_wrapper,#common_right_lower_player_adspace,#common_right_player_ad_wrapper,#common_right_player_adspace,#common_right_right_adspace,#common_top_adspace,#companion-ad,#companionAdDiv,#containerLocalAds,#containerLocalAdsInner,#containerMrecAd,#containerSqAd,#content-ad-header,#content-header-ad,#contentAd,#contentTopAds2,#content_ad,#content_ad_square,#content_ad_top,#content_ads_content,#content_box_300body_sponsoredoffers,#content_box_adright300_google,#content_mpu,#contentad,#contentad_imtext,#contentad_right,#contentads,#contentinlineAd,#contextad,#contextual-ads,#contextual-ads-block,#contextualad,#coverads,#ctl00_Adspace_Top_Height,#ctl00_BottomAd,#ctl00_ContentRightColumn_RightColumn_Ad1_BanManAd,#ctl00_ContentRightColumn_RightColumn_PremiumAd1_ucBanMan_BanManAd,#ctl00_LHTowerAd,#ctl00_LeftHandAd,#ctl00_MasterHolder_IBanner_adHolder,#ctl00_TopAd,#ctl00_TowerAd,#ctl00_VBanner_adHolder,#ctl00__Content__RepeaterReplies_ctl03__AdReply,#ctl00_abot_bb,#ctl00_adFooter,#ctl00_atop_bt,#ctl00_cphMain_hlAd1,#ctl00_cphMain_hlAd2,#ctl00_cphMain_hlAd3,#ctl00_ctl00_MainPlaceHolder_itvAdSkyscraper,#ctl00_ctl00_ctl00_Main_Main_PlaceHolderGoogleTopBanner_MPTopBannerAd,#ctl00_ctl00_ctl00_Main_Main_SideBar_MPSideAd,#ctl00_dlTilesAds,#ctl00_m_skinTracker_m_adLBL,#ctl00_phCrackerMain_ucAffiliateAdvertDisplayMiddle_pnlAffiliateAdvert,#ctl00_phCrackerMain_ucAffiliateAdvertDisplayRight_pnlAffiliateAdvert,#ctrlsponsored { visibility:hidden !important; display:none !important; } #cubeAd,#cube_ads,#cube_ads_inner,#cubead,#cubead-2,#dItemBox_ads,#dart_160x600,#dc-display-right-ad-1,#dcol-sponsored,#defer-adright,#detail_page_vid_topads,#divAd,#divAdBox,#divMenuAds,#divWNAdHeader,#divWrapper_Ad,#div_ad_leaderboard,#div_video_ads,#dlads,#dni-header-ad,#dnn_ad_banner,#download_ads,#ds-mpu,#editorsmpu,#evotopTen_advert,#ex-ligatus,#exads,#featuread,#featured-advertisements,#featuredAdContainer2,#featuredAds,#feed_links_ad_container,#first-300-ad,#first-adlayer,#first_ad_unit,#firstad,#fl_hdrAd,#flexiad,#footer-ad,#footer-advert,#footer-adverts,#footer-sponsored,#footerAd,#footerAdDiv,#footerAds,#footerAdvertisement,#footerAdverts,#footer_ad,#footer_ad_01,#footer_ad_block,#footer_ad_container,#footer_ad_modules,#footer_ads,#footer_adspace,#footer_text_ad,#footerad,#footerads,#footeradsbox,#fpv_companionad,#fr_ad_center,#frame_admain,#frnAdSky,#frnBannerAd,#frnContentAd,#from_our_sponsors,#front_advert,#front_mpu,#ft-ad,#ft-ad-1,#ft-ad-container,#ft_mpu,#fusionad,#fw-advertisement,#g_ad,#g_adsense,#ga_300x250,#gad,#galleries-tower-ad,#gallery-ad-m0,#gallery_ads,#game-info-ad,#gasense,#global_header_ad_area,#gmi-ResourcePageAd,#gmi-ResourcePageLowerAd,#goads,#google-ad,#google-ad-art,#google-ad-table-right,#google-ad-tower,#google-ads,#google-ads-bottom,#google-ads-header,#google-ads-left-side,#google-adsense-mpusize,#googleAd,#googleAds,#googleAdsSml,#googleAdsense,#googleAdsenseBanner,#googleAdsenseBannerBlog,#googleAdwordsModule,#googleAfcContainer,#googleSearchAds,#googleShoppingAdsRight,#googleShoppingAdsTop,#googleSubAds,#google_ad,#google_ad_container,#google_ad_inline,#google_ad_test,#google_ads,#google_ads_frame1,#google_ads_frame1_anchor,#google_ads_frame2,#google_ads_frame2_anchor,#google_ads_frame3,#google_ads_frame3_anchor,#google_ads_test,#google_ads_top,#google_adsense_home_468x60_1,#googlead,#googleadbox,#googleads,#googleadsense,#googlesponsor,#grid_ad,#gsyadrectangleload,#gsyadrightload,#gsyadtop,#gsyadtopload,#gtopadvts,#half-page-ad,#halfPageAd,#halfe-page-ad-box,#hdtv_ad_ss,#head-ad,#headAd,#head_advert,#headad,#header-ad,#header-ad-rectangle-container,#header-ads,#header-adspace,#header-advert,#header-advertisement,#header-advertising,#headerAd,#headerAdBackground,#headerAdContainer,#headerAdWrap,#headerAds,#headerAdsWrapper,#headerTopAd,#header_ad,#header_ad_728_90,#header_ad_container,#header_adcode,#header_ads,#header_advertisement_top,#header_leaderboard_ad_container,#header_publicidad,#headerad,#headeradbox,#headerads,#headeradsbox,#headeradwrap,#headline_ad,#headlinesAdBlock,#hiddenadAC,#hideads,#hl-sponsored-results,#homeTopRightAd,#home_ad,#home_bottom_ad,#home_contentad,#home_mpu,#home_spensoredlinks,#homepage-ad,#homepageAdsTop,#homepageFooterAd,#homepage_right_ad,#homepage_right_ad_container,#homepage_top_ads,#hometop_234x60ad,#hor_ad,#horizontal-banner-ad,#horizontal_ad,#horizontal_ad_top,#horizontalads,#houseAd,#hp-header-ad,#hp-right-ad,#hp-store-ad,#hpV2_300x250Ad,#hpV2_googAds,#icePage_SearchLinks_AdRightDiv,#icePage_SearchLinks_DownloadToolbarAdRightDiv,#icePage_SearchResults_ads0_SponsoredLink,#icePage_SearchResults_ads1_SponsoredLink,#icePage_SearchResults_ads2_SponsoredLink,#icePage_SearchResults_ads3_SponsoredLink,#icePage_SearchResults_ads4_SponsoredLink,#in_serp_ad,#inadspace,#indexad,#inlinead,#inlinegoogleads,#inlist-ad-block,#inner-advert-row,#insider_ad_wrapper,#instoryad,#int-ad,#interstitial_ad_wrapper,#islandAd,#j_ad,#ji_medShowAdBox,#jmp-ad-buttons,#joead,#joead2,#ka_adRightSkyscraperWide,#landing-adserver,#largead,#lateAd,#layerTLDADSERV,#lb-sponsor-left,#lb-sponsor-right,#leader-board-ad,#leader-sponsor,#leaderAd,#leaderAdContainer,#leader_board_ad,#leaderad,#leaderad_section,#leaderboard-ad,#leaderboard-bottom-ad,#leaderboard_ad,#left-ad-skin,#left-lower-adverts,#left-lower-adverts-container,#leftAdContainer,#leftAd_rdr,#leftAdvert,#leftSectionAd300-100,#left_ad,#left_adspace,#leftad,#leftads,#leftcolAd,#lg-banner-ad,#ligatus,#linkAds,#linkads,#live-ad,#longAdSpace,#lowerAdvertisementImg,#lowerads,#lowerthirdad,#lowertop-adverts,#lowertop-adverts-container,#lpAdPanel,#lrecad,#lsadvert-left_menu_1,#lsadvert-left_menu_2,#lsadvert-top,#mBannerAd,#main-ad,#main-ad160x600,#main-ad160x600-img,#main-ad728x90,#main-bottom-ad,#mainAd,#mainAdUnit,#mainAdvert,#main_ad,#main_rec_ad,#main_top_ad_container,#marketing-promo,#mastAdvert,#mastad,#mastercardAd,#masthead_ad,#masthead_topad,#medRecAd,#media_ad,#mediumAdvertisement,#medrectad,#menuAds,#mi_story_assets_ad,#mid-ad300x250,#mid-table-ad,#midRightTextAds,#mid_ad_div,#mid_ad_title,#mid_mpu,#midadd,#midadspace,#middle-ad,#middlead,#middleads,#midrect_ad,#midstrip_ad,#mini-ad,#module-google_ads,#module_ad,#module_box_ad,#module_sky_scraper,#monsterAd,#moogleAd,#most_popular_ad,#motionAd,#mpu,#mpu-advert,#mpuAd,#mpuDiv,#mpuSlot,#mpuWrapper,#mpuWrapperAd,#mpu_banner,#mpu_holder,#mpu_text_ad,#mpuad,#mrecAdContainer,#msAds,#ms_ad,#msad,#multiLinkAdContainer,#myads_HeaderButton,#n_sponsor_ads,#namecom_ad_hosting_main,#narrow_ad_unit,#natadad300x250,#national_microlink_ads,#nationalad,#navi_banner_ad_780,#nba300Ad,#nbaMidAds,#nbaVid300Ad,#new_topad,#newads,#ng_rtcol_ad,#noresults_ad_container,#noresultsads,#northad,#ns_ad3,#oanda_ads,#onespot-ads,#online_ad,#p-googleadsense,#page-header-ad,#page-top-ad,#pageAds,#pageAdsDiv,#page_content_top_ad,#pagelet_adbox,#pagelet_netego_ads,#pagelet_search_ads2,#panelAd,#pb_report_ad,#pcworldAdBottom,#pcworldAdTop,#pinball_ad,#player-below-advert,#player_ad,#player_ads,#pod-ad-video-page,#populate_ad_bottom,#populate_ad_left,#portlet-advertisement-left,#portlet-advertisement-right,#post-promo-ad,#post5_adbox,#post_ad,#premium_ad,#priceGrabberAd,#print_ads,#printads,#product-adsense,#promo-ad,#promoAds,#ps-vertical-ads,#pub468x60,#publicidad,#pushdown_ad,#qm-ad-big-box,#qm-ad-sky,#qm-dvdad,#r1SoftAd,#rail_ad1,#rail_ad2,#realEstateAds,#rectAd,#rect_ad,#rectangle-ad,#rectangle_ad,#refine-300-ad,#region-node-advert,#region-top-ad,#rh-ad-container,#rh_tower_ad,#rhs_ads,#rhsadvert,#right-ad,#right-ad-skin,#right-ad-title,#right-ads-3,#right-box-ad,#right-featured-ad,#right-mpu-1-ad-container,#right-uppder-adverts,#right-uppder-adverts-container,#rightAd,#rightAd300x250,#rightAdColumn,#rightAd_rdr,#rightColAd,#rightColumnMpuAd,#rightColumnSkyAd,#right_ad,#right_ad_wrapper,#right_ads,#right_advertisement,#right_advertising,#right_column_ad_container,#right_column_ads,#right_column_internal_ad_container,#rightad,#rightadContainer,#rightadvertbar-doubleclickads,#rightbar-ad,#rightside-ads,#rightside_ad,#righttop-adverts,#righttop-adverts-container,#rm_ad_text,#ros_ad,#rotatingads,#row2AdContainer,#rr_MSads,#rt-ad,#rt-ad-top,#rt-ad468,#rtMod_ad,#rtmod_ad,#sAdsBox,#sb-ad-sq,#sb_advert,#sb_sponsors,#search-google-ads,#search-sponsored-links,#search-sponsored-links-top,#searchAdSenseBox,#searchAdSenseBoxAd,#searchAdSkyscraperBox,#search_ads,#search_result_ad,#second-adlayer,#secondBoxAdContainer,#secondrowads,#section-container-ddc_ads,#section-sponsors,#section_advertorial_feature,#servfail-ads,#sew-ad1,#shoppingads,#show-ad,#showAd,#showad,#side-ad,#side-ad-container,#sideAd,#sideAdSub,#sideBarAd,#side_ad,#side_ad_wrapper,#side_ads_by_google,#side_sky_ad,#sidead,#sideads,#sidebar-125x125-ads,#sidebar-125x125-ads-below-index,#sidebar-ad,#sidebar-ad-boxes,#sidebar-ad-space,#sidebar-ad-wrap,#sidebar-ad3,#sidebar-ads,#sidebar2ads,#sidebar_ad,#sidebar_ad_widget,#sidebar_ads,#sidebar_ads_180,#sidebar_sponsoredresult_body,#sidebarad,#sideline-ad,#single-mpu,#singlead,#site-leaderboard-ads,#site_top_ad,#sitead,#sky-ad,#skyAd,#skyAdContainer,#skyScrapperAd,#skyWrapperAds,#sky_ad,#sky_advert,#skyads,#skyscraper-ad,#skyscraperAd,#skyscraperAdContainer,#skyscraper_ad,#skyscraper_advert,#skyscraperad,#sliderAdHolder,#slideshow_ad_300x250,#sm-banner-ad,#small_ad,#smallerAd,#specials_ads,#speeds_ads,#speeds_ads_fstitem,#speedtest_mrec_ad,#sphereAd,#splinks,#sponLinkDiv_1,#sponlink,#sponlinks,#sponsAds,#sponsLinks,#spons_left,#sponseredlinks,#sponsor-search,#sponsorAd1,#sponsorAd2,#sponsorAdDiv,#sponsorLinks,#sponsorTextLink,#sponsor_banderole,#sponsor_box,#sponsor_deals,#sponsor_panSponsor,#sponsor_recommendations,#sponsorbar,#sponsorbox,#sponsored,#sponsored-ads,#sponsored-features,#sponsored-links,#sponsored-resources,#sponsored1,#sponsoredBox1,#sponsoredBox2,#sponsoredLinks,#sponsoredList,#sponsoredResults,#sponsoredSiteMainline,#sponsoredSiteSidebar,#sponsored_ads_v4,#sponsored_content,#sponsored_game_row_listing,#sponsored_links,#sponsored_v12,#sponsoredlinks,#sponsoredlinks_cntr,#sponsoredresults_top,#sponsoredwellcontainerbottom,#sponsoredwellcontainertop,#sponsoring_bar,#sponsorlink,#sponsors,#sponsors_top_container,#sponsorshipBadge,#spotlightAds,#spotlightad,#sqAd,#square-sponsors,#squareAd,#squareAdSpace,#squareAds,#square_ad,#start_middle_container_advertisment,#sticky-ad,#stickyBottomAd,#story-ad-a,#story-ad-b,#story-leaderboard-ad,#story-sponsoredlinks,#storyAd,#storyAdWrap,#storyad2,#subpage-ad-right,#subpage-ad-top,#swads,#synch-ad,#systemad_background,#tabAdvertising,#takeoverad,#tblAd,#tbl_googlead,#tcwAd,#template_ad_leaderboard,#tertiary_advertising,#text-ad,#text-ads,#textAd,#textAds,#text_ad,#text_ads,#text_advert,#textad,#textad3,#the-last-ad-standing,#thefooterad,#themis-ads,#tile-ad,#tmglBannerAd,#top-ad,#top-ad-container,#top-ad-menu,#top-ads,#top-ads-tabs,#top-advertisement,#top-banner-ad,#top-search-ad-wrapper,#topAd,#topAd728x90,#topAdBanner,#topAdContainer,#topAdSenseDiv,#topAdcontainer,#topAds,#topAdsContainer,#topAdvert,#topBannerAd,#topNavLeaderboardAdHolder,#topRightBlockAdSense,#top_ad,#top_ad_area,#top_ad_game,#top_ad_wrapper,#top_ads,#top_advertise,#top_advertising,#top_right_ad,#top_wide_ad,#topad,#topad_left,#topad_right,#topadbar,#topadblock,#topaddwide,#topads,#topadsense,#topadspace,#topadzone,#topbanner_ad,#topbar-ad,#topcustomad,#topleaderboardad,#toprightAdvert,#toprightad,#topsponsored,#toptextad,#towerad,#ttp_ad_slot1,#ttp_ad_slot2,#twogamesAd,#txt_link_ads,#undergameAd,#upperAdvertisementImg,#upperMpu,#upperad,#urban_contentad_1,#urban_contentad_2,#urban_contentad_article,#v_ad,#vert_ad,#vert_ad_placeholder,#vertical_ad,#vertical_ads,#videoAd,#video_cnv_ad,#video_overlay_ad,#videoadlogo,#viewportAds,#walltopad,#weblink_ads_container,#welcomeAdsContainer,#welcome_ad_mrec,#welcome_advertisement,#wf_ContentAd,#wf_FrontSingleAd,#wf_SingleAd,#wf_bottomContentAd,#wgtAd,#whatsnews_top_ad,#whitepaper-ad,#whoisRightAdContainer,#wide_ad_unit_top,#widget_advertisement,#wrapAdRight,#wrapAdTop,#y-ad-units,#y708-ad-expedia,#y708-ad-lrec,#y708-ad-partners,#y708-ad-ysm,#y708-advertorial-marketplace,#yahoo-ads,#yahoo-sponsors,#yahooSponsored,#yahoo_ads,#yahoo_ads_2010,#yahooad-tbl,#yan-sponsored,#yatadsky,#ybf-ads,#yfi_fp_ad_mort,#yfi_fp_ad_nns,#yfi_pf_ad_mort,#ygrp-sponsored-links,#ymap_adbanner,#yn-gmy-ad-lrec,#yreSponsoredLinks,#ysm_ad_iframe,#zoneAdserverMrec,#zoneAdserverSuper,.ADBAR,.ADPod,.AD_ALBUM_ITEMLIST,.AD_MOVIE_ITEM,.AD_MOVIE_ITEMLIST,.AD_MOVIE_ITEMROW,.Ad-MPU,.Ad1,.Ad120x600,.Ad160x600,.Ad160x600left,.Ad160x600right,.Ad2,.Ad247x90,.Ad300x250,.Ad300x250L,.Ad728x90,.AdBorder,.AdBox,.AdBox7,.AdContainerBox308,.AdHeader,.AdHere,.AdInfo,.AdMedium,.AdPlaceHolder,.AdRingtone,.AdSense,.AdSpace,.AdTextSmallFont,.AdTitle,.AdUnit,.AdUnit300,.Ad_C,.Ad_D_Wrapper,.Ad_E_Wrapper,.Ad_Right,.Ads,.AdsBoxBottom,.AdsBoxSection,.AdsBoxTop,.AdsLinks1,.AdsLinks2,.Advert,.AdvertMidPage,.AdvertiseWithUs,.AdvertisementTextTag,.ArticleAd,.ArticleInlineAd,.BannerAd,.BigBoxAd,.BlockAd,.BottomAdContainer,.BottomAffiliate,.BoxAd,.CG_adkit_leaderboard,.CG_details_ad_dropzone,.CWReviewsProdInfoAd,.ComAread,.CommentAd,.ContentAd,.ContentAds,.DAWRadvertisement,.DeptAd,.DisplayAd,.FT_Ad,.FlatAds,.GOOGLE_AD,.GoogleAd,.GoogleAdSenseBottomModule,.GoogleAdSenseRightModule,.HPNewAdsBannerDiv,.HPRoundedAd,.HomeContentAd,.IABAdSpace,.IndexRightAd,.LazyLoadAd,.LeftAd,.LeftButtonAdSlot,.LeftTowerAd,.M2Advertisement,.MD_adZone,.MOS-ad-hack,.MPU,.MPUHolder,.MPUTitleWrapperClass,.MREC_ads,.MiddleAd,.MiddleAdContainer,.OpenXad,.PU_DoubleClickAdsContent,.Post5ad,.Post9ad,.RBboxAd,.RectangleAd,.RelatedAds,.Right300x250AD,.RightAd1,.RightGoogleAFC,.RightRailTop300x250Ad,.RightSponsoredAdTitle,.RightTowerAd,.SideAdCol,.SidebarAd,.SitesGoogleAdsModule,.SkyAdContainer,.SponsorCFrame,.SponsoredAdTitle,.SponsoredContent,.SponsoredLinks,.SponsoredLinksGrayBox,.SponsoredLinksModule,.SponsorshipText,.SquareAd,.StandardAdLeft,.StandardAdRight,.TextAd,.TheEagleGoogleAdSense300x250,.TopAd,.TopAdContainer,.TopAdL,.TopAdR,.TopBannerAd,.UIWashFrame_SidebarAds,.UnderAd,.VerticalAd,.VideoAd,.WidgetAdvertiser,.a160x600,.a728x90,.ad-120x600,.ad-160,.ad-160x600,.ad-250,.ad-300,.ad-300-block,.ad-300-blog,.ad-300x100,.ad-300x250,.ad-300x250-right0,.ad-350,.ad-355x75,.ad-600,.ad-635x40,.ad-728,.ad-728x90,.ad-728x90-1,.ad-728x90_forum,.ad-above-header,.ad-adlink-bottom,.ad-adlink-side,.ad-background,.ad-banner,.ad-bigsize,.ad-block,.ad-blog2biz,.ad-bottom,.ad-box,.ad-break,.ad-btn,.ad-btn-heading,.ad-button,.ad-cell,.ad-container,.ad-container-300x250,.ad-container-728x90,.ad-content,.ad-disclaimer,.ad-display,.ad-div,.ad-enabled,.ad-feedback,.ad-filler,.ad-footer,.ad-footer-leaderboard,.ad-google,.ad-graphic-large,.ad-gray,.ad-hdr,.ad-head,.ad-holder,.ad-homeleaderboard,.ad-img,.ad-island,.ad-label,.ad-leaderboard,.ad-links,.ad-lrec,.ad-medium,.ad-medium-two,.ad-mpu,.ad-note,.ad-notice,.ad-other,.ad-permalink,.ad-placeholder,.ad-postText,.ad-poster,.ad-priority,.ad-rect,.ad-rectangle,.ad-rectangle-text,.ad-related,.ad-rh,.ad-ri,.ad-right,.ad-right-header,.ad-right-txt,.ad-row,.ad-section,.ad-side,.ad-sidebar,.ad-sidebar-outer,.ad-sidebar300,.ad-sky,.ad-slot,.ad-slot-234-60,.ad-slot-300-250,.ad-slot-728-90,.ad-space,.ad-space-mpu-box,.ad-spot,.ad-squares,.ad-statement,.ad-tabs,.ad-text,.ad-text-links,.ad-tile,.ad-title,.ad-top,.ad-top-left,.ad-unit,.ad-unit-300,.ad-unit-300-wrapper,.ad-unit-anchor,.ad-vert,.ad-vtu,.ad-wrap,.ad-wrapper,.ad-zone-s-q-l,.ad.super,.ad0,.ad1,.ad10,.ad120,.ad120x600,.ad125,.ad160,.ad160x600,.ad18,.ad19,.ad2,.ad21,.ad250,.ad250c,.ad3,.ad300,.ad300250,.ad300_250,.ad300x100,.ad300x250,.ad300x250-hp-features,.ad300x250Top,.ad300x250_container,.ad300x250box,.ad300x50-right,.ad300x600,.ad310,.ad336x280,.ad343x290,.ad4,.ad400right { visibility:hidden !important; display:none !important; } .ad450,.ad468,.ad468_60,.ad468x60,.ad6,.ad620x70,.ad626X35,.ad7,.ad728,.ad728_90,.ad728x90,.ad728x90_container,.ad8,.ad90x780,.adAgate,.adArea674x60,.adBanner,.adBanner300x250,.adBanner728x90,.adBannerTyp1,.adBannerTypSortableList,.adBannerTypW300,.adBar,.adBgBottom,.adBgMId,.adBgTop,.adBlock,.adBottomboxright,.adBox,.adBoxBody,.adBoxBorder,.adBoxContainer,.adBoxContent,.adBoxInBignews,.adBoxSidebar,.adBoxSingle,.adCMRight,.adColumn,.adCont,.adContTop,.adContainer,.adContour,.adCreative,.adCube,.adDiv,.adElement,.adFender3,.adFrame,.adFtr,.adFullWidthMiddle,.adGoogle,.adHeader,.adHeadline,.adHolder,.adHome300x250,.adHorisontal,.adInNews,.adLabel,.adLeader,.adLeaderForum,.adLeaderboard,.adLeft,.adLoaded,.adLocal,.adMastheadLeft,.adMastheadRight,.adMegaBoard,.adMkt2Colw,.adModule,.adMpu,.adNewsChannel,.adNoOutline,.adNotice,.adNoticeOut,.adObj,.adPageBorderL,.adPageBorderR,.adPanel,.adRect,.adRight,.adSelfServiceAdvertiseLink,.adServer,.adSkyscraperHolder,.adSlot,.adSpBelow,.adSpace,.adSpacer,.adSponsor,.adSpot,.adSpot-searchAd,.adSpot-textBox,.adSpot-twin,.adSpotIsland,.adSquare,.adSummary,.adSuperboard,.adSupertower,.adTD,.adTab,.adTag,.adText,.adTileWrap,.adTiler,.adTitle,.adTopboxright,.adTout,.adTxt,.adUnitHorz,.adUnitVert,.adUnitVert_noImage,.adWebBoard,.adWidget,.adWithTab,.adWrap,.adWrapper,.ad_0,.ad_1,.ad_120x90,.ad_125,.ad_130x90,.ad_160,.ad_160x600,.ad_2,.ad_200,.ad_200x200,.ad_250x250,.ad_250x250_w,.ad_3,.ad_300,.ad_300_250,.ad_300x250,.ad_300x250_box_right,.ad_336,.ad_336x280,.ad_350x100,.ad_350x250,.ad_400x200,.ad_468,.ad_468x60,.ad_600,.ad_728,.ad_728x90,.ad_Left,.ad_Right,.ad_amazon,.ad_banner,.ad_banner_border,.ad_bar,.ad_bg,.ad_bigbox,.ad_biz,.ad_block_338,.ad_body,.ad_border,.ad_botbanner,.ad_bottom_leaderboard,.ad_box,.ad_box2,.ad_box_ad,.ad_box_div,.ad_callout,.ad_caption,.ad_column,.ad_column_hl,.ad_contain,.ad_container,.ad_content,.ad_content_wide,.ad_contents,.ad_descriptor,.ad_disclaimer,.ad_eyebrow,.ad_footer,.ad_framed,.ad_front_promo,.ad_head,.ad_header,.ad_hpm,.ad_info_block,.ad_inline,.ad_island,.ad_label,.ad_launchpad,.ad_leader,.ad_leaderboard,.ad_left,.ad_links,.ad_linkunit,.ad_loc,.ad_lrec,.ad_main,.ad_medrec,.ad_medrect,.ad_middle,.ad_mpu,.ad_mr,.ad_mrec,.ad_mrec_title_article,.ad_mrect,.ad_news,.ad_notice,.ad_one,.ad_p360,.ad_partner,.ad_partners,.ad_plus,.ad_post,.ad_power,.ad_rectangle,.ad_right,.ad_right_col,.ad_row,.ad_sidebar,.ad_skyscraper,.ad_slug,.ad_slug_table,.ad_space,.ad_space_300_250,.ad_sponsor,.ad_sponsoredsection,.ad_spot_b,.ad_spot_c,.ad_square_r,.ad_square_top,.ad_text,.ad_text_w,.ad_title,.ad_top,.ad_top_leaderboard,.ad_topright,.ad_tower,.ad_unit,.ad_unit_rail,.ad_url,.ad_warning,.ad_wid300,.ad_wide,.ad_wrap,.ad_wrapper,.ad_wrapper_fixed,.ad_wrapper_top,.ad_zone,.adarea,.adarea-long,.adbanner,.adbannerbox,.adbannerright,.adbar,.adboard,.adborder,.adbot,.adbottom,.adbottomright,.adbox,.adbox-outer,.adbox-wrapper,.adbox_300x600,.adbox_366x280,.adbox_468X60,.adbox_bottom,.adboxclass,.adbuttons,.adcode,.adcol1,.adcol2,.adcolumn,.adcolumn_wrapper,.adcont,.adcopy,.addiv,.adfieldbg,.adfoot,.adfootbox,.adframe,.adhead,.adheader,.adheader100,.adhere,.adhered,.adhi,.adhint,.adholder,.adhoriz,.adi,.adiframe,.adinfo,.adinside,.adintro,.adjlink,.adkit,.adkit-advert,.adkit-lb-footer,.adlabel-horz,.adlabel-vert,.adleader,.adleft1,.adline,.adlink,.adlinks,.adlist,.adlnklst,.admarker,.admedrec,.admessage,.admodule,.admpu,.admpu-small,.adnation-banner,.adnotice,.adops,.adp-AdPrefix,.adpadding,.adpane,.adpic,.adprice,.adproxy,.adright,.adroot,.adrotate_widget,.adrow,.adrow-post,.adrule,.ads-125,.ads-728x90-wrap,.ads-banner,.ads-below-content,.ads-categories-bsa,.ads-favicon,.ads-links-general,.ads-mpu,.ads-outer,.ads-profile,.ads-right,.ads-section,.ads-sidebar,.ads-sky,.ads-stripe,.ads-text,.ads-widget,.ads-widget-partner-gallery,.ads2,.ads3,.ads300,.ads468,.ads728,.adsArea,.adsBelowHeadingNormal,.adsBlock,.adsBox,.adsCont,.adsDiv,.adsFull,.adsImages,.adsMPU,.adsRight,.adsTextHouse,.adsTop,.adsTower2,.adsTowerWrap,.adsWithUs,.ads_125_square,.ads_180,.ads_300,.ads_300x250,.ads_337x280,.ads_728x90,.ads_big,.ads_big-half,.ads_box,.ads_brace,.ads_catDiv,.ads_container,.ads_disc_anchor,.ads_disc_leader,.ads_disc_lwr_square,.ads_disc_skyscraper,.ads_disc_square,.ads_div,.ads_header,.ads_leaderboard,.ads_mpu,.ads_outer,.ads_rectangle,.ads_right,.ads_sc_bl_i,.ads_sc_tl_i,.ads_show_if,.ads_side,.ads_sidebar,.ads_singlepost,.ads_spacer,.ads_takeover,.ads_title,.ads_tr,.ads_widesky,.ads_wrapperads_top,.adsblockvert,.adsborder,.adsbottom,.adsbox,.adsboxitem,.adsbyyahoo,.adsc,.adscaleAdvert,.adsclick,.adscontainer,.adscreen,.adsection_a2,.adsection_c2,.adsense,.adsense-ad,.adsense-category,.adsense-category-bottom,.adsense-heading,.adsense-post,.adsense-right,.adsense-title,.adsense3,.adsenseAds,.adsenseBlock,.adsenseContainer,.adsenseGreenBox,.adsense_bdc_v2,.adsensebig,.adsenseblock,.adsenseblock_bottom,.adsenseblock_top,.adsenselr,.adsensem_widget,.adsensesq,.adsenvelope,.adset,.adsforums,.adsghori,.adsgvert,.adside,.adsidebox,.adsider,.adsingle,.adsleft,.adslogan,.adsmalltext,.adsmessage,.adsnippet_widget,.adspace,.adspace-MR,.adspace180,.adspace_bottom,.adspace_buysell,.adspace_rotate,.adspace_skyscraper,.adspacer,.adspot,.adspot728x90,.adstextpad,.adstitle,.adstop,.adstrip,.adtable,.adtag,.adtech,.adtext,.adtext_gray,.adtext_horizontal,.adtext_onwhite,.adtext_vertical,.adtile,.adtips,.adtips1,.adtop,.adtravel,.adtxt,.adunit,.adv-mpu,.adver,.adverTag,.adver_cont_below,.advert-article-bottom,.advert-bannerad,.advert-box,.advert-head,.advert-horizontal,.advert-iab-300-250,.advert-iab-468-60,.advert-mpu,.advert-skyscraper,.advert-text,.advert300,.advert4,.advert5,.advert8,.advertColumn,.advertCont,.advertContainer,.advertHeadline,.advertRight,.advertText,.advertTitleSky,.advert_468x60,.advert_box,.advert_cont,.advert_djad,.advert_label,.advert_leaderboard,.advert_list,.advert_note,.advert_top,.advertheader-red,.advertise,.advertise-here,.advertise-homestrip,.advertise-horz,.advertise-leaderboard,.advertise-top,.advertise-vert,.advertiseContainer,.advertiseText,.advertise_ads,.advertise_here,.advertise_link,.advertise_link_sidebar,.advertisement,.advertisement-728x90,.advertisement-block,.advertisement-sidebar,.advertisement-sponsor,.advertisement-text,.advertisement-top,.advertisement468,.advertisementBox,.advertisementColumnGroup,.advertisementContainer,.advertisementHeader,.advertisementLabel,.advertisementPanel,.advertisement_btm,.advertisement_caption,.advertisement_g,.advertisement_header,.advertisement_horizontal,.advertisement_top,.advertiser,.advertiser-links,.advertisespace_div,.advertising,.advertising-banner,.advertising-header,.advertising-local-links,.advertising2,.advertisingTable,.advertising_block,.advertising_images,.advertisment,.advertisment_two,.advertize,.advertorial,.advertorial-2,.advertorial-promo-box,.adverts,.advt,.advt-banner-3,.advt-block,.advt300,.advt720,.adwordListings,.adwordsHeader,.adwrap,.adwrapper,.adwrapper-lrec,.adwrapper948,.adzone-footer,.adzone-sidebar,.affiliate,.affiliate-link,.affiliate-sidebar,.affiliateAdvertText,.affinityAdHeader,.after_ad,.agi-adsaleslinks,.alb-content-ad,.alt_ad,.anchorAd,.another_text_ad,.answer_ad_content,.aolSponsoredLinks,.aopsadvert,.apiAdMarkerAbove,.apiAds,.archive-ads,.art_ads,.article-ads,.articleAd,.articleAds,.articleAdsL,.articleEmbeddedAdBox,.article_ad,.article_adbox,.article_mpu_box,.articleads,.aseadn,.aux-ad-widget-1,.aux-ad-widget-2,.b-astro-sponsored-links_horizontal,.b-astro-sponsored-links_vertical,.banner-ad,.banner-ads,.banner-adverts,.banner300x100,.banner300x250,.banner468,.bannerAd,.bannerAdWrapper300x250,.bannerAdWrapper730x86,.bannerRightAd,.banner_300x250,.banner_728x90,.banner_ad,.banner_ad_footer,.banner_ad_leaderboard,.bannerad,.barkerAd,.base-ad-mpu,.base_ad,.bg-ad-link,.bgnavad,.big-ads,.bigAd,.big_ad,.big_ads,.bigad,.bigad2,.bigbox_ad,.bigboxad,.billboard_ad,.blk_advert,.block-ad,.block-ad300,.block-admanager,.block-ads-bottom,.block-ads-top,.block-adsense,.block-openadstream,.block-openx,.block-thirdage-ads,.block_ad,.block_ad_sb_text,.block_ad_sponsored_links,.block_ad_sponsored_links-wrapper,.blocked-ads,.blog-ad-leader-inner,.blog-ads-container,.blogAd,.blogAdvertisement,.blogBigAd,.blog_ad,.blogads,.blox3featuredAd,.body_ad,.body_sponsoredresults_bottom,.body_sponsoredresults_middle,.body_sponsoredresults_top,.bookseller-header-advt,.bottomAd,.bottomAds,.bottom_ad,.bottom_ad_block,.bottom_sponsor,.bottomad,.bottomadvert,.bottomrightrailAd,.bottomvidad,.box-ad,.box-ads,.box-adsense,.boxAd,.box_ad,.box_ads,.box_advertising,.box_advertisment_62_border,.box_content_ad,.box_content_ads,.boxad,.boxyads,.bps-ad-wrapper,.bps-advertisement,.bps-advertisement-inline-ads,.br-ad,.bsa_ads,.btm_ad,.btn-ad,.bullet-sponsored-links,.bullet-sponsored-links-gray,.burstContentAdIndex,.buttonAd,.buttonAds,.buttonadbox,.bx_ad,.bx_ad_right,.cA-adStrap,.cColumn-TextAdsBox,.care2_adspace,.catalog_ads,.category-ad,.category__big_game_container_body_games_advertising,.cb-ad-container,.cb_ads,.cb_footer_sponsor,.cb_navigation_ad,.cbstv_ad_label,.cbzadvert,.cbzadvert_block,.cdAdTitle,.cdmainlineSearchAdParent,.cdsidebarSearchAdParent,.centerAd,.center_ad,.centerad,.centered-ad,.cinemabotad,.clearerad,.cm_ads,.cms-Advert,.cnbc_badge_banner_ad_area,.cnbc_banner_ad_area,.cnn160AdFooter,.cnnAd,.cnnMosaic160Container,.cnnSearchSponsorBox,.cnnStoreAd,.cnnStoryElementBoxAd,.cnnWCAdBox,.cnnWireAdLtgBox,.cnn_728adbin,.cnn_adcntr300x100,.cnn_adcntr728x90,.cnn_adspc336cntr,.cnn_adtitle,.column2-ad,.com-ad-server,.comment-advertisement,.common_advertisement_title,.communityAd,.conTSponsored,.conductor_ad,.confirm_ad_left,.confirm_ad_right,.confirm_leader_ad,.consoleAd,.container-adwords,.containerSqAd,.container_serendipity_plugin_google_adsense,.content-ad,.contentAd,.contentAdFoot,.contentAdsWrapper,.content_ad,.content_ad_728,.content_adsq,.contentad,.contentad300x250,.contentad_right_col,.contentadcontainer,.contentadleft,.contenttextad,.contest_ad,.cp_ad,.cpmstarHeadline,.cpmstarText,.create_ad,.cs-mpu,.cscTextAd,.cse_ads,.cspAd,.ct_ad,.cube-ad,.cubeAd,.cube_ads,.currency_ad,.custom_ads,.darla_ad,.dartAdImage,.dart_ad,.dart_tag,.dartadvert,.dartiframe,.dc-ad,.dcAdvertHeader,.deckAd,.deckads,.detail-ads,.detailMpu,.detail_ad,.detail_top_advert,.divAd,.divad1,.divad2,.divad3,.divads,.divider_ad,.dmco_advert_iabrighttitle,.download_ad,.downloadad,.dynamic-ads,.dynamic_ad,.e-ad,.ec-ads,.ec-ads-remove-if-empty,.em-ad,.embed-ad,.entry-body-ad,.entry_sidebar_ads,.entryad,.ez-clientAd,.f_Ads,.feature_ad,.featuredAds,.featuredadvertising,.firstpost_advert_container,.flagads,.flash-advertisement,.flash_ad,.flash_advert,.flashad,.flexiad,.flipbook_v2_sponsor_ad,.floatad,.floated_right_ad,.floatingAds,.fm-badge-ad,.footad,.footer-ad,.footerAd,.footerAdModule,.footerAdslot,.footerTextAd,.footer_ad,.footer_ads,.footer_block_ad,.footer_bottomad,.footer_line_ad,.footer_text_ad,.footerad,.forumtopad,.frn_adbox,.frn_cont_adbox,.frontads,.ft-ad,.ftdAdBar,.ftdContentAd,.full_ad_box,.fullbannerad,.g3rtn-ad-site,.gAdRows,.gAdSky,.gAdvertising,.g_ggl_ad,.ga-ads,.ga-textads-bottom,.ga-textads-top,.gaTeaserAdsBox,.gads,.gads_cb,.gads_container,.gam_ad_slot,.gameAd,.gamesPage_ad_content,.gbl_advertisement,.gglAds,.global_banner_ad,.googad,.googads,.google-ad,.google-ad-container,.google-ads,.google-ads-boxout,.google-ads-slim,.google-right-ad,.google-sponsored-ads,.google-sponsored-link,.google468_60,.googleAd,.googleAd-content,.googleAd-list,.googleAdBox,.googleAdSense,.googleAdSenseModule,.googleAd_body,.googleAds,.googleAds_article_page_above_comments,.googleAdsense,.googleContentAds,.googleProfileAd,.googleSearchAd_content,.googleSearchAd_sidebar,.google_ad,.google_add_container,.google_ads,.google_ads_bom_title,.google_ads_content,.googlead,.googleaddiv,.googleaddiv2,.googleads,.googleads_300x250,.googleads_title,.googley_ads,.gpAdBox,.gpAds,.gradientAd,.grey-ad-line,.group_ad,.gsAd,.gsfAd,.gt_ad,.gt_ad_300x250,.gt_ad_728x90,.gt_adlabel,.gutter-ad-left,.gutter-ad-right,.h-ad-728x90-bottom,.h_Ads,.h_ad,.half-ad,.half_ad_box,.hcf-cms-ad,.hd_advert,.hdr-ads,.header-ad,.header-advert,.headerAd,.headerAds,.headerAdvert,.headerTextAd,.header_ad,.header_ad_center,.header_ad_div,.header_advertisment,.headerad,.hi5-ad,.highlightsAd,.hm_advertisment,.home-ad-links,.homeAd,.homeAd1,.homeAd2,.homeAdBoxA,.homeAdBoxBetweenBlocks,.homeAdBoxInBignews,.homeAdSection,.homeMediumAdGroup,.home_ad_bottom,.home_advertisement,.home_mrec_ad,.homead,.homepage-ad,.homepage300ad,.homepageFlexAdOuter,.homepageMPU,.homepage_middle_right_ad,.hor_ad,.horiz_adspace,.horizontalAd,.horizontal_ad,.horizontal_ads,.horizontaltextadbox,.horizsponsoredlinks,.hortad,.houseAd1,.houseAdsStyle,.housead,.hp2-adtag,.hp_ad_cont,.hp_ad_text,.hp_t_ad,.hp_w_ad,.ic-ads,.ico-adv,.idMultiAd,.image-advertisement,.imageads,.imgad,.in-page-ad,.in-story-ads,.in-story-text-ad,.indie-sidead,.indy_googleads,.inline-ad,.inline-mpu,.inline-mpu-left,.inlineSideAd,.inline_ad,.inline_ad_title,.inlinead,.inlineadsense,.inlineadtitle,.inlist-ad,.inlistAd,.inner-advt-banner-3,.innerAds,.innerad { visibility:hidden !important; display:none !important; } .inpostad,.insert_advertisement,.insertad,.insideStoryAd,.inteliusAd_image,.interest-based-ad,.is24-adplace,.islandAd,.islandAdvert,.islandad,.jimdoAdDisclaimer,.jp-advertisment-promotional,.js-advert,.kw_advert,.kw_advert_pair,.l_ad_sub,.l_banner.ads_show_if,.labelads,.largeRectangleAd,.lastRowAd,.lcontentbox_ad,.leaderAdTop,.leaderAdvert,.leader_ad,.leaderboardAd,.leaderboardad,.leaderboardadtop,.left-ad,.leftAd,.leftAdColumn,.leftAds,.left_ad_box,.left_adlink,.left_ads,.leftad,.leftadtag,.leftbar_ad_160_600,.leftbarads,.leftnavad,.lgRecAd,.lg_ad,.ligatus,.linead,.link_adslider,.link_advertise,.live-search-list-ad-container,.ljad,.log_ads,.logoAds,.logoad,.longAd,.lowerAds,.m-ad-tvguide-box,.m4-adsbygoogle,.m_banner_ads,.macAd,.macad,.main-ad,.main-tabs-ad-block,.main_ad,.main_adbox,.main_intro_ad,.map_media_banner_ad,.marginadsthin,.marketing-ad,.masthead_topad,.mdl-ad,.media-advert,.mediaAd,.mediaAdContainer,.mediaResult_sponsoredSearch,.medium-rectangle-ad,.mediumRectangleAdvert,.medrect_ad,.menuItemBannerAd,.messageBoardAd,.mf-ad300-container,.micro_ad,.mid_ad,.midad,.middleAds,.middleads,.min_navi_ad,.mini-ad,.miniad,.mobile-sponsoring,.mod-ad-lrec,.mod-ad-n,.mod-adopenx,.mod_admodule,.module-ad,.module-ad-small,.module-ads,.moduleAdvertContent,.module_ad,.module_box_ad,.modulegad,.moduletable-advert,.moduletable-googleads,.moduletablesquaread,.mpu,.mpu-ad,.mpu-advert,.mpu-footer,.mpu-fp,.mpu-title,.mpu-top-left,.mpu-top-left-banner,.mpu-top-right,.mpuAd,.mpuAdSlot,.mpuAdvert,.mpuArea,.mpuBox,.mpuContainer,.mpuHolder,.mpuTextAd,.mpu_ad,.mpu_advert,.mpu_gold,.mpu_holder,.mpu_platinum,.mpu_text_ad,.mpuad,.mpuholderportalpage,.mrec_advert,.ms-ads-link,.msfg-shopping-mpu,.mwaads,.my-ad250x300,.nSponsoredLcContent,.nSponsoredLcTopic,.nadvt300,.narrow_ad_unit,.narrow_ads,.navAdsBanner,.navadbox,.navi_ad300,.naviad,.nba300Ad,.nbaT3Ad160,.nbaTVPodAd,.nbaTwo130Ads,.nbc_ad_carousel_wrp,.newTopAdContainer,.newad,.news_article_ad_google,.newsviewAdBoxInNews,.nf-adbox,.nn-mpu,.noAdForLead,.normalAds,.nrAds,.nsAdRow,.oas-ad,.oas-bottom-ads,.offer_sponsoredlinks,.oio-banner-zone,.oio-link-sidebar,.oio-zone-position,.on_single_ad_box,.onethirdadholder,.openads,.openadstext_after,.openx,.openx-ad,.osan-ads,.other_adv2,.outermainadtd1,.ovAdPromo,.ovAdSky,.ovAdartikel,.ov_spns,.pageGoogleAd,.pageGoogleAdFlat,.pageLeaderAd,.page_content_right_ad,.pagead,.pagenavindexcontentad,.paneladvert,.partner-ads-container,.partnersTextLinks,.pencil_ad,.player_ad_box,.player_page_ad_box,.plista_inimg_box,.pnp_ad,.pod-ad-300,.podRelatedAdLinksWidget,.podSponsoredLink,.portalCenterContentAdBottom,.portalCenterContentAdMiddle,.portalCenterContentAdTop,.portalcontentad,.post-ad,.post_ad,.post_ads,.post_sponsor_unit,.postbit_adbit_register,.postbit_adcode,.postgroup-ads,.postgroup-ads-middle,.prebodyads,.premium_ad_container,.promoAd,.promoAds,.promo_ad,.publication-ad,.publicidad,.puff-advertorials,.qa_ad_left,.qm-ad-content,.qm-ad-content-news,.quigo-ad,.qzvAdDiv,.r_ad_box,.r_ads,.rad_container,.rect_ad_module,.rectad,.rectangleAd,.rectanglead,.redads_cont,.regular_728_ad,.regularad,.relatedAds,.related_post_google_ad,.remads,.resourceImagetAd,.result_ad,.results_sponsor,.results_sponsor_right,.reviewMidAdvertAlign,.rght300x250,.rhads,.rhs-ad,.rhs-ads-panel,.right-ad,.right-ad-holder,.right-ad2,.right-ads,.right-ads2,.right-sidebar-box-ad,.rightAd,.rightColAd,.rightRailAd,.right_ad,.right_ad_box,.right_ad_text,.right_ad_top,.right_ads,.right_ads_column,.right_col_ad,.right_hand_advert_column,.right_side-partyad,.rightad,.rightad_1,.rightad_2,.rightadbox1,.rightads,.rightadunit,.rightcol_boxad,.rightcoladvert,.rightcoltowerad,.rnav_ad,.rngtAd,.roundedCornersAd,.roundingrayboxads,.rt_ad1_300x90,.rt_ad_300x250,.rt_ad_call,.savvyad_unit,.sb-ad-sq-bg,.sbAd,.sbAdUnitContainer,.sb_adsN,.sb_adsNv2,.sb_adsW,.sb_adsWv2,.scanAd,.scc_advert,.sci-ad-main,.sci-ad-sub,.search-ad,.search-results-ad,.search-sponsor,.search-sponsored,.searchAd,.searchSponsoredResultsBox,.searchSponsoredResultsList,.search_column_results_sponsored,.search_results_sponsored_top,.section-ad2,.section-sponsor,.section_mpu_wrapper,.section_mpu_wrapper_wrapper,.selfServeAds,.sepContentAd,.serp_sponsored,.servsponserLinks,.shoppingGoogleAdSense,.sidbaread,.side-ad,.side-ads,.sideAd,.sideBoxAd,.side_ad,.side_ad2,.side_ad_1,.side_ad_2,.side_ad_3,.sidead,.sideads,.sideadsbox,.sideadvert,.sidebar-ad,.sidebar-ads,.sidebar-text-ad,.sidebarAd,.sidebarAdUnit,.sidebarAdvert,.sidebar_ad,.sidebar_ad_300_250,.sidebar_ads,.sidebar_ads_336,.sidebar_adsense,.sidebar_box_ad,.sidebarad,.sidebarad_bottom,.sidebaradbox,.sidebarboxad,.sideheadnarrowad,.sideheadsponsorsad,.singleAd,.singleAdsContainer,.singlead,.sitesponsor,.skinAd,.skin_ad_638,.sky-ad,.skyAd,.skyAdd,.skyAdvert,.sky_ad,.sky_scraper_ad,.skyad,.skyscraper-ad,.skyscraper_ad,.skyscraper_bannerAdHome,.slideshow-ad,.slpBigSlimAdUnit,.slpSquareAdUnit,.sm_ad,.smallSkyAd1,.smallSkyAd2,.small_ad,.small_ads,.smallad-left,.smallads,.smallsponsorad,.smart_ads_bom_title,.specialAd175x90,.speedyads,.sphereAdContainer,.spl-ads,.spl_ad,.spl_ad2,.spl_ad_plus,.splitAd,.sponlinkbox,.spons-link,.spons_links,.sponslink,.sponsor-ad,.sponsor-bottom,.sponsor-link,.sponsor-links,.sponsor-right,.sponsor-services,.sponsor-top,.sponsorArea,.sponsorBox,.sponsorPost,.sponsorPostWrap,.sponsorStrip,.sponsorTop,.sponsor_ad_area,.sponsor_footer,.sponsor_horizontal,.sponsor_line,.sponsor_links,.sponsor_logo,.sponsor_top,.sponsor_units,.sponsoradtitle,.sponsorbox,.sponsored,.sponsored-ads,.sponsored-chunk,.sponsored-editorial,.sponsored-features,.sponsored-links,.sponsored-links-alt-b,.sponsored-links-holder,.sponsored-links-right,.sponsored-post,.sponsored-post_ad,.sponsored-results,.sponsored-right-border,.sponsored-text,.sponsoredInner,.sponsoredLabel,.sponsoredLinks,.sponsoredLinks2,.sponsoredLinksHeader,.sponsoredProduct,.sponsoredResults,.sponsoredSideInner,.sponsored_ads,.sponsored_box,.sponsored_box_search,.sponsored_by,.sponsored_links,.sponsored_links_title_container,.sponsored_links_title_container_top,.sponsored_links_top,.sponsored_results,.sponsored_well,.sponsoredibbox,.sponsoredlink,.sponsoredlinks,.sponsoredlinkscontainer,.sponsoredresults,.sponsoredtextlink_container,.sponsoredtextlink_container_ovt,.sponsorlink,.sponsorlink2,.sponsors,.sponsors-box,.sponsorshipbox,.spotlightAd,.squareAd,.square_ad,.squared_ad,.ss-ad-mpu,.start__newest__big_game_container_body_games_advertising,.staticAd,.stocks-ad-tag,.store-ads,.story_AD,.story_ad_div,.storyad,.subad,.subcontent-ad,.subtitle-ad-container,.super-ad,.supercommentad_left,.supercommentad_right,.supp-ads,.supportAdItem,.surveyad,.t10ad,.tab_ad,.tab_ad_area,.tablebordersponsor,.tadsanzeige,.tadsbanner,.tadselement,.tallad,.tblTopAds,.tbl_ad,.tbox_ad,.td-Adholder,.teaser-sponsor,.teaserAdContainer,.teaser_adtiles,.text-ad-links,.text-g-advertisement,.text-g-group-short-rec-ad,.text-g-net-grp-google-ads-article-page,.textAd,.textAdBox,.textAds,.text_ad,.text_ads,.textad,.textadContainer,.textad_headline,.textadbox,.textadheadline,.textadlink,.textads,.textadsfoot,.textadtext,.textlink-ads,.tf_page_ad_search,.thisIsAd,.thisIsAnAd,.ticket-ad,.tileAds,.tips_advertisement,.title-ad,.title_adbig,.tncms-region-ads,.toolad,.toolbar-ad,.top-ad,.top-ad-space,.top-ads,.top-menu-ads,.top-sponsors,.topAd,.topAdWrap,.topAds,.topAdvertisement,.topBannerAd,.topLeaderboardAd,.top_Ad,.top_ad,.top_ad_728,.top_ad_728_90,.top_ad_disclaimer,.top_ad_div,.top_ad_post,.top_ad_wrapper,.top_ads,.top_advert,.top_advertising_lb,.top_container_ad,.top_sponsor,.topad,.topad-bar,.topadbox,.topads,.topadspot,.topadvertisementsegment,.topcontentadvertisement,.topic_inad,.topstoriesad,.toptenAdBoxA,.towerAd,.towerAdLeft,.towerAds,.tower_ad,.tower_ad_disclaimer,.towerad,.ts-ad_unit_bigbox,.ts-banner_ad,.ttlAdsensel,.tto-sponsored-element,.tucadtext,.tvs-mpu,.twoColumnAd,.twoadcoll,.twoadcolr,.tx_smartadserver_pi1,.txt-ads,.txtAds,.txt_ads,.txtadvertise,.type_adscontainer,.type_miniad,.type_promoads,.ukAds,.undertimyads,.universalboxADVBOX01,.universalboxADVBOX03,.universalboxADVBOX04a,.usenext,.vertad,.vertical-adsense,.videoAd,.videoBoxAd,.video_ad,.view-promo-mpu-right,.view_rig_ad,.virgin-mpu,.wa_adsbottom,.wantads,.wide-ad,.wide-skyscraper-ad,.wideAdTable,.wide_ad,.wide_ad_unit_top,.wide_ads,.wide_google_ads,.widget-ad,.widget-ad300x250,.widget-entry-ads-160,.widgetYahooAds,.widget_ad,.widget_ad_rotator,.widget_island_ad,.widget_sdac_bottom_ad_widget,.widget_sdac_footer_ads_widget,.widget_sdac_skyscraper_ad_widget,.wikia-ad,.wikia_ad_placeholder,.withAds,.wnMultiAd,.wp125ad,.wp125ad_2,.wpn_ad_content,.wrap-ads,.wsSponsoredLinksRight,.wsTopSposoredLinks,.x03-adunit,.x04-adunit,.xads-blk2,.xads-ojedn,.y-ads,.y-ads-wide,.y7-advertisement,.yahoo-sponsored,.yahoo-sponsored-links,.yahooAds,.yahoo_ads,.yan-sponsored,.ygrp-ad,.yrail_ad_wrap,.yrail_ads,.ysmsponsor,.ysponsor,.yw-ad,[id^="MarketGid"],a[href^="http://ad-emea.doubleclick.net/"],a[href^="http://ad.doubleclick.net/"],a[href^="http://adserving.liveuniversenetwork.com/"],a[href^="http://galleries.pinballpublishernetwork.com/"],a[href^="http://galleries.securewebsiteaccess.com/"],a[href^="http://install.securewebsiteaccess.com/"],a[href^="http://latestdownloads.net/download.php?"],a[href^="http://secure.signup-page.com/"],a[href^="http://secure.signup-way.com/"],a[href^="http://www.FriendlyDuck.com/AF_"],a[href^="http://www.adbrite.com/mb/commerce/purchase_form.php?"],a[href^="http://www.friendlyduck.com/AF_"],a[href^="http://www.google.com/aclk?"],a[href^="http://www.liutilities.com/aff"],a[href^="http://www.liutilities.com/products/campaigns/adv/"],a[href^="http://www.my-dirty-hobby.com/?sub="],a[href^="http://www.ringtonematcher.com/"],#mbEnd[cellspacing="0"][style],div#mclip_container:first-child:last-child,div#tads.c,table.ra[align="left"][width="30%"],table.ra[align="right"][width="30%"] { visibility:hidden !important; display:none !important; }</style></html>

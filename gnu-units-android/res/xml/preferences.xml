@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<EditTextPreference android:name="flags"
+		android:summary="Equivalent of Gnu Units command line options"
+		android:defaultValue="--terse" 
+		android:title="Flags/options"
+		android:key="flags" />
+	<ListPreference android:title="Autocompletion threshold"
+		android:key="threshold"
+		android:summary="Number of characters you type before autocompletion of unit names takes place"
+		android:defaultValue="0" 
+		android:entries="@array/defaultThreshold"
+		android:entryValues="@array/defaultThresholdValues" />
+	<CheckBoxPreference android:title="Use entry history"
+		android:defaultValue="true" 
+		android:summary="Select to use device Back key to cycle through entry history (press Back twice rapidly for usual Back key functionality)"
+		android:key="history" />
+</PreferenceScreen>

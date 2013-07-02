@@ -1,0 +1,4 @@
+set solib-search-path /Users/keith/e/gnu-units/obj/local/armeabi
+directory /Users/keith/android-ndk-r5/platforms/android-8/arch-arm/usr/include /Users/keith/e/gnu-units/jni /Users/keith/android-ndk-r5/sources/cxx-stl/system
+file /Users/keith/e/gnu-units/obj/local/armeabi/app_process
+target remote :5039

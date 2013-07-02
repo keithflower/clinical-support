@@ -1,0 +1,52 @@
+###########################################################################
+#  fun.dat - Example of a custom units file.
+#
+#  Some of the data here is taken from "The Q Files, a 
+#  subsidiary of Evil Mad Scientist Laboratories"
+#  (http://windell.oskay.net/humor/qqqfiles/quarks1.html), which notes 
+#  that the original information was taken from "The Bent of Tau Beta Pi", 
+#  Spring 1988. 
+###########################################################################
+
+###########################################################################
+# 
+# Primitive units.  Any unit defined to contain a '!' character is a      
+# primitive unit which will not be reduced any further.  All units should 
+# reduce to primitive units.                                              
+#                                                                         
+###########################################################################
+phone  	   	   	       	   	      	       	      	!
+cycle												!	
+cards												!
+fiche												!
+pin													!
+olo													!
+pede													!
+dent													!
+logue												!
+nickels												!
+amount_of_face_that_can_launch_one_ship				!
+whod_unit											!
+mockingbirds											!
+paradise												!
+snake_eyes											!
+whod_unit											!
+
+###########################################################################
+#                                                                        
+# Prefixes (longer names must come first)            
+#                                                                      
+###########################################################################
+hella-												10^27
+bi-													2
+pic-													1e-12
+gig-													1e9
+dec-													10
+
+
+fish													fiche
+unit_of_suspense_in_mystery_novel					whod_unit
+paradise												2 snake_eyes								
+Helen_Of_Troy										amount_of_face_that_can_launch_one_ship * 1000
+paradigm							    				    4 nickels
+
