@@ -7,4 +7,6 @@ For Android 2.2+ platform.
 
 ![ABG for Android example](screenshot.png)
 
+![ABG for Android example](screenshot2.png)
+
 
