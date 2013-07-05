@@ -1,0 +1,69 @@
+package quexotic.org;
+
+public class Abg {
+
+    public int fred = 23;
+    public String interpret (double pH, double pCO2, double HCO3) {
+
+        StringBuffer sb = new StringBuffer();
+
+        if ( acidemia (pH) ) {
+            if ( low_paCO2 (pCO2) || normal_paCO2 (pCO2) ) {
+                sb.append("Primary metabolic acidemia");
+                /* Is there also a superimposed respiratory disorder? */
+                double expected_paCO2_min = 1.5 * HCO3 + 6;
+                double expected_paCO2_max = 1.5 * HCO3 + 8;
+                        
+                if ( pCO2 < expected_paCO2_min ) {
+                    sb.append(", with a superimposed respiratory acidosis"); 
+                }
+                if ( pCO2 > expected_paCO2_max ) {
+                    sb.append(", with a superimposed respiratory alkalosis"); 
+                }
+            }
+            if ( high_paCO2 (pCO2) ) {
+                sb.append("Primary respiratory acidosis");
+                /* Now determine if this is an acute or a chronic disturbance */
+                double change_in_pH = 7.4 - pH;
+                if ( intround (change_in_pH) > intround (0.008 * (pCO2 - 40.0)) ) {
+                    sb.append(": superimposed metabolic acid-base disorder");
+                }
+                if ( intround (change_in_pH) == intround (0.008 * (pCO2 - 40.0)) ) {
+                    sb.append(": acute");
+                }
+                if ( intround (change_in_pH) > intround (0.003 * (pCO2 - 40.0)) &&
+                     intround (change_in_pH) < intround (0.008 * (pCO2 - 40.0)) ) {
+                    sb.append(": partially compensated");
+                }
+                if ( intround (change_in_pH) == intround (0.003 * (pCO2 - 40.0)) ) {
+                    sb.append(": chronic");
+                }
+            }
+        }
+        String s = String.format("pH %g pCO2 %g HCO3 %g;\n %s", pH, pCO2, HCO3, sb);
+        return (s);
+    }
+
+    private boolean acidemia (double pH) {
+        return (pH < 7.40 ? true : false);
+    }
+
+    private boolean low_paCO2 (double paCO2) {
+        return ( paCO2 < 40 ? true : false);
+    }
+
+    private boolean high_paCO2 (double paCO2) {
+        return ( paCO2 > 44 ? true : false);
+    }
+
+    private boolean normal_paCO2 (double paCO2) {
+        if ( paCO2 > 40.0 && paCO2 < 44.0 )
+            return true;
+        else
+            return false;
+    }
+	
+    private int intround (double val) {
+        return ((int) (1000 * val));
+    }
+}
