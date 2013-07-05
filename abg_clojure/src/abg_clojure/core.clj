@@ -35,11 +35,10 @@
       (.add fahrenheit-label)
       (.setSize 300 480)
       (.setVisible true))))
-(celsius)
 
 (defn foo
   "I don't do a whole lot."
-  [x]
-  (Abg.interpret 7.2 24.0 13.0)
-  (println x "Hello, World!"))
+  (Abg/interpret 7.2 24.0 13.0))
 
+(celsius)
+(foo)
