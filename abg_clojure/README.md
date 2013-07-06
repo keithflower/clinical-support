@@ -1,13 +1,11 @@
 # abg-clojure
 
-A Clojure library designed to ... well, that part is up to you.
+Clojure app that just calls the arterial blood gas logic found in the Android app.
 
-## Usage
-
-FIXME
+![ABG Intpretation](screenshot.png)
 
 ## License
 
-Copyright © 2013 FIXME
+Copyright © 2013 Keith Flower
 
 Distributed under the Eclipse Public License, the same as Clojure.
