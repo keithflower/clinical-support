@@ -6,7 +6,7 @@
         '(quexotic.org Abg))
 
 (defn celsius []
-  (let [frame (JFrame. "Celsius Converter")
+  (let [frame (JFrame. "Arterial blood gas interpretation")
         pH-text (JTextField.)
         pH-label (JLabel. "pH")
         pCO2-text (JTextField.)
@@ -14,15 +14,18 @@
         HCO3-text (JTextField.)
         HCO3-label (JLabel. "HCO3")
         convert-button (JButton. "Interpret")
+        no-label (JLabel. "")
         fahrenheit-label (JLabel. "ABG Interpretation:")]
     (.addActionListener
      convert-button
      (reify ActionListener 
             (actionPerformed
              [_ evt]
-             (let [c (Double/parseDouble (.getText pH-text))]
+             (let [pH (Double/parseDouble (.getText pH-text))
+                   pCO2 (Double/parseDouble (.getText pCO2-text))
+                   HCO3 (Double/parseDouble (.getText HCO3-text))]
                (.setText fahrenheit-label
-                         (str (+ 32 (* 1.8 c)) " xxxx"))))))
+                         (Abg/interpret pH pCO2 HCO3))))))
     (doto frame
       (.setLayout (GridLayout. 6 1 3 3))
       (.add pH-text)
@@ -32,13 +35,10 @@
       (.add HCO3-text)
       (.add HCO3-label)
       (.add convert-button)
+      (.add no-label)
       (.add fahrenheit-label)
       (.setSize 300 480)
       (.setVisible true))))
-
-(defn foo
-  "I don't do a whole lot."
-  (Abg/interpret 7.2 24.0 13.0))
-
 (celsius)
-(foo)
+
+

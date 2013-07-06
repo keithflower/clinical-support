@@ -2,6 +2,7 @@ package quexotic.org;
 
 public class Abg {
 
+    public static int fred = 42;
     public static String interpret (double pH, double pCO2, double HCO3) {
 
         StringBuffer sb = new StringBuffer();
