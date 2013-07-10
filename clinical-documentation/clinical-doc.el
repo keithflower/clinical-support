@@ -155,17 +155,6 @@
         ("j" "Journal" entry (file+datetree "~/org/journal.org")
              "* %?\nEntered on %U\n  %i\n")))
 
-;; Set to the location of your Org files on your local system
-(setq org-directory "~/practice/org")
-;; Set to the name of the file where new notes will be stored
-(setq org-mobile-inbox-for-pull "~/practice/org/flagged.org")
-;; Set to <your Dropbox root directory>/MobileOrg.
-(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
-;; Enable encryption
-(setq org-mobile-use-encryption t)
-;; Set a password
-(setq org-mobile-encryption-password "matahari")
-
 (defun pn ()     
   (interactive)     
   (let ((daily-name (format-time-string "%Y%m%dpn")))
