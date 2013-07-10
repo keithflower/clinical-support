@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@+id/ScrollView01"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+xmlns:android="http://schemas.android.com/apk/res/android">
+<RelativeLayout 
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+ 
+    <TextView android:id="@+id/title"
+      	android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_gravity="center_horizontal"/>
+         
+     <SeekBar android:id="@+id/seek"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        	android:layout_below="@id/title"
+		android:paddingLeft="10mm" android:paddingRight="10mm"/>
+ 
+    <TextView android:id="@+id/left"
+      	android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+		android:layout_below="@id/seek"
+        android:gravity="left"
+        android:text="None"/>
+
+    <TextView android:id="@+id/right"
+      	android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+		android:layout_below="@id/seek"
+		android:layout_alignParentRight="true"
+        android:text="Maximum"/>
+         
+    <TextView android:id="@+id/progress"
+       	android:layout_width="fill_parent"
+		android:layout_below="@id/left"
+        android:layout_height="wrap_content" />
+
+    <TextView android:id="@+id/tracking"
+       	android:layout_width="fill_parent"
+		android:layout_below="@id/progress"
+        android:layout_height="wrap_content" />
+     
+<TextView  
+	android:id="@+id/instructions"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:layout_below="@id/tracking"
+    android:text="@string/instructions"
+    />
+    
+<EditText
+    android:id="@+id/results"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:editable="true"
+    android:layout_below="@id/instructions"
+    android:inputType="textMultiLine"
+	/>
+	
+<Button
+        android:id="@+id/storebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/results"
+        android:padding="10dp"
+        android:text="Store"
+/>
+</RelativeLayout>
+</ScrollView>
