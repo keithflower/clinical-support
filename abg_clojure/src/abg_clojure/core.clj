@@ -1,21 +1,26 @@
 (ns abg-clojure.core)
 
-(import '(javax.swing JFrame JLabel JTextField JButton)
+(import '(javax.swing JFrame JLabel JTextField JTextArea JButton)
         '(java.awt.event ActionListener)
-        '(java.awt GridLayout)
+        '(java.awt FlowLayout)
         '(quexotic.org Abg))
 
 (defn abg []
   (let [frame (JFrame. "Arterial blood gas interpretation")
-        pH-text (JTextField.)
+        pH-text (JTextField. 3)
         pH-label (JLabel. "pH")
-        pCO2-text (JTextField.)
+        pCO2-text (JTextField. 3)
         pCO2-label (JLabel. "pCO2")
-        HCO3-text (JTextField.)
+        HCO3-text (JTextField. 3)
         HCO3-label (JLabel. "HCO3")
         convert-button (JButton. "Interpret")
-        no-label (JLabel. "")
-        abg-label (JLabel. "ABG Interpretation:")]
+        no-label (JLabel. "      ")
+        abg-label (JTextArea. "ABG Interpretation:")]
+    (doto abg-label
+      (.setLineWrap true)
+      (.setRows 5)
+      (.setColumns 10)
+      (.setWrapStyleWord true))
     (.addActionListener
      convert-button
      (reify ActionListener 
@@ -27,7 +32,7 @@
                (.setText abg-label
                          (Abg/interpret pH pCO2 HCO3))))))
     (doto frame
-      (.setLayout (GridLayout. 6 1 3 3))
+      (.setLayout (FlowLayout.))
       (.add pH-text)
       (.add pH-label)
       (.add pCO2-text)
@@ -37,7 +42,7 @@
       (.add convert-button)
       (.add no-label)
       (.add abg-label)
-      (.setSize 300 480)
+      (.setSize 600 200)
       (.setVisible true))))
 (abg)
 
