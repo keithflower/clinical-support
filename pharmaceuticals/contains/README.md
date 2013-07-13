@@ -7,413 +7,414 @@ Functions to find drugs containing a given ingredient. For example, to find the 
     cl = extract_from_json(cv, "name", l=[])
     pp = pprint.PrettyPrinter(indent=5)
     print "{0} medications contain acetaminophen".format(len(cl))
-    pp.pprint(cl)
+    print "\n".join(cl)
 
-    406 medications contain acetaminophen
 
-    [u'666 Cold Preparation',
-     u'Acephen',
-     u'Acetadrink',
-     u'Acetadryl',
-     u'Actamin',
-     u'Actifed Cold & Sinus',
-     u'Actifed Plus',
-     u'Acuflex',
-     u'Adprin B',
-     u'Alagesic',
-     u'Ali Flex',
-     u'Alka-Seltzer Cold and Sinus',
-     u'Alka-Seltzer Plus Cold',
-     u'Alka-Seltzer Plus Cold Liquigel',
-     u'Alka-Seltzer Plus Cold and Sinus',
-     u'Alka-Seltzer Plus Cough and Cold Liquigel',
-     u'Alka-Seltzer Plus Cough and Cold Liquigel Reformulated Aug 2011',
-     u'Alka-Seltzer Plus Day Severe Cold, Cough And Flu',
-     u'Alka-Seltzer Plus Flu Liquigels',
-     u'Alka-Seltzer Plus Flu Reformulated Jan 2011',
-     u'Alka-Seltzer Plus Night Cold and Flu',
-     u'Alka-Seltzer Plus Night Severe Cold, Cough and Flu',
-     u'Alka-Seltzer Plus Night Time Cold Liquigel',
-     u'Alka-Seltzer Plus Night Time Reformulated Dec 2006',
-     u'Alka-Seltzer Plus Severe Allergy',
-     u'Alka-Seltzer Plus Severe Sinus Congestion and Cough',
-     u'Allerest Headache Strength',
-     u'Allerest No Drowsiness',
-     u'Allerest Sinus',
-     u'Alpain',
-     u'Anabar',
-     u'Anacin AF',
-     u'Anacin Advanced Headache Formula',
-     u'Anacin PM Aspirin Free',
-     u'Anexsia',
-     u'Anolor',
-     u'Apra',
-     u'Arthriten Inflammatory Pain',
-     u'BF-Paradac',
-     u'BP Poly-650',
-     u'Backaid',
-     u'Backaid IPF',
-     u'Backprin',
-     u'Bactimicina',
-     u'Baczol Cold Medicine',
-     u'Balacet',
-     u'Bayer Migraine',
-     u'Bayer Select Decongestant',
-     u'Benadryl Allergy Cold',
-     u'Benadryl Allergy Cold Reformulated Jun 2007',
-     u'Benadryl Severe Allergy Sinus Headache Reformulated Jun 2007',
-     u'Bromo Seltzer',
-     u'Bupap',
-     u'By Ache',
-     u'Cafgesic',
-     u'Capacet',
-     u'Capital and Codeine',
-     u'Cephadyn',
-     u'Cetafen',
-     u"Children's Mucinex Multi-Symptom Cold and Fever",
-     u'Childrens Tylenol Cold Plus Cough',
-     u'Childrens Tylenol Plus Cold & Allergy',
-     u'Co-Gesic',
-     u'Cocet',
-     u'Codrix',
-     u'Comtrex Allergy Sinus',
-     u'Comtrex Cold and Cough Nighttime',
-     u'Comtrex Cold and Cough Non Drowsy',
-     u'Comtrex Cold and Flu Maximum Strength Liquid',
-     u'Comtrex Cold and Flu Maximum Strength Reformulated Aug 2006',
-     u'Comtrex Deep Chest Cold Non Drowsy',
-     u'Comtrex Nighttime Acute Head Cold',
-     u'Comtrex Non-Drowsy',
-     u'Comtrex Sore Throat Relief',
-     u'Contac Cold and Flu Cooling Night',
-     u'Contac Cold and Flu Maximum Strength',
-     u'Contac Cold and Flu Non Drowsy Maximum Strength',
-     u'Contac Severe Cold and Flu Non Drowsy',
-     u'Contragesic',
-     u'Coricidin',
-     u'Coricidin D Cold',
-     u'Coricidin HBP Flu Maximum Strength',
-     u'Coricidin HBP Nighttime Multi-Symptom Cold Reformulated Feb 2013',
-     u'Coricidin Night Time Cold Relief',
-     u'Cotabflu',
-     u'CounterAct Pain',
-     u'Counteract Day',
-     u'Counteract Night',
-     u'Counteract PM',
-     u'Darvocet',
-     u'DayQuil Sinex',
-     u'Dayquil',
-     u'Dayquil Cold & Flu',
-     u'Dayquil Liquicaps Reformulated Apr 2009',
-     u'Dayquil Sinus',
-     u'Delsym Adult Night Time Multi-Symptom',
-     u"Delsym Children's Nighttime Cough and Cold Reformulated Apr 2013",
-     u'Delsym Cough Plus Cold Daytime',
-     u'Delsym Cough Plus Cold Night Time',
-     u'Delsym Night Time Cough and Cold',
-     u'Diabetic Tussin Night Time Formula',
-     u'Dilotab',
-     u'Dimetapp Nighttime Flu',
-     u'Dimetapp Nighttime Flu Reformulated Sep 2007',
-     u'Dolacet',
-     u'Dolgic LQ',
-     u'Dolgic Plus',
-     u'Dologen',
-     u'Dologesic',
-     u'Dolorex Forte',
-     u'Dristan Cold',
-     u'Dristan Cold Multi Symptom',
-     u'Drixoral Sinus',
-     u'Durabac',
-     u'Durabac Forte',
-     u'Duraflu',
-     u'Duraxin',
-     u'EZ III',
-     u'Ed Flex',
-     u'Elixsure Fever/Pain',
-     u'Emagrin Forte',
-     u'Endocet',
-     u'Ephed Plus Cold Flu and Sinus',
-     u'Epidrin',
-     u'Esgic',
-     u'Exaprin',
-     u'Excedrin',
-     u'Excedrin Aspirin Free',
-     u'Excedrin Back & Body',
-     u'Excedrin PM',
-     u'Excedrin Quick Tab',
-     u'Excedrin Sinus',
-     u'Excedrin Sinus Headache',
-     u'Excedrin Tension Headache',
-     u'Feverall',
-     u'Fioricet',
-     u'Fioricet with Codeine',
-     u'Flextra',
-     u'Flextra Plus',
-     u'Frenadol',
-     u'Genapap',
-     u'Geone',
-     u"Goody's Body Pain",
-     u"Goody's Extra Strength",
-     u"Goody's Headache Relief Shot",
-     u"Goody's Migraine Relief",
-     u"Goody's PM",
-     u'Histenol',
-     u'Hy-Phen',
-     u'Hycet',
-     u'Infantaire',
-     u'Kolephrin',
-     u'Kolephrin DM',
-     u'Lagesic',
-     u'Legatrin PM',
-     u'Levacet',
-     u'Liquicet',
-     u'Little Colds',
-     u'Little Fevers',
-     u'Lorcet',
-     u'Lortab',
-     u'Lusonex Plus',
-     u'Lynox',
-     u'Magnacet',
-     u'Mapap',
-     u'Mapap Cold Formula',
-     u'Mapap PM',
-     u'Mapap Sinus Congestion and Pain',
-     u'Margesic',
-     u'Margesic-H',
-     u'Marten-Tab',
-     u'Maxidone',
-     u'Maxiflu CD',
-     u'Maxiflu DM',
-     u'Medigesic',
-     u'Mejoralito',
-     u'Midol Maximum Strength Menstrual',
-     u'Midol PM',
-     u'Midol PM Reformulated Apr 2011',
-     u'Midol PMS Maximum Strength',
-     u'Midol Teen',
-     u'Midrin',
-     u"Mucinex Children's Night Time Multi-Symptom Cold",
-     u'Mucinex Fast-Max Cold and Sinus',
-     u'Mucinex Fast-Max Cold, Flu and Sore Throat',
-     u'Mucinex Fast-Max Night Time Cold and Flu',
-     u'Mucinex Fast-Max Severe Cold',
-     u'Mucinex Sinus-Max Day',
-     u'Mucinex Sinus-Max Night',
-     u'Mygrex',
-     u'Nature Fusion Cold & Flu',
-     u'Nonbac',
-     u'Norco',
-     u'Norel AD',
-     u'Norel SR',
-     u'Nortemp',
-     u'Novagesic',
-     u'NyQuil D',
-     u'NyQuil Sinex',
-     u'Nyquil Alcohol Free',
-     u'Nyquil Cold & Flu',
-     u'Nyquil Multi-Symptom',
-     u'Ofirmev',
-     u'Onetab Cold and Flu',
-     u'Onset Forte',
-     u'Orbivan',
-     u'Orbivan CF',
-     u'Ornex',
-     u'Painaid',
-     u'Painaid BRF',
-     u'Painaid ESF',
-     u'Pamprin Cramp Formula',
-     u'Pamprin Max Formula',
-     u'Pamprin Multi-Symptom',
-     u'Panadol',
-     u'Panadol Cold & Flu Non Drowsy',
-     u'Panadol PM',
-     u'Pancold S',
-     u'Panlor DC Reformulated Jan 2008',
-     u'Panlor SS',
-     u"PediaCare Children's Plus Cough and Sore Throat",
-     u"Pediacare Children's Fever Reducer Pain Reliever",
-     u"Pediacare Children's Plus Cough and Runny Nose",
-     u'Pediacare Infant Fever Reducer',
-     u'Percocet',
-     u'Percogesic Reformulated Jan 2011',
-     u'Pharbetol',
-     u'Phenflu CD',
-     u'Phenflu DM',
-     u'Phrenilin',
-     u'Phrenilin with Caffeine and Codeine',
-     u'Poly-Vent Plus',
-     u'Premsyn PMS',
-     u'Primalev',
-     u'Prodrin',
-     u'Promacet',
-     u'Protid',
-     u'Pyrroxate Cold & Congestion',
-     u'Redutemp',
-     u'Relagesic',
-     u'Repan',
-     u'Respa C&C',
-     u'Rhinoflex',
-     u'Rhinogesic',
-     u'Rid-A-Pain',
-     u'Ringl',
-     u'Robitussin Cold Cough and Flu',
-     u'Robitussin Honey Flu Nighttime',
-     u'Robitussin Honey Flu Non-Drowsy',
-     u'Robitussin Night Cold',
-     u'Robitussin Night Relief',
-     u'Robitussin Peak Cold Daytime Cold Plus Flu',
-     u'Robitussin Peak Cold Nasal',
-     u'Robitussin Peak Cold Nighttime Cold Plus Flu',
-     u'Robitussin Peak Cold Nighttime Multi-Symptom Cold',
-     u'Robitussin Peak Cold Nighttime Nasal Relief',
-     u'Roxicet',
-     u'Rx-Act Cold Head Congestion',
-     u'Rx-Act Flu & Severe Cold & Cough',
-     u'Rx-Act Flu & Sore Throat',
-     u'Rx-Act Headache Formula',
-     u'Rx-Act Nighttime',
-     u'Rx-Act Pain Relief',
-     u'Rx-Act Pain Relief PM',
-     u'Rx-Act Sinus Congestion & Pain',
-     u'Saleto',
-     u'SanaTos Night',
-     u'Sanatos Day',
-     u'Scot-Tussin Multisymptom Cold and Allergy',
-     u'Sedalmex',
-     u'Sedapap',
-     u'Silapap',
-     u'Sinarest',
-     u'Sinarest Sinus',
-     u'Sine-Off Cold and Cough',
-     u'Sine-Off Maximum Strength',
-     u'Sine-Off Maximum Strength Reformulated Sep 2008',
-     u'Sine-Off Sinus and Cold',
-     u'Singlet',
-     u'Sinutab Ex-Strength',
-     u'Sinutab Sinus',
-     u'St. Joseph Aspirin-Free',
-     u'Stagesic',
-     u'Stona',
-     u'Sudafed PE Cold & Cough',
-     u'Sudafed PE Nighttime Cold',
-     u'Sudafed PE Pressure Plus Pain Plus Cough',
-     u'Sudafed PE Pressure Plus Pain Plus Mucus',
-     u'Sudafed PE Severe Cold',
-     u'Sudafed PE Sinus Headache',
-     u'Sudafed PE Triple Action',
-     u'Sudafed Triple Action',
-     u'Supac',
-     u'Syncol',
-     u'T-Painol',
-     u'T-Painol Extra Strength',
-     u'Tactinal',
-     u'Talacen',
-     u'Tavist Allergy/Sinus/Headache',
-     u'Tavist Sinus',
-     u'Tempra',
-     u'Tempra 2',
-     u'Tempra Quicklets',
-     u'Tencon',
-     u'Theraflu Cold & Sore Throat',
-     u'Theraflu Cold & Sore Throat Reformulated Sep 2008',
-     u'Theraflu Daytime Severe Cold',
-     u'Theraflu Daytime Severe Cold & Cough',
-     u'Theraflu Flu & Chest Congestion',
-     u'Theraflu Flu & Sore Throat',
-     u'Theraflu Flu & Sore Throat Reformulated Sep 2008',
-     u'Theraflu Flu and Cold Medicine Powder',
-     u'Theraflu Max-D',
-     u'Theraflu Nighttime Maximum Strength',
-     u'Theraflu Nighttime Severe Cold',
-     u'Theraflu Nighttime Severe Cold & Cough',
-     u'Theraflu Nighttime Severe Cold Capsule',
-     u'Theraflu Severe Cold & Congestion Non-Drowsy',
-     u'Theraflu Severe Cold Nighttime',
-     u'Theraflu Sore Throat Maximum Strength',
-     u'Theraflu Warming Cold & Chest Congestion',
-     u'Theraflu Warming Relief',
-     u'Theraflu, Flu, Cold, and Cough',
-     u'Trezix',
-     u'Trezix Reformulated Oct 2011',
-     u'Triaminic Cold and Fever',
-     u'Triaminic Cough & Sore Throat',
-     u'Triaminic Cough & Sore Throat Reformulated Jul 2007',
-     u'Triaminic Fever & Pain',
-     u'Triaminic Infant Drops Reformulated Nov 2010',
-     u'Triaminic Multi-Symptom Fever',
-     u'Triaminic Softchews Allergy Sinus',
-     u'Triaminic Softchews Cough & Sore Throat',
-     u'Triaminic Softchews Cough & Sore Throat Reformulated Jul 2007',
-     u'Triaminic Sore Throat Formula',
-     u'Triaminicin',
-     u'Tycolene',
-     u'Tylenol',
-     u'Tylenol Allergy Multi-Symptom',
-     u'Tylenol Allergy Multi-Symptom Nighttime',
-     u'Tylenol Allergy Sinus',
-     u'Tylenol Chest Congestion',
-     u"Tylenol Children's Multi-Symptom Cold Plus",
-     u"Tylenol Children's Plus Cold",
-     u"Tylenol Children's Plus Cold & Cough",
-     u"Tylenol Children's Plus Cold Reformulated Mar 2013",
-     u'Tylenol Childrens Plus Cough & Runny Nose',
-     u'Tylenol Childrens Plus Cough & Sore Throat',
-     u'Tylenol Cold',
-     u'Tylenol Cold & Flu Severe Day Time',
-     u'Tylenol Cold Complete Formula',
-     u'Tylenol Cold Head Congestion Severe',
-     u'Tylenol Cold Multi-Symptom Daytime',
-     u'Tylenol Cold Multi-Symptom Nighttime',
-     u'Tylenol Cold Multi-Symptom Nighttime Liquid',
-     u'Tylenol Cold Multi-Symptom Severe Daytime',
-     u'Tylenol Cold Relief Nighttime',
-     u'Tylenol Cold Severe Congestion Non-Drowsy',
-     u'Tylenol Cough & Sore Throat Night Time',
-     u'Tylenol Cough and Sore Throat Daytime',
-     u'Tylenol Flu Maximum Strength Nighttime',
-     u'Tylenol PM',
-     u'Tylenol Severe Allergy',
-     u'Tylenol Sinus',
-     u'Tylenol Sinus Congestion and Pain Daytime',
-     u'Tylenol Sinus Congestion and Pain Severe',
-     u'Tylenol Sinus NightTime',
-     u'Tylenol Sinus Severe Congestion',
-     u'Tylenol with Codeine',
-     u'Tylox',
-     u'Ultracet',
-     u'Un-Aspirin',
-     u'Uniserts',
-     u'Unisom with Pain Relief',
-     u'Valorin Extra',
-     u'Vanquish',
-     u'Vicks 44 Cold, Flu and Cough',
-     u'Vicks Formula 44 Custom Care Cough & Cold PM',
-     u'Vicks Formula 44M',
-     u'Vicks Nature Fusion Cold and Flu Night',
-     u'Vicodin',
-     u'Vistra',
-     u'Vitapap',
-     u'Vopac',
-     u'Wal-Dryl Severe Allergy & Sinus',
-     u'Wal-Flu Cold and Sore Throat',
-     u'Wal-Flu Daytime Severe Cold and Cough',
-     u'Wal-Flu Flu and Sore Throat',
-     u'Wal-Flu Severe Cold',
-     u'Wal-Flu Severe Cold and Cough',
-     u'Wal-Phed Cold & Cough',
-     u'Wal-Phed PE Severe Cold',
-     u'Womens Tylenol Menstrual Relief',
-     u'XL-DOL',
-     u'Xodol',
-     u'Xolox',
-     u'Yinchiao Fast Relief Flu',
-     u'Zamicet',
-     u'Zebutal',
-     u'Zflex',
-     u'Zgesic',
-     u'Zicam Flu Nighttime',
-     u'Zicam Multi-Symptom Cold and Flu Daytime',
-     u'Zicam Multi-Symptom Cold and Flu Nighttime',
-     u'Zolvit',
-     u'Zydone']
+    406 medications contain acetaminophen:
+
+          666 Cold Preparation
+          Acephen
+          Acetadrink
+          Acetadryl
+          Actamin
+          Actifed Cold & Sinus
+          Actifed Plus
+          Acuflex
+          Adprin B
+          Alagesic
+          Ali Flex
+          Alka-Seltzer Cold and Sinus
+          Alka-Seltzer Plus Cold
+          Alka-Seltzer Plus Cold Liquigel
+          Alka-Seltzer Plus Cold and Sinus
+          Alka-Seltzer Plus Cough and Cold Liquigel
+          Alka-Seltzer Plus Cough and Cold Liquigel Reformulated Aug 2011
+          Alka-Seltzer Plus Day Severe Cold, Cough And Flu
+          Alka-Seltzer Plus Flu Liquigels
+          Alka-Seltzer Plus Flu Reformulated Jan 2011
+          Alka-Seltzer Plus Night Cold and Flu
+          Alka-Seltzer Plus Night Severe Cold, Cough and Flu
+          Alka-Seltzer Plus Night Time Cold Liquigel
+          Alka-Seltzer Plus Night Time Reformulated Dec 2006
+          Alka-Seltzer Plus Severe Allergy
+          Alka-Seltzer Plus Severe Sinus Congestion and Cough
+          Allerest Headache Strength
+          Allerest No Drowsiness
+          Allerest Sinus
+          Alpain
+          Anabar
+          Anacin AF
+          Anacin Advanced Headache Formula
+          Anacin PM Aspirin Free
+          Anexsia
+          Anolor
+          Apra
+          Arthriten Inflammatory Pain
+          BF-Paradac
+          BP Poly-650
+          Backaid
+          Backaid IPF
+          Backprin
+          Bactimicina
+          Baczol Cold Medicine
+          Balacet
+          Bayer Migraine
+          Bayer Select Decongestant
+          Benadryl Allergy Cold
+          Benadryl Allergy Cold Reformulated Jun 2007
+          Benadryl Severe Allergy Sinus Headache Reformulated Jun 2007
+          Bromo Seltzer
+          Bupap
+          By Ache
+          Cafgesic
+          Capacet
+          Capital and Codeine
+          Cephadyn
+          Cetafen
+          Children's Mucinex Multi-Symptom Cold and Fever
+          Childrens Tylenol Cold Plus Cough
+          Childrens Tylenol Plus Cold & Allergy
+          Co-Gesic
+          Cocet
+          Codrix
+          Comtrex Allergy Sinus
+          Comtrex Cold and Cough Nighttime
+          Comtrex Cold and Cough Non Drowsy
+          Comtrex Cold and Flu Maximum Strength Liquid
+          Comtrex Cold and Flu Maximum Strength Reformulated Aug 2006
+          Comtrex Deep Chest Cold Non Drowsy
+          Comtrex Nighttime Acute Head Cold
+          Comtrex Non-Drowsy
+          Comtrex Sore Throat Relief
+          Contac Cold and Flu Cooling Night
+          Contac Cold and Flu Maximum Strength
+          Contac Cold and Flu Non Drowsy Maximum Strength
+          Contac Severe Cold and Flu Non Drowsy
+          Contragesic
+          Coricidin
+          Coricidin D Cold
+          Coricidin HBP Flu Maximum Strength
+          Coricidin HBP Nighttime Multi-Symptom Cold Reformulated Feb 2013
+          Coricidin Night Time Cold Relief
+          Cotabflu
+          CounterAct Pain
+          Counteract Day
+          Counteract Night
+          Counteract PM
+          Darvocet
+          DayQuil Sinex
+          Dayquil
+          Dayquil Cold & Flu
+          Dayquil Liquicaps Reformulated Apr 2009
+          Dayquil Sinus
+          Delsym Adult Night Time Multi-Symptom
+          Delsym Children's Nighttime Cough and Cold Reformulated Apr 2013
+          Delsym Cough Plus Cold Daytime
+          Delsym Cough Plus Cold Night Time
+          Delsym Night Time Cough and Cold
+          Diabetic Tussin Night Time Formula
+          Dilotab
+          Dimetapp Nighttime Flu
+          Dimetapp Nighttime Flu Reformulated Sep 2007
+          Dolacet
+          Dolgic LQ
+          Dolgic Plus
+          Dologen
+          Dologesic
+          Dolorex Forte
+          Dristan Cold
+          Dristan Cold Multi Symptom
+          Drixoral Sinus
+          Durabac
+          Durabac Forte
+          Duraflu
+          Duraxin
+          EZ III
+          Ed Flex
+          Elixsure Fever/Pain
+          Emagrin Forte
+          Endocet
+          Ephed Plus Cold Flu and Sinus
+          Epidrin
+          Esgic
+          Exaprin
+          Excedrin
+          Excedrin Aspirin Free
+          Excedrin Back & Body
+          Excedrin PM
+          Excedrin Quick Tab
+          Excedrin Sinus
+          Excedrin Sinus Headache
+          Excedrin Tension Headache
+          Feverall
+          Fioricet
+          Fioricet with Codeine
+          Flextra
+          Flextra Plus
+          Frenadol
+          Genapap
+          Geone
+          Goody's Body Pain
+          Goody's Extra Strength
+          Goody's Headache Relief Shot
+          Goody's Migraine Relief
+          Goody's PM
+          Histenol
+          Hy-Phen
+          Hycet
+          Infantaire
+          Kolephrin
+          Kolephrin DM
+          Lagesic
+          Legatrin PM
+          Levacet
+          Liquicet
+          Little Colds
+          Little Fevers
+          Lorcet
+          Lortab
+          Lusonex Plus
+          Lynox
+          Magnacet
+          Mapap
+          Mapap Cold Formula
+          Mapap PM
+          Mapap Sinus Congestion and Pain
+          Margesic
+          Margesic-H
+          Marten-Tab
+          Maxidone
+          Maxiflu CD
+          Maxiflu DM
+          Medigesic
+          Mejoralito
+          Midol Maximum Strength Menstrual
+          Midol PM
+          Midol PM Reformulated Apr 2011
+          Midol PMS Maximum Strength
+          Midol Teen
+          Midrin
+          Mucinex Children's Night Time Multi-Symptom Cold
+          Mucinex Fast-Max Cold and Sinus
+          Mucinex Fast-Max Cold, Flu and Sore Throat
+          Mucinex Fast-Max Night Time Cold and Flu
+          Mucinex Fast-Max Severe Cold
+          Mucinex Sinus-Max Day
+          Mucinex Sinus-Max Night
+          Mygrex
+          Nature Fusion Cold & Flu
+          Nonbac
+          Norco
+          Norel AD
+          Norel SR
+          Nortemp
+          Novagesic
+          NyQuil D
+          NyQuil Sinex
+          Nyquil Alcohol Free
+          Nyquil Cold & Flu
+          Nyquil Multi-Symptom
+          Ofirmev
+          Onetab Cold and Flu
+          Onset Forte
+          Orbivan
+          Orbivan CF
+          Ornex
+          Painaid
+          Painaid BRF
+          Painaid ESF
+          Pamprin Cramp Formula
+          Pamprin Max Formula
+          Pamprin Multi-Symptom
+          Panadol
+          Panadol Cold & Flu Non Drowsy
+          Panadol PM
+          Pancold S
+          Panlor DC Reformulated Jan 2008
+          Panlor SS
+          PediaCare Children's Plus Cough and Sore Throat
+          Pediacare Children's Fever Reducer Pain Reliever
+          Pediacare Children's Plus Cough and Runny Nose
+          Pediacare Infant Fever Reducer
+          Percocet
+          Percogesic Reformulated Jan 2011
+          Pharbetol
+          Phenflu CD
+          Phenflu DM
+          Phrenilin
+          Phrenilin with Caffeine and Codeine
+          Poly-Vent Plus
+          Premsyn PMS
+          Primalev
+          Prodrin
+          Promacet
+          Protid
+          Pyrroxate Cold & Congestion
+          Redutemp
+          Relagesic
+          Repan
+          Respa C&C
+          Rhinoflex
+          Rhinogesic
+          Rid-A-Pain
+          Ringl
+          Robitussin Cold Cough and Flu
+          Robitussin Honey Flu Nighttime
+          Robitussin Honey Flu Non-Drowsy
+          Robitussin Night Cold
+          Robitussin Night Relief
+          Robitussin Peak Cold Daytime Cold Plus Flu
+          Robitussin Peak Cold Nasal
+          Robitussin Peak Cold Nighttime Cold Plus Flu
+          Robitussin Peak Cold Nighttime Multi-Symptom Cold
+          Robitussin Peak Cold Nighttime Nasal Relief
+          Roxicet
+          Rx-Act Cold Head Congestion
+          Rx-Act Flu & Severe Cold & Cough
+          Rx-Act Flu & Sore Throat
+          Rx-Act Headache Formula
+          Rx-Act Nighttime
+          Rx-Act Pain Relief
+          Rx-Act Pain Relief PM
+          Rx-Act Sinus Congestion & Pain
+          Saleto
+          SanaTos Night
+          Sanatos Day
+          Scot-Tussin Multisymptom Cold and Allergy
+          Sedalmex
+          Sedapap
+          Silapap
+          Sinarest
+          Sinarest Sinus
+          Sine-Off Cold and Cough
+          Sine-Off Maximum Strength
+          Sine-Off Maximum Strength Reformulated Sep 2008
+          Sine-Off Sinus and Cold
+          Singlet
+          Sinutab Ex-Strength
+          Sinutab Sinus
+          St. Joseph Aspirin-Free
+          Stagesic
+          Stona
+          Sudafed PE Cold & Cough
+          Sudafed PE Nighttime Cold
+          Sudafed PE Pressure Plus Pain Plus Cough
+          Sudafed PE Pressure Plus Pain Plus Mucus
+          Sudafed PE Severe Cold
+          Sudafed PE Sinus Headache
+          Sudafed PE Triple Action
+          Sudafed Triple Action
+          Supac
+          Syncol
+          T-Painol
+          T-Painol Extra Strength
+          Tactinal
+          Talacen
+          Tavist Allergy/Sinus/Headache
+          Tavist Sinus
+          Tempra
+          Tempra 2
+          Tempra Quicklets
+          Tencon
+          Theraflu Cold & Sore Throat
+          Theraflu Cold & Sore Throat Reformulated Sep 2008
+          Theraflu Daytime Severe Cold
+          Theraflu Daytime Severe Cold & Cough
+          Theraflu Flu & Chest Congestion
+          Theraflu Flu & Sore Throat
+          Theraflu Flu & Sore Throat Reformulated Sep 2008
+          Theraflu Flu and Cold Medicine Powder
+          Theraflu Max-D
+          Theraflu Nighttime Maximum Strength
+          Theraflu Nighttime Severe Cold
+          Theraflu Nighttime Severe Cold & Cough
+          Theraflu Nighttime Severe Cold Capsule
+          Theraflu Severe Cold & Congestion Non-Drowsy
+          Theraflu Severe Cold Nighttime
+          Theraflu Sore Throat Maximum Strength
+          Theraflu Warming Cold & Chest Congestion
+          Theraflu Warming Relief
+          Theraflu, Flu, Cold, and Cough
+          Trezix
+          Trezix Reformulated Oct 2011
+          Triaminic Cold and Fever
+          Triaminic Cough & Sore Throat
+          Triaminic Cough & Sore Throat Reformulated Jul 2007
+          Triaminic Fever & Pain
+          Triaminic Infant Drops Reformulated Nov 2010
+          Triaminic Multi-Symptom Fever
+          Triaminic Softchews Allergy Sinus
+          Triaminic Softchews Cough & Sore Throat
+          Triaminic Softchews Cough & Sore Throat Reformulated Jul 2007
+          Triaminic Sore Throat Formula
+          Triaminicin
+          Tycolene
+          Tylenol
+          Tylenol Allergy Multi-Symptom
+          Tylenol Allergy Multi-Symptom Nighttime
+          Tylenol Allergy Sinus
+          Tylenol Chest Congestion
+          Tylenol Children's Multi-Symptom Cold Plus
+          Tylenol Children's Plus Cold
+          Tylenol Children's Plus Cold & Cough
+          Tylenol Children's Plus Cold Reformulated Mar 2013
+          Tylenol Childrens Plus Cough & Runny Nose
+          Tylenol Childrens Plus Cough & Sore Throat
+          Tylenol Cold
+          Tylenol Cold & Flu Severe Day Time
+          Tylenol Cold Complete Formula
+          Tylenol Cold Head Congestion Severe
+          Tylenol Cold Multi-Symptom Daytime
+          Tylenol Cold Multi-Symptom Nighttime
+          Tylenol Cold Multi-Symptom Nighttime Liquid
+          Tylenol Cold Multi-Symptom Severe Daytime
+          Tylenol Cold Relief Nighttime
+          Tylenol Cold Severe Congestion Non-Drowsy
+          Tylenol Cough & Sore Throat Night Time
+          Tylenol Cough and Sore Throat Daytime
+          Tylenol Flu Maximum Strength Nighttime
+          Tylenol PM
+          Tylenol Severe Allergy
+          Tylenol Sinus
+          Tylenol Sinus Congestion and Pain Daytime
+          Tylenol Sinus Congestion and Pain Severe
+          Tylenol Sinus NightTime
+          Tylenol Sinus Severe Congestion
+          Tylenol with Codeine
+          Tylox
+          Ultracet
+          Un-Aspirin
+          Uniserts
+          Unisom with Pain Relief
+          Valorin Extra
+          Vanquish
+          Vicks 44 Cold, Flu and Cough
+          Vicks Formula 44 Custom Care Cough & Cold PM
+          Vicks Formula 44M
+          Vicks Nature Fusion Cold and Flu Night
+          Vicodin
+          Vistra
+          Vitapap
+          Vopac
+          Wal-Dryl Severe Allergy & Sinus
+          Wal-Flu Cold and Sore Throat
+          Wal-Flu Daytime Severe Cold and Cough
+          Wal-Flu Flu and Sore Throat
+          Wal-Flu Severe Cold
+          Wal-Flu Severe Cold and Cough
+          Wal-Phed Cold & Cough
+          Wal-Phed PE Severe Cold
+          Womens Tylenol Menstrual Relief
+          XL-DOL
+          Xodol
+          Xolox
+          Yinchiao Fast Relief Flu
+          Zamicet
+          Zebutal
+          Zflex
+          Zgesic
+          Zicam Flu Nighttime
+          Zicam Multi-Symptom Cold and Flu Daytime
+          Zicam Multi-Symptom Cold and Flu Nighttime
+          Zolvit
+          Zydone

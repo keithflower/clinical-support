@@ -7,7 +7,7 @@ def name_resolve_json (name):
     # Give a possibly ambiguous name, returns a list of possible matches ranked
     # by a likelihood score
     s = 'http://rxnav.nlm.nih.gov/REST/approximateTerm?term=xx&maxEntries=3'.replace('xx', urllib.quote(name))
-    r = requests.get(s, headers={'Accept': 'application/json'})
+    r = requests.get(s, headers={'Accept': 'application/json', 'charset': 'UTF-8'})
     return r.json()
 
 def first_ranked_cui (approximates):
@@ -19,7 +19,7 @@ def contains (cui_l):
     # those ingredients
     sl = '+'.join(cui_l)
     s = 'http://rxnav.nlm.nih.gov/REST/brands?ingredientids=xx'.replace('xx', sl)
-    r = requests.get(s, headers={'Accept': 'application/json'})
+    r = requests.get(s, headers={'Accept': 'application/json', 'application/json' 'charset': 'UTF-8'})
     return r.json()
 
 def extract_from_json (data, key, l=[]):
@@ -38,5 +38,5 @@ def extract_from_json (data, key, l=[]):
 cv = contains([first_ranked_cui(name_resolve_json('acetaminophen'))])
 cl = extract_from_json(cv, "name", l=[])
 pp = pprint.PrettyPrinter(indent=6)
-print "{0} medications contain acetaminophen".format(len(cl))
-pp.pprint(cl)
+print "{0} medications contain acetaminophen:".format(len(cl))
+print "\n".join(cl)
