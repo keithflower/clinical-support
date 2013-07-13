@@ -9,7 +9,8 @@ Functions to find drugs containing a given ingredient. For example, to find the 
     print "{0} medications contain acetaminophen".format(len(cl))
     pp.pprint(cl)
 
->>> 406 medications contain acetaminophen
+    406 medications contain acetaminophen
+
     [u'666 Cold Preparation',
      u'Acephen',
      u'Acetadrink',
