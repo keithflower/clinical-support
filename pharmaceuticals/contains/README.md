@@ -1,4 +1,4 @@
-Meds containing ingredients
+Meds/ingredients
 ===========================
 
 Functions to find drugs containing a given ingredient. For example, to find the list of medications containing acetaminophen:
