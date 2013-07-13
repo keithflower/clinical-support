@@ -1,5 +1,5 @@
 Clinical Support
 ================
 
-A variety of tools for clinical documentation and support of medical decision making.
+A variety of tools for support of medical reasoning and decision-making.
 
