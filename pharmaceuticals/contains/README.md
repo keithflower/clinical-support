@@ -5,7 +5,6 @@ Functions to find drugs containing a given ingredient. For example, to find the 
 
     cv = contains([first_ranked_cui(name_resolve_json('acetaminophen'))])
     cl = extract_from_json(cv, "name", l=[])
-    pp = pprint.PrettyPrinter(indent=5)
     print "{0} medications contain acetaminophen".format(len(cl))
     print "\n".join(cl)
 
