@@ -35,7 +35,4 @@ def extract_from_json (data, key, l=[]):
             extract_from_json(v, key, l)
     return l
 
-cv = contains([first_ranked_cui(name_resolve_json('acetaminophen'))])
-cl = extract_from_json(cv, "name", l=[])
-print "{0} medications contain acetaminophen:".format(len(cl))
-print "\n".join(cl)
+
