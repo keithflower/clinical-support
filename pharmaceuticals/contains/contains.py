@@ -1,7 +1,7 @@
 # Use National Library of Medicine's RXNorm API to find medications which contain
 # a given ingredient
 
-import requests, json, urllib, pprint
+import requests, json, urllib
 
 def name_resolve_json (name):
     # Give a possibly ambiguous name, returns a list of possible matches ranked
