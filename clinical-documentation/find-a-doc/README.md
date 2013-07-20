@@ -7,9 +7,9 @@ However, doing a web search often brings up many links that require digging thro
 
 Here's a little utility that queries a database that is always relatively up-to-date with clinician contact information, the National Provider Database. 
 
-I wrote this because I like to run queries like this right from my clinical documentation tools and have the results (optionally) inserted right into my documentation. 
+I wrote this because I like to run quickly queries like this right from my clinical documentation tools (or the command line) and have the results (optionally) inserted right into my documentation. 
 
-For example, if I'm completing my evaluation note for a particular patient, it's convenient to be able to run the above query and have that information inserted into my note:
+For example, if I'm completing my evaluation note for a particular patient, it's convenient to be able to run the above query and have that information automatically inserted into my note:
 
     >>> npi_print_contact ("Edwin Flower")
 
