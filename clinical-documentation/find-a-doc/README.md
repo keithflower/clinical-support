@@ -24,7 +24,7 @@ For example, if I'm completing my evaluation note for a particular patient, it's
         4155483148 (phone)
         4153818557 (fax)
 
-I've also got some macros that parse this kind of information and automatically start generation of a letter, envelope, email, fax, etc.
+I've also got some macros that parse this kind of information and automatically generate a letter, envelope, email, fax, etc.
 
 Thanks to Fred Trotter for making the API available. You can also just use [his site](http://docnpi.com) to do a relatively painless web query.
 
