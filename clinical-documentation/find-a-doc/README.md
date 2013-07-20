@@ -24,6 +24,6 @@ For example, if I'm completing my evaluation note for a particular patient, it's
         4155483148 (phone)
         4153818557 (fax)
 
-Thanks to Fred Trotter for making the API available. You can also just use [his site](docnpi.com) to do a relatively painless web query.
+Thanks to Fred Trotter for making the API available. You can also just use [his site]("http://docnpi.com") to do a relatively painless web query.
 
 
